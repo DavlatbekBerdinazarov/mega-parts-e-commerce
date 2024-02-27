@@ -7,19 +7,25 @@ import {
 } from "../assets/images/z-index";
 import { Input } from "@/components/ui/input";
 import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export default function Login() {
+  const [phoneNumber, setPhoneNumber] = useState();
+  const [password, setPassword] = useState();
+
   const navigate = useNavigate();
 
   const onSignin = (e) => {
     e.preventDefault();
-
-    navigate("/homepage");
+    if(phoneNumber == "100") {
+      navigate("/homepage")
+    }
+    console.log("Error")
   };
   return (
     <section className=" h-screen w-full flex justify-between">
       <div className="w-full h-full xl:w-2/3 flex justify-center items-center">
-        <form className="w-full md:w-3/4 h-full px-4 xl:px-12 justify-around lg:justify-center flex flex-col gap-3 sm:gap-3 ">
+        <form onSubmit={onSignin} className="w-full md:w-3/4 h-full px-4 xl:px-12 justify-around lg:justify-center flex flex-col gap-3 sm:gap-3 ">
           {/* Mobile logo */}
           <div className="bg-indigo-500 rounded-lg max-h-[250px] w-full mb-2 block lg:hidden">
             <img className="w-[200px] p-2 block lg:hidden" src={megapartsLogo} alt="img" />
@@ -36,6 +42,7 @@ export default function Login() {
             className="border-2 h-14 sm:h-[70px] border-b-green-500"
             type="text"
             placeholder="Enter your phone number"
+            onChange={(e) => setPhoneNumber(e.target.value)}
             required
           />
           </label>
@@ -45,6 +52,7 @@ export default function Login() {
             className="h-14 sm:h-[70px] border-2 border-b-green-500"
             type="password"
             placeholder="Enter your password here"
+            onChange={(e) => setPassword(e.target.value)}
             required
           />
           </label>
@@ -64,7 +72,7 @@ export default function Login() {
                 Forgot password?
             </label>
           </div>
-          <Button className="w-full h-14 sm:h-[70px] mt-3">Login</Button>
+          <Button type="submit" className="w-full h-14 sm:h-[70px] mt-3">Login</Button>
           <p><span>Don't have an account? </span><Link className="text-indigo-500" to="/register">Register</Link></p>
         </form>
       </div>

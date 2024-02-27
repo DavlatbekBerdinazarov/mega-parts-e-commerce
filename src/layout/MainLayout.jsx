@@ -1,5 +1,6 @@
-import Footer from '@/components/ui/Footer';
-import Header from '@/components/ui/Header';
+
+import Footer from '@/components/Footer';
+import Header from '@/components/Header';
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 
@@ -7,7 +8,7 @@ const MainLayout = () => {
   return (
     <div>
         <Header/>
-          <Outlet/>
+          <Outlet className='bg-[#F8F9FA]'/>
         <Footer/>
     </div>
   );
