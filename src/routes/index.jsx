@@ -24,7 +24,7 @@ export const router = createBrowserRouter([
         element: <MainLayout/>,
         children: [
           {
-            idex: true,
+            index: true,
             element: <HomePage/>,
           },
         ]

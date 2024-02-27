@@ -1,10 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox"
+import { Checkbox } from "@/components/ui/checkbox";
 import {
-  LoginBackground,
-  Logo,
-  HomepageBanner,
-  LoginBgBanner
+  detailsLoginRegister,
+  megapartsLogo,
+  mobileDetails,
 } from "../assets/images/z-index";
 import { Input } from "@/components/ui/input";
 import { Link, useNavigate } from "react-router-dom";
@@ -13,34 +12,42 @@ export default function Login() {
   const navigate = useNavigate();
 
   const onSignin = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    navigate("/homepage")
+    navigate("/homepage");
   };
   return (
-    <div className="p-[50px] w-full h-screen">
-      <img src={Logo} alt="logo" />
-      <div className=" h-full flex justify-around">
-        <form onSubmit={onSignin} className="w-[550px] p-16 flex flex-col gap-4">
-          <h1 className="text-3xl my-3">Login with your email</h1>
+    <section className=" h-screen w-full flex justify-between">
+      <div className="w-full h-full xl:w-2/3 flex justify-center items-center">
+        <form className="w-full md:w-3/4 h-full px-4 xl:px-12 justify-around lg:justify-center flex flex-col gap-3 sm:gap-3 ">
+          {/* Mobile logo */}
+          <div className="bg-indigo-500 rounded-lg max-h-[250px] w-full mb-2 block lg:hidden">
+            <img className="w-[200px] p-2 block lg:hidden" src={megapartsLogo} alt="img" />
+            <img className="mx-auto rounded-lg block lg:hidden relative top-4 w-[80%] h-[180px]" src={mobileDetails} alt="" />
+          </div>
 
-          <label className="my-4 text-xl">
+          {/* Desktop logo */}
+          <img className="w-[270px] relative hidden lg:block -top-16 right-16" src={megapartsLogo} alt="img" />
+          <h1 className="text-xl lg:text-2xl hidden lg:block">Login here</h1>
+
+          <label className="my-1 sm:my-2 text-xl">
             Phone number
             <Input
-            className=" border-2 h-14 mt-3 border-b-green-500"
+            className="border-2 h-14 sm:h-[70px] border-b-green-500"
             type="text"
             placeholder="Enter your phone number"
+            required
           />
           </label>
-
-          <label className="text-xl" htmlFor="">
+          <label className="text-xl">
             Enter your password
           <Input
-            className="h-14 border-2 mt-3 border-b-green-500"
-            type="password" placeholder="Enter your password"
+            className="h-14 sm:h-[70px] border-2 border-b-green-500"
+            type="password"
+            placeholder="Enter your password here"
+            required
           />
           </label>
-
           <div className="flex justify-between items-center space-x-2">
            <div className=" space-x-2">
            <Checkbox id="terms" />
@@ -57,15 +64,17 @@ export default function Login() {
                 Forgot password?
             </label>
           </div>
-          <Button className="w-full h-14 mt-8">Login</Button>
-          <Link to="/register">Dont have account register now?</Link>
+          <Button className="w-full h-14 sm:h-[70px] mt-3">Login</Button>
+          <p><span>Don't have an account? </span><Link className="text-indigo-500" to="/register">Register</Link></p>
         </form>
-        <div className=" max-h-full ">
-         <img className="w-[557px] rounded-2xl" src={LoginBackground} alt="" />
+      </div>
+      <div className="w-full h-full hidden lg:block xl:w-1/2">
+        <div className="w-full h-full flex justify-end items-center">
+        <img className="rounded-lg absolute top-12 right-12 w-[500px] h-[570px] xl:w-[553px] xl:h-[638px] hidden lg:block" src={detailsLoginRegister} alt="" />
+          <div className="h-full bg-indigo-500 w-2/3">
+          </div>
         </div>
       </div>
-      <img className="fixed right-0 top-0 -z-30" src={LoginBgBanner} alt="" />
-
-    </div>
+    </section>  
   );
 }
