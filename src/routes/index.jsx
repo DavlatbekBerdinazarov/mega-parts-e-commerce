@@ -4,6 +4,7 @@ import Register from "../pages/Register";
 import HomePage from "../pages/HomePage";
 import AppLayout from "@/layout/AppLayaut";
 import MainLayout from "@/layout/MainLayout";
+import NotFound from "@/components/NotFound";
 
 
 export const router = createBrowserRouter([
@@ -29,6 +30,10 @@ export const router = createBrowserRouter([
           },
         ]
       },
+      {
+        path: "*",
+        element: <NotFound to="/"/>,
+      }
     ]
   }
 ]);

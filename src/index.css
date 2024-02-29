@@ -58,6 +58,9 @@
   body {
     @apply bg-background text-foreground;
   }
+  .container {
+    @apply lg:w-[1180px] lg:mx-auto w-full;
+  }
   .active-navbar{
     @apply bg-indigo-100 w-full
   }
