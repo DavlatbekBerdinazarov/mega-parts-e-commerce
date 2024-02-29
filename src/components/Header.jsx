@@ -85,7 +85,7 @@ export default function Header() {
         </div>
 
         {/* Secondary navbar using */}
-        <div className="w-full py-2 flex flex-wrap gap-3 border-y-2 border-[1px] ">
+        <div className="w-full py-2 flex flex-wrap gap-x-3 border-y-2 border-[1px] ">
           <Button variant="outline" className="p-2 hidden lg:block">
             <FaBars className="text-xl" />
           </Button>

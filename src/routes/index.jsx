@@ -5,6 +5,7 @@ import HomePage from "../pages/HomePage";
 import AppLayout from "@/layout/AppLayaut";
 import MainLayout from "@/layout/MainLayout";
 import NotFound from "@/components/NotFound";
+import Item from "@/pages/Item";
 
 
 export const router = createBrowserRouter([
@@ -27,7 +28,7 @@ export const router = createBrowserRouter([
           {
             index: true,
             element: <HomePage/>,
-          },
+          }
         ]
       },
       {

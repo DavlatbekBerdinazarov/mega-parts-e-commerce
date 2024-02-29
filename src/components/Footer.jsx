@@ -45,7 +45,7 @@ export default function Footer() {
           </div>
 
           {/* About */}
-          <div>
+          <div className="hidden md:block">
             <h3 className=" font-medium mb-3">About</h3>
             <div className="text-[#8B96A5] flex flex-col gap-1">
               <a href="#">About Us</a>
@@ -56,7 +56,7 @@ export default function Footer() {
           </div>
 
           {/* Partnerships */}
-          <div>
+          <div className="hidden md:block">
             <h3 className=" font-medium mb-3">Partnerships</h3>
             <div className="text-[#8B96A5] flex flex-col gap-1">
               <a href="#">About Us</a>
@@ -67,7 +67,7 @@ export default function Footer() {
           </div>
 
           {/* Information */}
-          <div>
+          <div className="hidden md:block">
             <h3 className=" font-medium mb-3">Information</h3>
             <div className="text-[#8B96A5] flex flex-col gap-1">
               <a href="#">Help Center</a>
@@ -78,7 +78,7 @@ export default function Footer() {
           </div>
 
           {/* For users */}
-          <div>
+          <div className="hidden md:block">
             <h3 className=" font-medium mb-3">For users</h3>
             <div className="text-[#8B96A5] flex flex-col gap-1">
               <a href="#">Login</a>
