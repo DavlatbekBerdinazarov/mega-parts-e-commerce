@@ -24,7 +24,7 @@ export default function Login() {
   };
   return (
     <section className=" h-screen w-full flex justify-between">
-      <div className="w-full h-full xl:w-2/3 flex justify-center items-center">
+      <div className="container w-full h-full xl:w-2/3 flex justify-center items-center">
         <form onSubmit={onSignin} className="w-full md:w-3/4 h-full px-4 xl:px-12 justify-around lg:justify-center flex flex-col gap-3 sm:gap-3 ">
           {/* Mobile logo */}
           <div className="bg-indigo-500 rounded-lg max-h-[250px] w-full mb-2 block lg:hidden">

@@ -5,8 +5,11 @@ import HomePage from "../pages/HomePage";
 import AppLayout from "@/layout/AppLayaut";
 import MainLayout from "@/layout/MainLayout";
 import NotFound from "@/components/NotFound";
-import Item from "@/pages/Item";
-
+import Profile from "@/pages/Profile";
+import Orders from "@/pages/Orders";
+import MyCart from "@/pages/MyCart";
+import BrakeDiscsPage from "@/pages/BrakeDiscsPage";
+import ShockAbsorbesPage from "@/pages/ShockAbsorbesPage";
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +31,26 @@ export const router = createBrowserRouter([
           {
             index: true,
             element: <HomePage/>,
+          },
+          {
+            path: "profile",
+            element: <Profile/>,
+          },
+          {
+            path: "orders",
+            element: <Orders/>,
+          },
+          {
+            path: "mycart",
+            element: <MyCart/>,
+          },
+          {
+            path: "shock-absorbes",
+            element: <ShockAbsorbesPage/>,
+          },
+          {
+            path:"brake-discs",
+            element: <BrakeDiscsPage/>,
           }
         ]
       },

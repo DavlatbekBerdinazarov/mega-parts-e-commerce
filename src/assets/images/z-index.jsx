@@ -7,6 +7,7 @@ export { default as Avatar } from './Avatar.png';
 export { default as absorbes } from './yellow-parts.jpg';
 export { default as brakediscs } from './brakediscs.png';
 export { default as bannerRequest } from './banner-request.jpg';
+export { default as iconCreditCard } from './Icon-Credit card.png';
 
 
 // parts
