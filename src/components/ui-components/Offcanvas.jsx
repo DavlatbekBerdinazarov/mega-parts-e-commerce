@@ -63,7 +63,7 @@ export function DrawerOffcanvas() {
           <ListItem>
             <Link className="flex gap-1" to="#">
               <ListItemPrefix>
-                <MdFormatListBulleted className="text-lg relative -top-[2px]" />
+                <MdFormatListBulleted className="text-lg relative -top-[1px]" />
               </ListItemPrefix>
               Categories
             </Link>
@@ -71,7 +71,7 @@ export function DrawerOffcanvas() {
           <ListItem>
             <Link className="flex gap-1" to="">
               <ListItemPrefix>
-                <CiHeart className="text-lg relative -top-[2px]" />
+                <CiHeart className="text-lg relative -top-[0px]" />
               </ListItemPrefix>
               Favorites
             </Link>
@@ -97,7 +97,7 @@ export function DrawerOffcanvas() {
           <ListItem>
             <Link className="flex gap-1" to="#">
               <ListItemPrefix>
-                <TbWorld className="text-lg relative -top-[2px]" />
+                <TbWorld className="text-lg relative -top-[1px]" />
               </ListItemPrefix>
               English
             </Link>
@@ -105,7 +105,7 @@ export function DrawerOffcanvas() {
           <ListItem>
             <Link className="flex gap-1" to="#">
               <ListItemPrefix>
-                <TfiHeadphoneAlt className="text-lg relative -top-[2px]" />
+                <TfiHeadphoneAlt className="text-lg relative -top-[1px]" />
               </ListItemPrefix>
               Contact us
             </Link>

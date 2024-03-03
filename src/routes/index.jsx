@@ -10,6 +10,7 @@ import Orders from "@/pages/Orders";
 import MyCart from "@/pages/MyCart";
 import BrakeDiscsPage from "@/pages/BrakeDiscsPage";
 import ShockAbsorbesPage from "@/pages/ShockAbsorbesPage";
+import ProductDetailsPage from "@/pages/ProductDetailsPage";
 
 export const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ export const router = createBrowserRouter([
           {
             path:"brake-discs",
             element: <BrakeDiscsPage/>,
+          },
+          {
+            path: "product/:name",
+            element: <ProductDetailsPage/>,
           }
         ]
       },

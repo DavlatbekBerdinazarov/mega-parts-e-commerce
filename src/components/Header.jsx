@@ -76,8 +76,8 @@ console.log("IStrue:",!isTrue);
   return (
     <>
       <div className={ (isTrue && !screenColWidth ) ? `hidden w-full` : `block w-full`}>
-        <div className=" sm:px-4 px-2 fixed top-0 bg-white z-40 w-full  shadow-lg">
-          <div className="lg:container flex justify-between items-center py-3">
+        <div className=" fixed top-0 bg-white z-40 w-full  shadow-lg">
+          <div className="md:container lg:px-12 px-2 flex justify-between items-center py-3">
             <div className="flex items-center md:gap-6 gap-2">
               <div className="block lg:hidden">
                 <DrawerOffcanvas/>
@@ -134,16 +134,16 @@ console.log("IStrue:",!isTrue);
           </div>
 
           {/* Input */}
-          { !isTrue && <div className="block lg:hidden">
-            <form className="flex">
-              <div className="flex w-full h-full items-center gap-2 px-2 bg-white border-2 border-slate-400 mx-2 focus:border-indigo-500 rounded-md">
+          { !isTrue && <div className="block lg:hidden md:container lg:px-12 px-2">
+            <form className="flex ">
+              <div className="flex w-full h-full justify-between items-center gap-4 px-2 bg-white border-2 border-slate-400 focus:border-indigo-500 rounded-md">
                 <span className="text-2xl text-slate-400">
                   <IoMdSearch />
                 </span>{" "}
                 <input
                   className="h-10 w-full border-none focus:outline-none"
                   type="text"
-                  name="email"
+                  name="search"
                   placeholder="Search..."
                 />
               </div>
@@ -153,7 +153,7 @@ console.log("IStrue:",!isTrue);
 
           {/* Secondary navbar using */}
           { !isTrue && <div className="hidden sm:block">
-            <div className="container w-full py-2 flex flex-wrap gap-x-3 border-y-[1px]">
+            <div className="md:container lg:px-12 px-2 w-full py-2 flex flex-wrap gap-x-3 border-y-[1px]">
               <Button variant="outline" className="p-2 hidden lg:block">
                 <FaBars className="text-xl" />
               </Button>

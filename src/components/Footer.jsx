@@ -63,7 +63,7 @@ console.log("IStrue:",!isTrue);
     <>
       { <div className={ (isTrue && !screenColWidth ) ? `hidden` : `block`}>
         <div className="min-h-[324px] w-full bg-white z-50">
-          <div className="md:container sm:px-4 px-1 py-[41px] flex flex-col lg:flex-row justify-between">
+          <div className=" md:container lg:px-12 px-2 py-[41px] flex flex-col gap-2 flex-wrap md:flex-row justify-between">
             {/* main logo */}
             <div className="w-[276px]">
               <Link to="/homepage">    
@@ -151,17 +151,17 @@ console.log("IStrue:",!isTrue);
         </div>
         <div className="h-[68px] bg-[#EFF2F4]">
           {/* Second footer */}
-          <div className="md:container sm:px-4 px-1 h-full flex items-center justify-between">
-          <p>© 2023 Ecommerce. </p>    
+          <div className="md:container lg:px-12 px-2 h-full flex items-center justify-between">
+          <p>© IT LIVE 2024 All rights reserved. </p>    
           <Select className="">
             <SelectTrigger className="w-[80px]">
               <SelectValue placeholder="us" />
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>
-                <SelectItem value="apple">uzb</SelectItem>
-                <SelectItem value="banana">rus</SelectItem>
-                <SelectItem value="blueberry">eng</SelectItem>
+                <SelectItem value="apple">sum</SelectItem>
+                <SelectItem value="banana">rubl</SelectItem>
+                <SelectItem value="blueberry">usd</SelectItem>
               </SelectGroup>
             </SelectContent>
           </Select>    

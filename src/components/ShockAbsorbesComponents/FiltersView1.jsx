@@ -50,7 +50,7 @@ const filteredData1 = [
 
 export default function FiltersView1() {
   return (
-    <div className="w-full h-full flex flex-col gap-1 pb-8">
+    <div className="w-full h-full flex flex-col gap-1 pb-8 px-2">
       {filteredData1.map((element, index) => {
         return (
           <div key={index} className="w-full h-[114px] md:h-[184px] lg:h-[230px] p-2 md:p-5 bg-white rounded-md border-[1px] border-[#DEE2E7] flex gap-4">

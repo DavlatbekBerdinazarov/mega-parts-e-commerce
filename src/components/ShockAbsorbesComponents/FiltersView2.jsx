@@ -44,7 +44,7 @@ const filteredData2 = [
 
 export default function FiltersView2() {
   return (
-    <div className="grid sm:grid-cols-3 grid-cols-2 my-4 gap-3">
+    <div className="grid sm:grid-cols-3 grid-cols-2 my-4 gap-3 px-2">
       {filteredData2.map((element, index) => {
         return (
           <div

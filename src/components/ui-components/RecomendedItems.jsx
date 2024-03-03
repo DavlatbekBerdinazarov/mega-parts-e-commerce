@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { rpart1, rpart2, rpart3, rpart4 } from "@/assets/images/z-index";
+import { Link } from "react-router-dom";
 
 const recommenddedparts = [
   {
@@ -101,13 +102,13 @@ export default function RecomendedItems() {
       <div className="grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 lg:grid-cols-5 gap-3 my-4 p-2 mx-auto w-full">
         {recommenddedparts.map((items, index )=> {
           return (
-            <div key={index} className="h-[310px] rounded-sm bg-white border-[1px] border-slate-400 p-4 flex flex-col">
+            <Link to={`product/${items.id}`} key={index} className="max-h-[310px] rounded-sm bg-white border-[1px] border-slate-400 p-4 flex flex-col">
               <img className=" w-42 mx-auto min-h-42 mb-3 " src={items.img} alt="part1" />
               <div className=" min-h-24 py-3">
                 <p className=" font-semibold">{items.title}</p>
                 <p className=" text-slate-400">{items.desc}</p>
               </div>
-            </div>
+            </Link>
           )
         })}
       </div>

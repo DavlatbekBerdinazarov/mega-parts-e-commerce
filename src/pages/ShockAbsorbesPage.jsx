@@ -56,7 +56,7 @@ export default function ShockAbsorbesPage() {
   });
   // dropdown menu
   return (
-    <div className="lg:container">
+    <div className=" md:container lg:px-12 px-2">
       <div>
         <header className="hidden text-[#8B96A5] md:flex flex-wrap gap-3 md:py-4 py-2">
           <Link to="/homepage" className="flex items-center gap-2">
@@ -76,8 +76,8 @@ export default function ShockAbsorbesPage() {
         <div className="grid grid-cols-4 grid-rows-1 gap-6">
           <figure className="hidden lg:block">
             <div className=" border-t-[1px] border-[#DEE2E7]">
-              <Accordion type="single" collapsible className="w-full">
-                <AccordionItem value="item-3">
+              <Accordion collapsible className="w-full">
+                <AccordionItem value="item-1">
                   <AccordionTrigger className=" hover:text-decoration-none">
                     Category
                   </AccordionTrigger>
@@ -104,7 +104,7 @@ export default function ShockAbsorbesPage() {
             {/* Cars */}
             <div className=" border-t-[1px] border-[#DEE2E7]">
               <Accordion type="single" collapsible className="w-full">
-                <AccordionItem value="item-3">
+                <AccordionItem value="item-2">
                   <AccordionTrigger className=" hover:text-decoration-none">
                     Cars
                   </AccordionTrigger>
@@ -319,7 +319,7 @@ export default function ShockAbsorbesPage() {
             </header>
 
             {/* Filtered buttons */}
-            <div className=" flex gap-2 flex-wrap">
+            <div className=" flex gap-2 flex-wrap px-2">
               <button className="flex gap-1 p-1 text-sm items-center border-[2px] border-indigo-400 rounded-lg max-w-[200px]">
                 <span>Brake Discs</span>
                 <IoMdClose className="relative text-lg top-[1px]" />
