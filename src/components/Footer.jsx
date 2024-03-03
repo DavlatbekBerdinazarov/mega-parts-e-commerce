@@ -62,7 +62,7 @@ console.log("IStrue:",!isTrue);
   return (
     <>
       { <div className={ (isTrue && !screenColWidth ) ? `hidden` : `block`}>
-        <div className="min-h-[324px] w-full bg-white">
+        <div className="min-h-[324px] w-full bg-white z-50">
           <div className="md:container sm:px-4 px-1 py-[41px] flex flex-col lg:flex-row justify-between">
             {/* main logo */}
             <div className="w-[276px]">
@@ -138,10 +138,10 @@ console.log("IStrue:",!isTrue);
             <div>
               <h3 className=" font-medium mb-3">Get app</h3>
               <div className="text-[#8B96A5] flex flex-col gap-1">
-                <a href="#">
+                <a href="https://www.apple.com/app-store/">
                   <img className="rounded-md" src={appstore} alt="appstore logo" />
                 </a>
-                <a href="#">
+                <a href="https://play.google.com/store/games?hl=ru&gl=US">
                   <img className="rounded-md" src={googleplay} alt="googleplay logo" />
                 </a>
               </div>

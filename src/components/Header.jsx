@@ -30,6 +30,16 @@ function calculatescreenColWidth(screenWidth) {
   return screenColWidth;
 }
 
+function calculateColumnCount(screenWidth) {
+  let columnCount;
+  if (screenWidth > 640) {
+      columnCount = 3;
+  } else {
+      columnCount = 2.8;
+  }
+  return columnCount;
+}
+
 
 export default function Header() {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth) 
@@ -48,6 +58,8 @@ export default function Header() {
     };
 }, []);
 
+// for swipper
+const columnCount = calculateColumnCount(screenWidth);
 
 const screenColWidth = calculatescreenColWidth(screenWidth);
 
@@ -64,11 +76,11 @@ console.log("IStrue:",!isTrue);
   return (
     <>
       <div className={ (isTrue && !screenColWidth ) ? `hidden w-full` : `block w-full`}>
-        <div className=" sm:px-4 px-1 fixed top-0 bg-white z-40 w-full  shadow-lg">
+        <div className=" sm:px-4 px-2 fixed top-0 bg-white z-40 w-full  shadow-lg">
           <div className="lg:container flex justify-between items-center py-3">
             <div className="flex items-center md:gap-6 gap-2">
               <div className="block lg:hidden">
-                <DrawerOffcanvas />
+                <DrawerOffcanvas/>
               </div>
               <Link to="/homepage">
                 <img
@@ -145,7 +157,9 @@ console.log("IStrue:",!isTrue);
               <Button variant="outline" className="p-2 hidden lg:block">
                 <FaBars className="text-xl" />
               </Button>
-              <Button variant="outline">All Category</Button>
+              <Link to="/homepage">
+                <Button variant="outline">All Category</Button>
+              </Link>
               <Link to='/homepage/shock-absorbes'>
                 <Button variant="outline">Shock Absorbes</Button>
               </Link>
@@ -161,8 +175,8 @@ console.log("IStrue:",!isTrue);
           {/* Pruducts */}
           { !isTrue && <div className="block sm:hidden">
             <Swiper
-              className="mySwiper container w-full py-2 gap-3 flex flex-wrap border-y-[1px]"
-              slidesPerView={2}
+              className="mySwiper container w-full py-2 gap-4 flex flex-wrap border-y-[1px]"
+              slidesPerView={columnCount}
               freeMode={true}
               pagination={{
                 clickable: true,
@@ -170,21 +184,21 @@ console.log("IStrue:",!isTrue);
               modules={[FreeMode, Pagination]}
             >
               <SwiperSlide className="">
-                <Link>
+                <Link to="/homepage">
                   <Button className="bg-slate-200 p-2 h-6 hover:text-white text-indigo-600">
                     All Category
                   </Button>
                 </Link>
               </SwiperSlide>
               <SwiperSlide className="">
-                <Link>
+                <Link to="/homepage/shock-absorbes">
                   <Button className="bg-slate-200 p-2 h-6 hover:text-white text-indigo-600">
                     Shock Absorbes
                   </Button>
                 </Link>
               </SwiperSlide>
               <SwiperSlide className="">
-                <Link>
+                <Link to="/homepage/brake-discs">
                   <Button className="bg-slate-200 p-2 h-6 hover:text-white text-indigo-600">
                     Brake Discs
                   </Button>

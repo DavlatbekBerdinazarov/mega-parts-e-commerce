@@ -17,6 +17,14 @@ export { default as part3 } from './parts/part3.png';
 export { default as part4 } from './parts/part4.png';
 export { default as part5 } from './parts/part5.png';
 export { default as part6 } from './parts/part6.png';
+
+// recommended parts 
+export { default as rpart1 } from './recommenddedparts/part1.png';
+export { default as rpart2 } from './recommenddedparts/part2.png';
+export { default as rpart3 } from './recommenddedparts/part3.png';
+export { default as rpart4 } from './recommenddedparts/part4.png';
+
+
 // not found
 export { default as notfound } from './notfound.png';
 export { default as n404 } from './404.png';
