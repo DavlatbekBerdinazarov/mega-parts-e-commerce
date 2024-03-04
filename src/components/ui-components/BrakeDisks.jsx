@@ -135,8 +135,38 @@ export default function BrakeDisks() {
         >
           {brakeDiscData.map((items) => {
             return (
-              <SwiperSlide className="max-w-[223px] h-full border-r-[1px] border-slate-400 p-2 flex justify-around">
-                <Link key={items.id} to={`product/${items.id}`}>
+              <SwiperSlide className="max-w-[223px] h-full border-r-[1px] border-slate-400 p-2 ">
+                <Link className="flex justify-around" key={items.id} to={`product/${items.id}`}>
+                  <div>
+                    <p>{items.title}</p>
+                    <div className=" text-slate-400">{items.desc}</div>
+                  </div>
+                  <img
+                    className="max-w-[80px] max-h-[80px]"
+                    src={items.img}
+                    alt="part1"
+                  />
+                </Link>
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+
+        {/* 2 data */}
+
+        <Swiper
+          className="mySwiper w-full h-[118px]  border-y-[1px] border-l-[1px] border-slate-400 flex"
+          slidesPerView={columnCount}
+          freeMode={true}
+          pagination={{
+            clickable: true,
+          }}
+          modules={[FreeMode, Pagination]}
+        >
+          {brakeDiscData.map((items) => {
+            return (
+              <SwiperSlide className="max-w-[223px] h-full border-r-[1px] border-slate-400 p-2 ">
+                <Link className="flex justify-around" key={items.id} to={`product/${items.id}`}>
                   <div>
                     <p>{items.title}</p>
                     <div className=" text-slate-400">{items.desc}</div>
@@ -153,95 +183,6 @@ export default function BrakeDisks() {
         </Swiper>
 
 
-
-        
-        <Swiper
-          className="mySwiper w-full h-[118px]  border-y-[1px] border-slate-400 flex"
-          slidesPerView={columnCount}
-          freeMode={true}
-          pagination={{
-            clickable: true,
-          }}
-          modules={[FreeMode, Pagination]}
-        >
-          <SwiperSlide className="max-w-[223px] h-full border-r-[1px] border-slate-400 p-2 flex justify-around">
-            <div>
-              <p>Shock absorbes</p>
-              <div className=" text-slate-400">For damas</div>
-            </div>
-            <img
-              className="max-w-[80px] max-h-[80px]"
-              src={part1}
-              alt="part1"
-            />
-          </SwiperSlide>
-          <SwiperSlide className="max-w-[223px] h-full border-r-[1px] border-slate-400 p-2 flex justify-around">
-            <div>
-              <p>Shock absorbes</p>
-              <div className=" text-slate-400">For damas</div>
-            </div>
-            <img
-              className="max-w-[80px] max-h-[80px]"
-              src={part2}
-              alt="part1"
-            />
-          </SwiperSlide>
-          <SwiperSlide className="max-w-[223px] h-full border-r-[1px] border-slate-400 p-2 flex justify-around">
-            <div>
-              <p>Shock absorbes</p>
-              <div className=" text-slate-400">For damas</div>
-            </div>
-            <img
-              className="max-w-[80px] max-h-[80px]"
-              src={part3}
-              alt="part1"
-            />
-          </SwiperSlide>
-          <SwiperSlide className="max-w-[223px] h-full border-r-[1px] border-slate-400 p-2 flex justify-around">
-            <div>
-              <p>Shock absorbes</p>
-              <div className=" text-slate-400">For damas</div>
-            </div>
-            <img
-              className="max-w-[80px] max-h-[80px]"
-              src={part4}
-              alt="part1"
-            />
-          </SwiperSlide>
-          <SwiperSlide className="max-w-[223px] h-full border-r-[1px] border-slate-400 p-2 flex justify-around">
-            <div>
-              <p>Shock absorbes</p>
-              <div className=" text-slate-400">For damas</div>
-            </div>
-            <img
-              className="max-w-[80px] max-h-[80px]"
-              src={part5}
-              alt="part1"
-            />
-          </SwiperSlide>
-          <SwiperSlide className="max-w-[223px] h-full border-r-[1px] border-slate-400 p-2 flex justify-around">
-            <div>
-              <p>Shock absorbes</p>
-              <div className=" text-slate-400">For damas</div>
-            </div>
-            <img
-              className="max-w-[80px] max-h-[80px]"
-              src={part6}
-              alt="part1"
-            />
-          </SwiperSlide>
-          <SwiperSlide className="max-w-[223px] h-full border-r-[1px] border-slate-400 p-2 flex justify-around">
-            <div>
-              <p>Shock absorbes</p>
-              <div className=" text-slate-400">For damas</div>
-            </div>
-            <img
-              className="max-w-[80px] max-h-[80px]"
-              src={part1}
-              alt="part1"
-            />
-          </SwiperSlide>
-        </Swiper>
       </div>
     </div>
   );
