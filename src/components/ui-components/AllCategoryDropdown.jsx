@@ -20,7 +20,7 @@ export function AllCategoryDropdown() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="flex items-end" asChild>
-        <Button variant="outline">All Category <IoMdArrowDropdown/> </Button>
+        <Button className="rounded-none flex items-center max-h-[37px] border-x-[1px] border-[#0D6EFD]" variant="outline">All Category <IoMdArrowDropdown/> </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-46">
         <DropdownMenuLabel>Appearance</DropdownMenuLabel>

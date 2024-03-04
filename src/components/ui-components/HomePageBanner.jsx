@@ -6,6 +6,7 @@ import {
   Avatar,
 } from "../../assets/images/z-index";
 import { Carousel } from "flowbite-react";
+import { Link } from "react-router-dom";
 
 export default function HomePageBanner() {
   return (
@@ -27,7 +28,7 @@ export default function HomePageBanner() {
 
       {/* Image */}
       <div className="w-full bg-indigo-400 relative rounded-md">
-        <Carousel leftControl="" rightControl="">
+        <Carousel >
           <img className="h-full w-full" src={HomepageBanner} alt="fefe" />
           <img className="h-full w-full" src={HomepageBanner2} alt="fefe" />
           <img
@@ -41,13 +42,16 @@ export default function HomePageBanner() {
             alt="fefe"
           />
         </Carousel>
-        <div className="h-full w-full md:p-8 p-4 absolute top-0 ">
+        <div className="h-[20%] w-[60%] md:p-8 p-4 absolute top-0">
           <div>
-            <h3 className="md:text-2xl text-xl text-white font-thin">Latest trending</h3>
-            <h2 className="md:text-3xl text-2xl text-white font-bold">Electronic items</h2>
-            <Button className="bg-white hover:text-white text-black md:my-6 mt-3">
-              Learn More
-            </Button>
+            <h3 className="md:text-2xl text-lg text-white font-thin">Latest trending</h3>
+            <h2 className="md:text-3xl text-xl text-white font-bold">Electronic items</h2>
+            <Link to="#">
+              <Button className="bg-white hidden md:block hover:text-white text-black md:my-6 mt-3">
+                Learn More
+              </Button>
+            </Link>
+            <Link to="/homepage/blogs" className="text-indigo-500 text-lg hover:text-indigo-900 block md:hidden">Learn More</Link>
           </div>
         </div>
       </div>

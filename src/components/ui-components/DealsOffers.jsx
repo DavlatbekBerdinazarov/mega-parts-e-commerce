@@ -134,7 +134,7 @@ export default function DealsOffers() {
   return (
     <div className="bg-white h-full border-y-[1px] flex flex-col lg:flex-row ">
       {/* Deals main timer */}
-      <div className="w-full h-full lg:w-[266px] lg:h-[235px] border-[1px] border-slate-400 p-4">
+      <div className="w-full h-full lg:w-[266px] lg:h-[235px] border-[1px] border-[#DEE2E7] p-4">
         <div className=" w-full h-full flex flex-col gap-4">
           <div>
             <h3 className="text-[#1C1C1C] text-2xl font-bold">
@@ -173,7 +173,7 @@ export default function DealsOffers() {
 
       {/* Pruducts */}
       <Swiper
-        className="mySwiper w-full h-[235px]  border-y-[1px] border-l-[1px] border-slate-400 flex"
+        className="mySwiper w-full h-[235px]  border-y-[1px] border-l-[1px] border-[#DEE2E7] flex"
         slidesPerView={columnCount}
         freeMode={true}
         pagination={{
@@ -183,7 +183,7 @@ export default function DealsOffers() {
       >
         {offersData.map((items) => {
           return (
-            <SwiperSlide  key={items.id} className="max-w-[179px] h-full border-r-[1px] border-slate-400 p-2 flex flex-col items-center justify-around">
+            <SwiperSlide  key={items.id} className="max-w-[179px] h-full border-r-[1px] border-[#DEE2E7] p-2 flex flex-col items-center justify-around">
               <Link to={`product/${items.id}`}>
                 <div className="w-32 h-32 p-2">
                   <img className=" w-full h-full" src={items.img} alt="part1" />

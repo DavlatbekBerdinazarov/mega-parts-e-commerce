@@ -58,7 +58,7 @@ export default function ShockAbsorbesPage() {
   return (
     <div className=" md:container lg:px-12 px-2">
       <div>
-        <header className="hidden text-[#8B96A5] md:flex flex-wrap gap-3 md:py-4 py-2">
+        <header className="hidden text-[#8B96A5] md:flex flex-wrap gap-3 md:py-4 py-2 ">
           <Link to="/homepage" className="flex items-center gap-2">
             Home <FaAngleRight />
           </Link>
@@ -223,7 +223,7 @@ export default function ShockAbsorbesPage() {
             </div>
           </figure>
           <figure className="col-span-4 lg:col-span-3 mb-3">
-            <header className="bg-white p-3 rounded-md flex justify-between items-center">
+            <header className="bg-white p-3 rounded-md flex justify-between items-center border-[1px] border-[#DEE2E7] px-2">
               <div className="hidden lg:block">
                 12,911 items in{" "}
                 <span className="font-semibold">Mobile accessory</span>
@@ -267,11 +267,11 @@ export default function ShockAbsorbesPage() {
                     className="hidden lg:flex items-end"
                     asChild
                   >
-                    <Button variant="outline">
+                    <Button className="rounded-none flex items-center" variant="outline">
                       Featured <IoMdArrowDropdown />{" "}
                     </Button>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent className="w-46">
+                  <DropdownMenuContent className="w-12 ml-6">
                     <DropdownMenuLabel>Appearance</DropdownMenuLabel>
                     <DropdownMenuSeparator />
                     <DropdownMenuCheckboxItem

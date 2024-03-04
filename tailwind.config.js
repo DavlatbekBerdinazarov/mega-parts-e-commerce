@@ -9,6 +9,9 @@ module.exports = {
     './components/**/*.{js,jsx}',
     './app/**/*.{js,jsx}',
     './src/**/*.{js,jsx}',
+
+    "path-to-your-node_modules/@material-tailwind/react/components/**/*.{js,ts,jsx,tsx}",
+    "path-to-your-node_modules/@material-tailwind/react/theme/components/**/*.{js,ts,jsx,tsx}",
   ],
   plugins: [
     require("flowbite/plugin")
@@ -25,10 +28,6 @@ module.exports = {
     fontFamily: {
       sans: [
         '"Inter var", sans-serif',
-        {
-          fontFeatureSettings: '"cv11", "ss01"',
-          fontVariationSettings: '"opsz" 32'
-        },
       ],
     },
     extend: {
