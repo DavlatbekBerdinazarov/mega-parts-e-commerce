@@ -94,7 +94,7 @@ export default function ProductDetailsInformation() {
           {/* /cheklist */}
         </div>
       </div>
-      <div className="lg:col-span-2 w-[500px]  bg-white md:p-5 p-2 h-full rounded-lg border-[1px] border-[#DEE2E7]">
+      <div className="lg:col-span-2  bg-white md:p-5 p-2 h-full rounded-lg border-[1px] border-[#DEE2E7]">
         <h3 className="font-semibold text-xl">You may like</h3>
         <div className="flex flex-col gap-2 my-3">
           <div className="flex gap-3">

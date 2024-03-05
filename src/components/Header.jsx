@@ -259,7 +259,7 @@ export default function Header() {
             </div>
           )}
         </div>
-        <div className="h-[86px] w-full"></div>
+        <div className="h-[56px] w-full"></div>
         {!isTrue && <div className=" h-[84px] lg:h-[58px] w-full"></div>}
       </div>
     </>

@@ -35,7 +35,7 @@ export default function Profile() {
   const screenColWidth = calculatescreenColWidth(screenWidth);
 
   return (
-    <div className="h-[100vh] md:h-[400px] flex flex-col justify-center px-2">
+    <div className="md:container lg:px-12 px-2 h-[100vh] md:h-[400px] flex flex-col justify-center ">
       {screenColWidth && (
         <header className="flex justify-between items-center pt-8 fixed top-0 w-full">
           <Link to="/homepage">
