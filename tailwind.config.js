@@ -29,6 +29,9 @@ module.exports = {
       sans: [
         '"Inter var", sans-serif',
       ],
+      sen: [
+        ' "Sen", sans-serif;',
+      ]
     },
     extend: {
       colors: {

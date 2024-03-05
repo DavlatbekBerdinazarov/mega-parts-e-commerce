@@ -11,6 +11,7 @@ import MyCart from "@/pages/MyCart";
 import BrakeDiscsPage from "@/pages/BrakeDiscsPage";
 import ShockAbsorbesPage from "@/pages/ShockAbsorbesPage";
 import ProductDetailsPage from "@/pages/ProductDetailsPage";
+import BlogPage from "@/pages/BlogPage";
 
 export const router = createBrowserRouter([
   {
@@ -52,6 +53,10 @@ export const router = createBrowserRouter([
           {
             path:"brake-discs",
             element: <BrakeDiscsPage/>,
+          },
+          {
+            path:"blogs",
+            element: <BlogPage/>,
           },
           {
             path: "product/:name",

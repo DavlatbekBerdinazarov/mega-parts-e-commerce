@@ -166,9 +166,11 @@ export default function MyCart() {
             </div>
 
             <div className="flex justify-between">
-              <Button className="flex gap-2">
-                <FaArrowLeftLong/> Back to shop
-              </Button>
+              <Link to="/homepage">
+                <Button className="flex gap-2">
+                  <FaArrowLeftLong/> Back to shop
+                </Button>
+              </Link>
               <Button variant="outline" className="text-indigo-500">
                 Remove all
               </Button>

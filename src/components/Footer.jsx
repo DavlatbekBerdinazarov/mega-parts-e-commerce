@@ -97,7 +97,7 @@ console.log("IStrue:",!isTrue);
                 <a href="#">About Us</a>
                 <a href="#">Find store</a>
                 <a href="#">Categories</a>
-                <a href="#">Blogs</a>
+                <a href="/homepage/blogs">Blogs</a>
               </div>
             </div>
 

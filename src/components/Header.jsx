@@ -54,10 +54,6 @@ function calculateColumnCount(screenWidth) {
 export default function Header() {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const location = useLocation();
-  let pathLocation =
-    location.pathname == "/homepage" || location.pathname == "/homepage/"
-      ? true
-      : false;
 
   useEffect(() => {
     const handleResize = () => {
@@ -88,7 +84,11 @@ export default function Header() {
     location.pathname == "/homepage/mycart/" ||
     location.pathname == "/homepage/mycart";
 
-  let isTrue = profilePath || ordersPath || mycartPath;
+  let blogsPath =
+    location.pathname == "/homepage/blogs/" ||
+    location.pathname == "/homepage/blogs";
+
+  let isTrue = profilePath || ordersPath || mycartPath || blogsPath;
   console.log("IStrue:", !isTrue);
 
   return (
@@ -186,7 +186,7 @@ export default function Header() {
                 <Link to="/homepage/shock-absorbes">Shock Absorbes</Link>
                 <Link to="/homepage/brake-discs">Brake Discs</Link>
 
-                <Link>Spark Plugs</Link>
+                <Link to="/homepage/blogs">Blogs</Link>
                 <Link>Oil Filters</Link>
 
                 <DropdownMenu>
@@ -259,7 +259,7 @@ export default function Header() {
             </div>
           )}
         </div>
-        <div className="h-[56px] w-full"></div>
+        <div className="h-[70px] w-full"></div>
         {!isTrue && <div className=" h-[84px] lg:h-[58px] w-full"></div>}
       </div>
     </>
