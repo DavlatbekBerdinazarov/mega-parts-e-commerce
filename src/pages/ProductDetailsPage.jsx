@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 export default function ProductDetailsPage() {
   return (
-    <div className=" md:container lg:px-12 px-2">
+    <div className=" md:container lg:px-12 px-[15px]">
       <header className="hidden text-[#8B96A5] md:flex flex-wrap gap-3 md:py-4 py-2">
         <Link to="/homepage" className="flex items-center gap-2">
           Home <FaAngleRight />

@@ -47,7 +47,7 @@ export default function ShockAbsorbesPage() {
 
   // dropdown menu
   return (
-    <div className=" md:container lg:px-12 px-2">
+    <div className=" md:container lg:px-12 px-[15px]">
       {/* space header */}
       <div className="w-full h-1 mb-4"></div>
       <div>

@@ -10,7 +10,7 @@ import React from 'react'
 export default function HomePage() {
   return (
     <>
-      <div className=" md:container lg:px-12 px-2">
+      <div className=" md:container lg:px-12 px-[15px]">
         <div className='bg-[rgb(248,249,250)]'>
           {/* space */}
           <div className='w-full h-1 mb-4 sm:mb-8'></div>

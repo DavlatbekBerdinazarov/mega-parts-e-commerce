@@ -80,7 +80,7 @@ export default function MyCart() {
     >
       <div className="w-full h-1 "></div>
       {screenColWidth && (
-        <header className="flex px-3 justify-between items-center pt-8 fixed top-0 w-full bg-gray-100 pb-2">
+        <header className="flex px-3 text-xl justify-between items-center pt-8 fixed top-0 w-full bg-gray-100 pb-2">
           <Link to="/homepage">
             <FaAngleLeft />
           </Link>

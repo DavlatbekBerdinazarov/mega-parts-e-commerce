@@ -31,9 +31,9 @@ export default function Orders() {
   const screenColWidth = calculatescreenColWidth(screenWidth);
 
   return (
-    <div className="md:container lg:px-12 px-2 h-[100vh] md:h-[400px] flex flex-col justify-center">
+    <div className="md:container lg:px-12 px-[15px] h-[100vh] md:h-[400px] flex flex-col justify-center">
       {screenColWidth && (
-        <header className="flex px-3 justify-between items-center pt-8 fixed top-0 w-full">
+        <header className="flex px-3 text-xl justify-between items-center pt-8 fixed top-0 w-full">
           <Link to="/homepage">
             <FaAngleLeft />
           </Link>

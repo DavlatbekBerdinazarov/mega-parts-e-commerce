@@ -57,7 +57,7 @@ export default function Footer() {
       {
         <div className={isTrue && !screenColWidth ? `hidden` : `block`}>
           <div className="min-h-[324px] w-full bg-white z-50">
-            <div className=" md:container lg:px-12 px-2 py-[41px] flex flex-col gap-12 flex-wrap md:flex-row ">
+            <div className=" md:container lg:px-12 px-[15px] py-[41px] flex flex-col gap-12 flex-wrap md:flex-row ">
               {/* main logo */}
               <div className="w-[276px]">
                 <Link to="/homepage">
@@ -172,7 +172,7 @@ export default function Footer() {
           </div>
           <div className="h-[68px] bg-[#EFF2F4]">
             {/* Second footer */}
-            <div className="md:container lg:px-12 px-2 h-full flex items-center justify-between">
+            <div className="md:container lg:px-12 px-[15px] h-full flex items-center justify-between">
               <p>© IT LIVE 2024 All rights reserved. </p>
               <select class="w-18 py-2 px-1 block border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
                 <option selected>

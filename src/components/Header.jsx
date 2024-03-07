@@ -119,7 +119,7 @@ export default function Header() {
         className={isTrue && !screenColWidth ? `hidden w-full` : `block w-full`}
       >
         <div className=" fixed top-0 bg-white z-40 w-full shadow-sm">
-          <div className="md:container lg:px-12 px-2 flex justify-between items-center py-3">
+          <div className="md:container lg:px-12 px-[15px] flex justify-between items-center py-3">
             <div className="flex items-center md:gap-6 gap-2">
               <div className="block lg:hidden">
                 <DrawerOffcanvas />
@@ -225,7 +225,7 @@ export default function Header() {
 
           {/* Input */}
           {!isTrue && (
-            <div className="block lg:hidden md:container lg:px-12 px-2">
+            <div className="block lg:hidden md:container lg:px-12 px-[15px]">
               <form className="flex ">
                 <div className="flex w-full h-full justify-between items-center gap-4 px-2 bg-white border-2 border-slate-400 focus:border-indigo-500 rounded-lg mx-3 active:text-indigo-300">
                   <span className="text-2xl text-slate-400">
@@ -246,7 +246,7 @@ export default function Header() {
           {/* Secondary navbar using */}
           {!isTrue && (
             <div className="hidden sm:block border-y-[1px]">
-              <div className="md:container lg:px-12 px-2 w-full py-2 flex items-center justify-between flex-wrap gap-x-3 ">
+              <div className="md:container lg:px-12 px-[15px] w-full py-2 flex items-center justify-between flex-wrap gap-x-3 ">
                 <div className="flex items-center gap-x-3">
                   <Link className="p-2 hidden lg:block">
                     <FaBars className="text-xl text-black" />
@@ -337,16 +337,15 @@ export default function Header() {
             <div className=" sm:hidden flex items-center py-2">
               <Swiper
                 slidesPerView={4}
-                centeredSlides={true}
-                spaceBetween={5}
-                grabCursor={true}
+                spaceBetween={20}
+                freeMode={true}
                 pagination={{
                   clickable: true,
                 }}
-                modules={[Pagination]}
+                modules={[FreeMode, Pagination]}
                 className="mySwiper"
               >
-                <SwiperSlide className="w-[120px] bg-[#EFF2F4]">
+                <SwiperSlide className="w-[120px] bg-[#EFF2F4] flex items-center justify-center rounded-sm">
                   <Link
                     to="#"
                     className=" px-3 w-[120px] py-2 text-indigo-500 rounded-lg mx-3 active:text-indigo-300"
@@ -354,7 +353,7 @@ export default function Header() {
                     Ipods
                   </Link>
                 </SwiperSlide>
-                <SwiperSlide className="w-[120px] bg-[#EFF2F4]">
+                <SwiperSlide className="w-[120px] bg-[#EFF2F4] flex items-center justify-center rounded-sm">
                   <Link
                     to="#"
                     className=" px-3 w-[120px] py-2 text-indigo-500 rounded-lg mx-3 active:text-indigo-300"
@@ -362,7 +361,7 @@ export default function Header() {
                     Tablets
                   </Link>
                 </SwiperSlide>
-                <SwiperSlide className="w-[120px] bg-[#EFF2F4]">
+                <SwiperSlide className="w-[120px] bg-[#EFF2F4] flex items-center justify-center rounded-sm">
                   <Link
                     to="#"
                     className=" px-3 w-[120px] py-2 text-indigo-500 rounded-lg mx-3 active:text-indigo-300"
@@ -370,7 +369,23 @@ export default function Header() {
                     Acustics
                   </Link>
                 </SwiperSlide>
-                <SwiperSlide className="w-[120px] bg-[#EFF2F4]">
+                <SwiperSlide className="w-[120px] bg-[#EFF2F4] flex items-center justify-center rounded-sm">
+                  <Link
+                    to="shock-absorbes"
+                    className=" px-3 w-[120px] py-2 text-indigo-500 rounded-lg mx-3 active:text-indigo-300"
+                  >
+                    Absorbes
+                  </Link>
+                </SwiperSlide>
+                <SwiperSlide className="w-[120px] bg-[#EFF2F4] flex items-center justify-center rounded-sm">
+                  <Link
+                    to="#"
+                    className=" px-3 w-[120px] py-2 text-indigo-500 rounded-lg mx-3 active:text-indigo-300"
+                  >
+                    Parts
+                  </Link>
+                </SwiperSlide>
+                <SwiperSlide className="w-[120px] bg-[#EFF2F4] flex items-center justify-center rounded-sm">
                   <Link
                     to="#"
                     className=" px-3 w-[120px] py-2 text-indigo-500 rounded-lg mx-3 active:text-indigo-300"
@@ -378,13 +393,7 @@ export default function Header() {
                     Absorbes
                   </Link>
                 </SwiperSlide>
-                <SwiperSlide className="w-[120px] bg-[#EFF2F4]">
-                  <Link
-                    to="#"
-                    className=" px-3 w-[120px] py-2 text-indigo-500 rounded-lg mx-3 active:text-indigo-300"
-                  >
-                    Parts
-                  </Link>
+                <SwiperSlide className="w-[700px] bg-[#EFF2F4] flex items-center justify-center rounded-sm">
                 </SwiperSlide>
               </Swiper>
             </div>

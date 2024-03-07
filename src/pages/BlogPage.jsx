@@ -33,7 +33,7 @@ export default function BlogPage() {
   return (
     <div className="font-sen">
       {screenColWidth && (
-        <header className="flex justify-between items-center pt-8 fixed top-0 w-full bg-gray-100 pb-2">
+        <header className="flex px-3 text-2xl justify-between items-center pt-8 fixed top-0 w-full bg-gray-100 pb-2">
           <Link to="/homepage">
             <FaAngleLeft />
           </Link>
@@ -42,11 +42,11 @@ export default function BlogPage() {
         </header>
       )}
       {/* banner */}
-      <div className="bg-[#F4F0F8] h-[519px] mb-12">
-        <div className="md:flex gap-3 justify-between md:container lg:px-12 py-[84px] px-2">
-          <div className="w-1/2 flex flex-col gap-20">
+      <div className="bg-[#F4F0F8] h-full md:h-[519px] mb-12">
+        <div className="flex md:flex gap-1 md:gap-3 justify-between md:container lg:px-12 py-[84px] px-[15px]">
+          <div className="w-full md:w-1/2 flex flex-col gap-20">
             <div>
-              <h1 className="text-3xl font-bold ">
+              <h1 className="text-3xl  font-bold">
                 Step-by-step guide to choosing great font pairs
               </h1>
               <p className="my-4">By John Doe l May 23, 2022 </p>
@@ -58,7 +58,7 @@ export default function BlogPage() {
               </p>
             </div>
             <button className="py-3 px-8 w-[170px] bg-[#FFD050] flex items-center gap-2 active:scale-[1.02]">
-              Read more <FaChevronRight />
+              Read more <FaChevronRight/>
             </button>
           </div>
           <div className="w-[515px] h-[395px] hidden md:block">
@@ -67,14 +67,14 @@ export default function BlogPage() {
         </div>
       </div>
 
-      <div className=" md:container lg:px-12 px-2 ">
+      <div className=" md:container lg:px-12 px-[15px] ">
         <h1 className="text-4xl font-bold text-[#0A74FF] border-b-[1px] pb-6 border-[#DEE2E7]">
           All posts
         </h1>
 
-        <div className="my-6 w-[90%]">
+        <div className="my-6 w-full sm:w-[90%]">
           <div className="flex flex-col md:flex-row gap-8 items-center my-12">
-            <div>
+            <div className="mx-auto">
               <img className="min-w-[400px]" src={blog2} alt="blog2" />
             </div>
             <div className="flex flex-col space-y-6">
@@ -96,7 +96,7 @@ export default function BlogPage() {
             </div>
           </div>
           <div className="flex flex-col md:flex-row gap-8 items-center my-12">
-            <div>
+            <div className="mx-auto">
               <img className="min-w-[400px]" src={blog3} alt="blog2" />
             </div>
             <div className="flex flex-col space-y-6">
@@ -118,7 +118,7 @@ export default function BlogPage() {
             </div>
           </div>
           <div className="flex flex-col md:flex-row gap-8 items-center my-12">
-            <div>
+            <div className="mx-auto">
               <img className="min-w-[400px]" src={blog4} alt="blog2" />
             </div>
             <div className="flex flex-col space-y-6">
@@ -140,7 +140,7 @@ export default function BlogPage() {
             </div>
           </div>
           <div className="flex flex-col md:flex-row gap-8 items-center my-12">
-            <div>
+            <div className="mx-auto">
               <img className="min-w-[400px]" src={blog5} alt="blog2" />
             </div>
             <div className="flex flex-col space-y-6">

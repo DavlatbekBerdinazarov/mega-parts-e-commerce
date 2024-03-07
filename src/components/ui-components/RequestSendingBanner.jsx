@@ -2,11 +2,21 @@ import React from "react";
 import { bannerRequest } from "@/assets/images/z-index";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
-import { Menu } from "@headlessui/react";
 
 import { Button } from "../ui/button";
 
+import { useState } from "react";
+import { Listbox } from "@headlessui/react";
+import { FaChevronDown } from "react-icons/fa";
+
+const featured = [
+  { id: 1, name: "1", unavailable: false },
+  { id: 2, name: "5", unavailable: false },
+  { id: 3, name: "15", unavailable: false },
+];
+
 export default function RequestSendingBanner() {
+  const [selectedFeatured, setSelectedFeatured] = useState(featured[1]);
   return (
     <div className="w-full h-[223px] lg:h-[446px] relative">
       <img className="h-full w-full" src={bannerRequest} alt="banner" />
@@ -40,29 +50,31 @@ export default function RequestSendingBanner() {
             <div className="flex gap-4 items-center">
               <Input
                 className="w-1/2 rounded-sm  focus-visible:none"
-                type="text"
-                placeholder="What item you need?"
+                type="number"
+                placeholder="Quantity"
               />
-              <div className="border-2 p-2 rounded-md">
-                <Menu>
-                  <Menu.Button>More</Menu.Button>
-                  <Menu.Items className="absolute flex flex-col bg-white w-24 py-2">
-                    {/* ... */}
-
-                    {/* This item will be skipped by keyboard navigation. */}
-                    <Menu.Item>
-                      <span className="opacity-75">Invite</span>
-                    </Menu.Item>
-                    <Menu.Item disabled>
-                      <span className="opacity-75">Invite</span>
-                    </Menu.Item>
-                    <Menu.Item disabled>
-                      <span className="opacity-75">Invite</span>
-                    </Menu.Item>
-
-                    {/* ... */}
-                  </Menu.Items>
-                </Menu>
+              <div>
+                <div className="h-[40px] flex items-center justify-between bg-white p-2 border-2 rounded-md">
+                  <h1>Psc:</h1>
+                  <div className="z-30 ">
+                    <Listbox value={selectedFeatured} onChange={setSelectedFeatured}>
+                      <Listbox.Button className="p-1 flex justify-around items-center gap-1">
+                        {selectedFeatured.name} 
+                      </Listbox.Button>
+                      <Listbox.Options className="absolute W-32 mt-2 text-[16px] rounded-md px-3 bg-white py-2 shadow-lg p-2">
+                        {featured.map((featured) => (
+                          <Listbox.Option
+                            key={featured.id}
+                            value={featured}
+                            disabled={featured.unavailable}
+                          >
+                            {featured.name}
+                          </Listbox.Option>
+                        ))}
+                      </Listbox.Options>
+                    </Listbox>
+                  </div>
+                </div>
               </div>
             </div>
 
