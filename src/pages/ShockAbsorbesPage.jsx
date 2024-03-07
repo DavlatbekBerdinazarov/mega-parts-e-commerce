@@ -8,27 +8,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
-
-
-import { rpart1, rpart2, rpart3, rpart4 } from "@/assets/images/z-index";
-
-import { Button } from "@/components/ui/button";
-import { IoMdArrowDropdown } from "react-icons/io";
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { AiOutlineBars } from "react-icons/ai";
+import { FaFilter } from "react-icons/fa";
 
 import { Checkbox } from "@/components/ui/checkbox";
 
@@ -36,12 +17,23 @@ import { MdWindow } from "react-icons/md";
 import { FaBars } from "react-icons/fa6";
 import { IoMdClose } from "react-icons/io";
 
-import { FaRegHeart } from "react-icons/fa";
-import { Pagination } from "@/components/ui/pagination";
 import { PaginationDemo } from "@/components/ShockAbsorbesComponents/ProductsPagination";
 import FiltersView1 from "@/components/ShockAbsorbesComponents/FiltersView1";
 import FiltersView2 from "@/components/ShockAbsorbesComponents/FiltersView2";
 import RecommendedAlso from "@/components/ShockAbsorbesComponents/RecommendedAlso";
+
+import { Listbox } from "@headlessui/react";
+
+const people = [
+  { id: 1, name: "Newest", unavailable: false },
+  { id: 2, name: "Datetime", unavailable: false },
+  { id: 3, name: "Cost", unavailable: false },
+];
+const featured = [
+  { id: 1, name: "Featured", unavailable: false },
+  { id: 2, name: "Smartphones", unavailable: false },
+  { id: 3, name: "Automobils", unavailable: false },
+];
 
 export default function ShockAbsorbesPage() {
   // active class
@@ -50,13 +42,14 @@ export default function ShockAbsorbesPage() {
   const [showStatusBar, setShowStatusBar] = React.useState(true);
   const [showActivityBar, setShowActivityBar] = React.useState(false);
   const [showPanel, setShowPanel] = React.useState(false);
+  const [selectedPerson, setSelectedPerson] = useState(people[0]);
+  const [selectedFeatured, setSelectedFeatured] = useState(featured[0]);
 
-  useEffect(() => {
-    console.log("rendering..");
-  });
   // dropdown menu
   return (
     <div className=" md:container lg:px-12 px-2">
+      {/* space header */}
+      <div className="w-full h-1 mb-4"></div>
       <div>
         <header className="hidden text-[#8B96A5] md:flex flex-wrap gap-3 md:py-4 py-2 ">
           <Link to="/homepage" className="flex items-center gap-2">
@@ -229,30 +222,33 @@ export default function ShockAbsorbesPage() {
                 <span className="font-semibold">Mobile accessory</span>
               </div>
               {/* Responsive filters after lg */}
-              <div className="flex gap-3 lg:hidden">
-                  <Select>
-                    <SelectTrigger className="w-[130px]">
-                      <SelectValue placeholder="Sort by.." />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="light">Newest</SelectItem>
-                      <SelectItem value="dark">Name</SelectItem>
-                      <SelectItem value="system">Cost</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  <Select>
-                    <SelectTrigger className="w-[130px]">
-                      <SelectValue placeholder="Filter (3)" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="light">Newest</SelectItem>
-                      <SelectItem value="dark">Name</SelectItem>
-                      <SelectItem value="system">Cost</SelectItem>
-                    </SelectContent>
-                  </Select>
-
+              <div className="gap-3 lg:hidden">
+                <div className="flex items-center border-2 px-2 rounded">
+                  <h2 className="hidden md:block">Sort by:</h2>
+                  <div className=" bg-white z-30">
+                    <Listbox
+                      value={selectedPerson}
+                      onChange={setSelectedPerson}
+                    >
+                      <Listbox.Button className="p-1 flex justify-around items-center gap-1">
+                        {selectedPerson.name} <AiOutlineBars />
+                      </Listbox.Button>
+                      <Listbox.Options className="absolute W-32 mt-2 text-[16px] rounded-md px-3 bg-white py-2 shadow-lg p-2">
+                        {people.map((person) => (
+                          <Listbox.Option
+                            key={person.id}
+                            value={person}
+                            disabled={person.unavailable}
+                          >
+                            {person.name}
+                          </Listbox.Option>
+                        ))}
+                      </Listbox.Options>
+                    </Listbox>
+                  </div>
                 </div>
-                {/* /Responsive filters after lg */}
+              </div>
+              {/* /Responsive filters after lg */}
               <div className="flex justify-between items-center space-x-2">
                 <Checkbox className="hidden lg:block" id="verified" />
                 <label
@@ -262,39 +258,30 @@ export default function ShockAbsorbesPage() {
                   Verified only
                 </label>
                 {/* Dropdown */}
-                <DropdownMenu>
-                  <DropdownMenuTrigger
-                    className="hidden lg:flex items-end"
-                    asChild
-                  >
-                    <Button className="rounded-none flex items-center" variant="outline">
-                      Featured <IoMdArrowDropdown />{" "}
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent className="w-12 ml-6">
-                    <DropdownMenuLabel>Appearance</DropdownMenuLabel>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuCheckboxItem
-                      checked={showStatusBar}
-                      onCheckedChange={setShowStatusBar}
+                <div className="flex items-center border-2 px-2 rounded">
+                  <h2 className="hidden md:block">Sort by:</h2>
+                  <div className=" bg-white z-30">
+                    <Listbox
+                      value={selectedFeatured}
+                      onChange={setSelectedFeatured}
                     >
-                      Status Bar
-                    </DropdownMenuCheckboxItem>
-                    <DropdownMenuCheckboxItem
-                      checked={showActivityBar}
-                      onCheckedChange={setShowActivityBar}
-                      disabled
-                    >
-                      Activity Bar
-                    </DropdownMenuCheckboxItem>
-                    <DropdownMenuCheckboxItem
-                      checked={showPanel}
-                      onCheckedChange={setShowPanel}
-                    >
-                      Panel
-                    </DropdownMenuCheckboxItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
+                      <Listbox.Button className="p-1 flex justify-around items-center gap-1">
+                        {selectedFeatured.name} <FaFilter />
+                      </Listbox.Button>
+                      <Listbox.Options className="absolute W-32 mt-2 text-[16px] rounded-md px-3 bg-white py-2 shadow-lg p-2">
+                        {featured.map((featured) => (
+                          <Listbox.Option
+                            key={featured.id}
+                            value={featured}
+                            disabled={featured.unavailable}
+                          >
+                            {featured.name}
+                          </Listbox.Option>
+                        ))}
+                      </Listbox.Options>
+                    </Listbox>
+                  </div>
+                </div>
                 {/* /Dropdown */}
 
                 <div className=" rounded-md flex gap-2 border-[1px] border-slate-200">
@@ -319,18 +306,18 @@ export default function ShockAbsorbesPage() {
             </header>
 
             {/* Filtered buttons */}
-            <div className=" flex gap-2 flex-wrap px-2">
-              <button className="flex gap-1 p-1 text-sm items-center border-[2px] border-indigo-400 rounded-lg max-w-[200px]">
+            <div className=" flex gap-2 flex-wrap my-4">
+              <button className="flex gap-1 p-1 h-[25px] text-sm items-center border-[2px] border-indigo-400 rounded-md max-w-[200px]">
                 <span>Brake Discs</span>
-                <IoMdClose className="relative text-lg top-[1px]" />
+                <IoMdClose className="relative text-lg top-[1px] z-10" />
               </button>
-              <button className="flex gap-1 p-1 text-sm items-center border-[2px] border-indigo-400 rounded-lg max-w-[200px]">
+              <button className="flex gap-1 p-1 h-[25px] text-sm items-center border-[2px] border-indigo-400 rounded-md max-w-[200px]">
                 <span>Absorbes</span>
-                <IoMdClose className="relative text-lg top-[1px]" />
+                <IoMdClose className="relative text-lg top-[1px] z-10" />
               </button>
-              <button className="flex gap-1 p-1 text-sm items-center border-[2px] border-indigo-400 rounded-lg max-w-[200px]">
+              <button className="flex gap-1 p-1 h-[25px] text-sm items-center border-[2px] border-indigo-400 rounded-md max-w-[200px]">
                 <span>Chevrolet Matiz</span>
-                <IoMdClose className="relative text-lg top-[1px]" />
+                <IoMdClose className="relative text-lg top-[1px] z-10" />
               </button>
               <button className="text-indigo-400 bg-none ">
                 Clear all filter
@@ -343,7 +330,7 @@ export default function ShockAbsorbesPage() {
               {!activeFilterBtn && <FiltersView1 />}
               {activeFilterBtn && <FiltersView2 />}
             </div>
-            <div className="w-full flex justify-end">
+            <div className="flex justify-end px-2">
               <PaginationDemo />
             </div>
 

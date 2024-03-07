@@ -12,6 +12,8 @@ export default function HomePage() {
     <>
       <div className=" md:container lg:px-12 px-2">
         <div className='bg-[rgb(248,249,250)]'>
+          {/* space */}
+          <div className='w-full h-1 mb-4 sm:mb-8'></div>
           <div>
             <HomePageBanner/>
           </div>

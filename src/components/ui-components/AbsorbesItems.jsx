@@ -89,7 +89,7 @@ export default function AbsorbesItems() {
 
 
   return (
-    <div className='bg-white h-full border-y-2 flex flex-col lg:flex-row '>
+    <div className='bg-white h-full border-y-[1px] flex flex-col lg:flex-row '>
         {/* Main absorbes image */}
         <div className='lg:min-w-[260px] lg:h-[235px]  h-full'>
             <div className='block lg:hidden sm:text-3xl text-2xl font-semibold py-4'>Home and outdoor</div>
@@ -101,7 +101,7 @@ export default function AbsorbesItems() {
         {/* Pruducts */}
         <div className=' overflow-hidden'>
         <Swiper
-          className="mySwiper w-full h-[118px]  border-y-[1px] border-l-[1px] border-slate-400 flex"
+          className="mySwiper w-full h-[118px]  border-t-[1px] border-l-[1px] border-[#E0E0E0] flex"
           slidesPerView={columnCount}
           freeMode={true}
           pagination={{
@@ -111,17 +111,20 @@ export default function AbsorbesItems() {
         >
           {brakeDiscData.map((items) => {
             return (
-              <SwiperSlide className="max-w-[223px] h-full border-r-[1px] border-slate-400 p-2 ">
+              <SwiperSlide className="max-w-[223px] h-full border-r-[1px] border-[#E0E0E0] p-2 ">
                 <Link className="flex justify-around" key={items.id} to={`product/${items.id}`}>
                   <div>
                     <p>{items.title}</p>
                     <div className=" text-slate-400">{items.desc}</div>
                   </div>
-                  <img
-                    className="max-w-[80px] max-h-[80px]"
-                    src={items.img}
-                    alt="part1"
-                  />
+                  <div className="relative top-6 flex flex-col h-full justify-between max-w-[80px] max-h-[80px] p-1">
+                    <div className="w-full h-12">{" "}</div>
+                    <img
+                      className="h-full w-full"
+                      src={items.img}
+                      alt="part1"
+                    />
+                  </div>
                 </Link>
               </SwiperSlide>
             );
@@ -131,7 +134,7 @@ export default function AbsorbesItems() {
         {/* 2 data */}
 
         <Swiper
-          className="mySwiper w-full h-[118px]  border-y-[1px] border-l-[1px] border-slate-400 flex"
+          className="mySwiper w-full h-[118px]  border-y-[1px] border-l-[1px] border-[#E0E0E0] flex"
           slidesPerView={columnCount}
           freeMode={true}
           pagination={{
@@ -141,17 +144,20 @@ export default function AbsorbesItems() {
         >
           {brakeDiscData.map((items) => {
             return (
-              <SwiperSlide className="max-w-[223px] h-full border-r-[1px] border-slate-400 p-2 ">
+              <SwiperSlide className="max-w-[223px] h-full border-r-[1px] border-[#E0E0E0] p-2 ">
                 <Link className="flex justify-around" key={items.id} to={`product/${items.id}`}>
                   <div>
                     <p>{items.title}</p>
                     <div className=" text-slate-400">{items.desc}</div>
                   </div>
-                  <img
-                    className="max-w-[80px] max-h-[80px]"
-                    src={items.img}
-                    alt="part1"
-                  />
+                  <div className="relative top-6 flex flex-col h-full justify-between max-w-[80px] max-h-[80px] p-1">
+                    <div className="w-full h-12">{" "}</div>
+                    <img
+                      className="h-full w-full"
+                      src={items.img}
+                      alt="part1"
+                    />
+                  </div>
                 </Link>
               </SwiperSlide>
             );

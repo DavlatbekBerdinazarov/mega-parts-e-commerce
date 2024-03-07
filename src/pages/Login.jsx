@@ -17,9 +17,7 @@ export default function Login() {
 
   const onSignin = (e) => {
     e.preventDefault();
-    if(phoneNumber == "100") {
-      navigate("/homepage")
-    }
+    navigate("/homepage");
     console.log("Error")
   };
   return (
@@ -56,7 +54,7 @@ export default function Login() {
           <label className="my-1 sm:my-2 text-xl">
             Phone number
             <Input
-              className="border-2 h-16 sm:h-[70px] border-b-green-500 focus-visible:border-none"
+              className="border-2 h-16 sm:h-[70px] border-b-green-500"
               type="text"
               placeholder="Enter your phone number"
               onChange={(e) => setPhoneNumber(e.target.value)}
@@ -67,7 +65,7 @@ export default function Login() {
           <label className="text-xl">
             Enter your password
             <Input
-              className="h-16 sm:h-[70px] border-2 border-b-green-500 focus-visible:border-none"
+              className="h-16 sm:h-[70px] border-2 border-b-green-500"
               type="password"
               placeholder="Enter your password here"
               onChange={(e) => setPassword(e.target.value)}

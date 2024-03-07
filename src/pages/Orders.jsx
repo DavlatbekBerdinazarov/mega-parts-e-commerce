@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { iconCreditCard } from "@/assets/images/z-index";
 import { Button } from "@/components/ui/button";
 import { FaAngleLeft } from "react-icons/fa6";
 import { Link } from "react-router-dom";
@@ -34,7 +33,7 @@ export default function Orders() {
   return (
     <div className="md:container lg:px-12 px-2 h-[100vh] md:h-[400px] flex flex-col justify-center">
       {screenColWidth && (
-        <header className="flex justify-between items-center pt-8 fixed top-0 w-full">
+        <header className="flex px-3 justify-between items-center pt-8 fixed top-0 w-full">
           <Link to="/homepage">
             <FaAngleLeft />
           </Link>
@@ -42,7 +41,9 @@ export default function Orders() {
           <div>{""}</div>
         </header>
       )}
-      <div className="px-2 my-4 sm:container flex flex-col gap-5 items-center relative -top-12 justify-center ">
+      <div>
+        <div className="mb-16"></div>
+        <div className="px-2 my-4 sm:container flex flex-col gap-5 items-center relative -top-12 justify-center ">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 w-full lg:w-1/2">
           {/* image */}
           <div>
@@ -125,6 +126,7 @@ export default function Orders() {
         >
           Create account
         </Button>
+      </div>
       </div>
     </div>
   );

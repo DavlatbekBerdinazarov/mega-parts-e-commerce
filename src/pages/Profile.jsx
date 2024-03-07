@@ -37,7 +37,7 @@ export default function Profile() {
   return (
     <div className="md:container lg:px-12 px-2 h-[100vh] md:h-[400px] flex flex-col justify-center ">
       {screenColWidth && (
-        <header className="flex justify-between items-center pt-8 fixed top-0 w-full">
+        <header className="flex px-3 justify-between items-center pt-8 fixed top-0 w-full">
           <Link to="/homepage">
             <FaAngleLeft />
           </Link>
@@ -45,10 +45,12 @@ export default function Profile() {
           <div>{""}</div>
         </header>
       )}
+      <div>
+        <div className="mb-16"></div>
       <div className="px-2 my-4 sm:container flex flex-col gap-5 items-center relative -top-12 justify-center ">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 w-full lg:w-1/2">
           {/* image */}
-          <div className=" flex justify-center items-center">
+          <div className="relative right-12 flex justify-center items-center">
             <svg
               className="relative left-16"
               xmlns="http://www.w3.org/2000/svg"
@@ -97,6 +99,7 @@ export default function Profile() {
         >
           Create account
         </Button>
+      </div>
       </div>
     </div>
   );

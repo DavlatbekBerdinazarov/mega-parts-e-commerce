@@ -3,6 +3,10 @@ import { Button } from "../ui/button";
 import {
   HomepageBanner,
   HomepageBanner2,
+  HomepageBanner3,
+  HomepageBanner4,
+  HomepageBanner5,
+  HomepageBanner6,
   Avatar,
 } from "../../assets/images/z-index";
 import { Carousel } from "flowbite-react";
@@ -31,16 +35,10 @@ export default function HomePageBanner() {
         <Carousel >
           <img className="h-full w-full" src={HomepageBanner} alt="fefe" />
           <img className="h-full w-full" src={HomepageBanner2} alt="fefe" />
-          <img
-            className="h-full w-full"
-            src="https://plus.unsplash.com/premium_photo-1693243851640-b1716891f7b0?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="fefe"
-          />
-          <img
-            className="h-full w-full"
-            src="https://plus.unsplash.com/premium_photo-1708512215706-ae6ce650b5d9?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="fefe"
-          />
+          <img className="h-full w-full" src={HomepageBanner3} alt="fefe" />
+          <img className="h-full w-full" src={HomepageBanner4} alt="fefe" />
+          <img className="h-full w-full" src={HomepageBanner5} alt="fefe" />
+          <img className="h-full w-full" src={HomepageBanner6} alt="fefe" />
         </Carousel>
         <div className="h-[20%] w-[60%] md:p-8 p-4 absolute top-0">
           <div>

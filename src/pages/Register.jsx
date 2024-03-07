@@ -17,10 +17,8 @@ export default function Register() {
 
   const onSignup = (e) => {
     e.preventDefault();
-
-    if (phoneNumber == "100") {
       navigate("/homepage");
-    }
+
   };
   return (
     <section className=" h-screen w-full flex justify-between">
@@ -56,7 +54,7 @@ export default function Register() {
             <label className=" sm:my-2 text-xl">
               Phone number
               <Input
-                className="border-2 h-16 sm:h-[70px] border-b-green-500 focus-visible:border-none"
+                className="border-2 h-16 sm:h-[70px] border-b-green-500 "
                 type="text"
                 placeholder="Enter your phone number"
                 onChange={(e) => setPhoneNumber(e.target.value)}
@@ -67,7 +65,7 @@ export default function Register() {
             <label className="text-xl">
               Username
               <Input
-                className="h-16 sm:h-[70px] border-2 border-b-green-500 focus-visible:border-none"
+                className="h-16 sm:h-[70px] border-2 border-b-green-500 "
                 type="text"
                 placeholder="Enter your username"
                 onChange={(e) => setUsername(e.target.value)}
@@ -77,7 +75,7 @@ export default function Register() {
             <label className="text-xl">
               Enter your password
               <Input
-                className="h-16 sm:h-[70px] border-2 border-b-green-500 focus-visible:border-none"
+                className="h-16 sm:h-[70px] border-2 border-b-green-500 "
                 type="password"
                 placeholder="Enter your password here"
                 onChange={(e) => setPassword(e.target.value)}

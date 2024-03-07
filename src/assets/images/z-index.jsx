@@ -2,12 +2,16 @@ export { default as detailsLoginRegister } from './login-register-bg.jpg';
 export { default as megapartsLogo } from './megapartssss-logo.png';
 export { default as HomepageBanner } from  './homepagebanner.jpg';
 export { default as HomepageBanner2 } from  './Banner-board-800x420 2 (1).jpg';
+export { default as HomepageBanner3 } from  './hompage-3.avif';
+export { default as HomepageBanner4 } from  './homepage-4.avif';
+export { default as HomepageBanner5 } from  './homepage-5.avif';
+export { default as HomepageBanner6 } from  './homepage-6.avif';
+
 export { default as mobileDetails } from './MobileloginBg.png';
 export { default as Avatar } from './Avatar.png';
 export { default as absorbes } from './yellow-parts.jpg';
 export { default as brakediscs } from './brakediscs.png';
 export { default as bannerRequest } from './banner-request.jpg';
-export { default as iconCreditCard } from './Icon-Credit card.png';
 
 
 // parts

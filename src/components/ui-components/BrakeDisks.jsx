@@ -125,7 +125,7 @@ export default function BrakeDisks() {
       {/* Pruducts */}
       <div className=" overflow-hidden">
         <Swiper
-          className="mySwiper w-full h-[118px]  border-y-[1px] border-l-[1px] border-slate-400 flex"
+          className="mySwiper w-full h-[118px]  border-t-[1px] border-l-[1px] border-[#E0E0E0] flex"
           slidesPerView={columnCount}
           freeMode={true}
           pagination={{
@@ -135,17 +135,20 @@ export default function BrakeDisks() {
         >
           {brakeDiscData.map((items) => {
             return (
-              <SwiperSlide className="max-w-[223px] h-full border-r-[1px] border-slate-400 p-2 ">
+              <SwiperSlide className="max-w-[223px] h-full border-r-[1px] border-[#E0E0E0] p-2 ">
                 <Link className="flex justify-around" key={items.id} to={`product/${items.id}`}>
                   <div>
                     <p>{items.title}</p>
                     <div className=" text-slate-400">{items.desc}</div>
                   </div>
-                  <img
-                    className="max-w-[80px] max-h-[80px]"
-                    src={items.img}
-                    alt="part1"
-                  />
+                  <div className="relative top-6 flex flex-col h-full justify-between max-w-[80px] max-h-[80px] p-1">
+                    <div className="w-full h-12">{" "}</div>
+                    <img
+                      className="h-full w-full"
+                      src={items.img}
+                      alt="part1"
+                    />
+                  </div>
                 </Link>
               </SwiperSlide>
             );
@@ -155,7 +158,7 @@ export default function BrakeDisks() {
         {/* 2 data */}
 
         <Swiper
-          className="mySwiper w-full h-[118px]  border-y-[1px] border-l-[1px] border-slate-400 flex"
+          className="mySwiper w-full h-[118px]  border-y-[1px] border-l-[1px] border-[#E0E0E0] flex"
           slidesPerView={columnCount}
           freeMode={true}
           pagination={{
@@ -165,17 +168,20 @@ export default function BrakeDisks() {
         >
           {brakeDiscData.map((items) => {
             return (
-              <SwiperSlide className="max-w-[223px] h-full border-r-[1px] border-slate-400 p-2 ">
+              <SwiperSlide className="max-w-[223px] h-full border-r-[1px] border-[#E0E0E0] p-2 ">
                 <Link className="flex justify-around" key={items.id} to={`product/${items.id}`}>
                   <div>
                     <p>{items.title}</p>
                     <div className=" text-slate-400">{items.desc}</div>
                   </div>
-                  <img
-                    className="max-w-[80px] max-h-[80px]"
-                    src={items.img}
-                    alt="part1"
-                  />
+                  <div className="relative top-6 flex flex-col h-full justify-between max-w-[80px] max-h-[80px] p-1">
+                    <div className="w-full h-12">{" "}</div>
+                    <img
+                      className="h-full w-full"
+                      src={items.img}
+                      alt="part1"
+                    />
+                  </div>
                 </Link>
               </SwiperSlide>
             );

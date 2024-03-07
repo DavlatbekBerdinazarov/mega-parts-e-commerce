@@ -1,35 +1,30 @@
 import { megapartsLogo } from "../assets/images/z-index";
-import { Input } from "./ui/input";
 import { FaUser } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import { FaBars } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
-import { AllCategoryDropdown } from "./ui-components/AllCategoryDropdown";
-import { Button } from "./ui/button";
+import { IoMdArrowDropdown } from "react-icons/io";
+// import { button } from "./ui/button";
 import { IoMdSearch } from "react-icons/io";
 import { DrawerOffcanvas } from "./ui-components/Offcanvas";
 import { Link, useLocation } from "react-router-dom";
 
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { MdOutlineArrowDropDown } from "react-icons/md";
-
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
-
+import { Button } from "./ui/button";
 // Import Swiper styles
 import "swiper/css";
-import "swiper/css/free-mode";
+
 // import required modules
+import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Pagination } from "swiper/modules";
 import { useEffect, useState } from "react";
-import { DropdownMenuArrow } from "radix-ui";
+
+import { Listbox } from "@headlessui/react";
+const featured = [
+  { id: 1, name: "usd", unavailable: false },
+  { id: 2, name: "uzs", unavailable: false },
+  { id: 3, name: "euro", unavailable: false },
+];
+
 
 function calculatescreenColWidth(screenWidth) {
   let screenColWidth;
@@ -54,7 +49,34 @@ function calculateColumnCount(screenWidth) {
 export default function Header() {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const location = useLocation();
+  const [inputDropdown, setinputDropdown] = useState(false);
+  const [secondaryDropdown, setsecondaryDropdown] = useState(false);
+  const [selectedFeatured, setSelectedFeatured] = useState(featured[0]);
 
+  // Mouse hoverda dropdownni ko'rsatish
+  const handleInputMouseEnter = () => {
+    setinputDropdown(true);
+  };
+  const handleInputMouseLeave = () => {
+    setinputDropdown(false);
+  };
+  const handleInputClick = () => {
+    setinputDropdown(!inputDropdown);
+  };
+  //  / Mouse hoverda
+  // help hoverdown
+  const handlesecondaryMouseEnter = () => {
+    setsecondaryDropdown(true);
+  };
+  const handlesecondaryMouseLeave = () => {
+    setsecondaryDropdown(false);
+  };
+  const handlesecondaryClick = () => {
+    setinputDropdown(!secondaryDropdown);
+  };
+  // / help hoverdown
+
+  // screen width for swipper
   useEffect(() => {
     const handleResize = () => {
       setScreenWidth(window.innerWidth);
@@ -96,7 +118,7 @@ export default function Header() {
       <div
         className={isTrue && !screenColWidth ? `hidden w-full` : `block w-full`}
       >
-        <div className=" fixed top-0 bg-white z-40 w-full  shadow-lg">
+        <div className=" fixed top-0 bg-white z-40 w-full shadow-sm">
           <div className="md:container lg:px-12 px-2 flex justify-between items-center py-3">
             <div className="flex items-center md:gap-6 gap-2">
               <div className="block lg:hidden">
@@ -105,7 +127,7 @@ export default function Header() {
               <Link to="/homepage">
                 <img
                   src={megapartsLogo}
-                  className="mr-3 w-[200px]"
+                  className="mr-3 w-[200px] "
                   alt="Flowbite React Logo"
                 />
               </Link>{" "}
@@ -113,14 +135,60 @@ export default function Header() {
             {/* Input */}
             {!isTrue && (
               <div className="hidden lg:block">
-                <div className="w-full max-h-[40px] border-2 pl-3 border-indigo-500 flex items-center justify-between rounded focus:p-0">
+                <div className=" w-full max-h-[40px] border-2 pl-3 border-indigo-500 flex items-center justify-between rounded focus:p-0">
                   <input
                     className="min-w-[260px] border-none focus:outline-none h-[20px] rounded-none"
                     type="text"
                     placeholder="Search"
                   />
-                  <AllCategoryDropdown />
-                  <Button type="submit" className="bg-indigo-500 w-[100px] rounded-none">
+                  <div
+                    className=" transition-all relative px-2 border-l-[2px] h-[37px] flex items-center justify-center border-indigo-500 select-none cursor-pointer"
+                    onClick={handleInputClick}
+                    onMouseEnter={handleInputMouseEnter}
+                    onMouseLeave={handleInputMouseLeave}
+                  >
+                    All Category <IoMdArrowDropdown />
+                    {/* Dropdown content */}
+                    {inputDropdown && (
+                      <div className=" border-t-[2px] border-indigo-500 absolute bg-white top-full shadow-md rounded w-full transition-all">
+                        <div className="flex flex-col gap-2 p-3">
+                          <Link
+                            to="shock-absorbes"
+                            className="group hover:text-sky-600 transition duration-300"
+                          >
+                            Absorbes
+                            <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600"></span>
+                          </Link>
+                          <Link
+                            to="blogs"
+                            className="group hover:text-sky-600 transition duration-300"
+                          >
+                            Blogs
+                            <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600"></span>
+                          </Link>
+                          <Link
+                            to="#"
+                            className="group hover:text-sky-600 transition duration-300"
+                          >
+                            Link 1
+                            <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600"></span>
+                          </Link>
+                          <Link
+                            to="#"
+                            className="group hover:text-sky-600 transition duration-300"
+                          >
+                            Link 1
+                            <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600"></span>
+                          </Link>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  <Button
+                    type="submit"
+                    className=" bg-[#2563EB] w-[100px] rounded-none"
+                  >
                     Search
                   </Button>
                 </div>
@@ -159,7 +227,7 @@ export default function Header() {
           {!isTrue && (
             <div className="block lg:hidden md:container lg:px-12 px-2">
               <form className="flex ">
-                <div className="flex w-full h-full justify-between items-center gap-4 px-2 bg-white border-2 border-slate-400 focus:border-indigo-500 rounded-md">
+                <div className="flex w-full h-full justify-between items-center gap-4 px-2 bg-white border-2 border-slate-400 focus:border-indigo-500 rounded-lg mx-3 active:text-indigo-300">
                   <span className="text-2xl text-slate-400">
                     <IoMdSearch />
                   </span>{" "}
@@ -177,89 +245,152 @@ export default function Header() {
 
           {/* Secondary navbar using */}
           {!isTrue && (
-            <div className="hidden sm:block">
-              <div className="md:container lg:px-12 px-2 w-full py-2 flex items-center flex-wrap gap-x-3 border-y-[1px]">
-                <Link variant="outline" className="p-2 hidden lg:block">
-                  <FaBars className="text-xl" />
-                </Link>
-                <Link to="/homepage">All Category</Link>
-                <Link to="/homepage/shock-absorbes">Shock Absorbes</Link>
-                <Link to="/homepage/brake-discs">Brake Discs</Link>
-
-                <Link to="/homepage/blogs">Blogs</Link>
-                <Link>Oil Filters</Link>
-
-                <DropdownMenu>
-                  <DropdownMenuTrigger>
-                    <span className="flex items-center">
-                      Help <MdOutlineArrowDropDown />{" "}
-                    </span>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent className="relative left-8">
-                    <DropdownMenuLabel>My Account</DropdownMenuLabel>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem>Profile</DropdownMenuItem>
-                    <DropdownMenuItem>Billing</DropdownMenuItem>
-                    <DropdownMenuItem>Team</DropdownMenuItem>
-                    <DropdownMenuItem>Subscription</DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
+            <div className="hidden sm:block border-y-[1px]">
+              <div className="md:container lg:px-12 px-2 w-full py-2 flex items-center justify-between flex-wrap gap-x-3 ">
+                <div className="flex items-center gap-x-3">
+                  <Link className="p-2 hidden lg:block">
+                    <FaBars className="text-xl text-black" />
+                  </Link>
+                  <Link className="p-2 lg:hidden border-[1px] border-[#DEE2E7] h-8 flex items-center  ">
+                    Catalog
+                  </Link>
+                  <Link to="">All Category</Link>
+                  <Link to="shock-absorbes">Absorbes</Link>
+                  <Link to="brake-discs">Discs</Link>
+                  <Link to="blogs">Blogs</Link>
+                  <div
+                    className=" transition-all relative px-2 flex items-center justify-center border-indigo-500 select-none cursor-pointer"
+                    onClick={handlesecondaryClick}
+                    onMouseEnter={handlesecondaryMouseEnter}
+                    onMouseLeave={handlesecondaryMouseLeave}
+                  >
+                    Help <IoMdArrowDropdown />
+                    {/* Dropdown content */}
+                    {secondaryDropdown && (
+                      <div className=" border-t-[2px] absolute bg-white top-full shadow-md rounded w-28 transition-all">
+                        <div className="flex flex-col gap-2 p-3">
+                          <Link
+                            to="shock-absorbes"
+                            className="group hover:text-sky-600 transition duration-300"
+                          >
+                            Absorbes
+                            <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600"></span>
+                          </Link>
+                          <Link
+                            to="blogs"
+                            className="group hover:text-sky-600 transition duration-300"
+                          >
+                            Blogs
+                            <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600"></span>
+                          </Link>
+                          <Link
+                            to="#"
+                            className="group hover:text-sky-600 transition duration-300"
+                          >
+                            Link 1
+                            <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600"></span>
+                          </Link>
+                          <Link
+                            to="#"
+                            className="group hover:text-sky-600 transition duration-300"
+                          >
+                            Link 1
+                            <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600"></span>
+                          </Link>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <div>
+                  <div className="flex items-center px-2 bg-white">
+                    <h2 className="hidden md:block">Eng:</h2>
+                    <div className="  z-30">
+                      <Listbox
+                        value={selectedFeatured}
+                        onChange={setSelectedFeatured}
+                      >
+                        <Listbox.Button className="p-1 flex justify-around items-center gap-1">
+                          {selectedFeatured.name}
+                        </Listbox.Button>
+                        <Listbox.Options className="absolute W-32 mt-2 text-[16px] rounded-md px-3 bg-white py-2 shadow-lg p-2">
+                          {featured.map((featured) => (
+                            <Listbox.Option
+                              key={featured.id}
+                              value={featured}
+                              disabled={featured.unavailable}
+                            >
+                              {featured.name}
+                            </Listbox.Option>
+                          ))}
+                        </Listbox.Options>
+                      </Listbox>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           )}
 
           {/* Pruducts */}
           {!isTrue && (
-            <div className="block sm:hidden">
+            <div className=" sm:hidden flex items-center py-2">
               <Swiper
-                className="mySwiper container w-full py-2 gap-4 flex flex-wrap border-y-[1px]"
-                slidesPerView={columnCount}
-                freeMode={true}
+                slidesPerView={4}
+                centeredSlides={true}
+                spaceBetween={5}
+                grabCursor={true}
                 pagination={{
                   clickable: true,
                 }}
-                modules={[FreeMode, Pagination]}
+                modules={[Pagination]}
+                className="mySwiper"
               >
-                <SwiperSlide className="">
-                  <Link to="/homepage">
-                    <Button className="bg-slate-200 p-2 h-6 hover:text-white text-indigo-600">
-                      All Category
-                    </Button>
+                <SwiperSlide className="w-[120px] bg-[#EFF2F4]">
+                  <Link
+                    to="#"
+                    className=" px-3 w-[120px] py-2 text-indigo-500 rounded-lg mx-3 active:text-indigo-300"
+                  >
+                    Ipods
                   </Link>
                 </SwiperSlide>
-                <SwiperSlide className="">
-                  <Link to="/homepage/shock-absorbes">
-                    <Button className="bg-slate-200 p-2 h-6 hover:text-white text-indigo-600">
-                      Shock Absorbes
-                    </Button>
+                <SwiperSlide className="w-[120px] bg-[#EFF2F4]">
+                  <Link
+                    to="#"
+                    className=" px-3 w-[120px] py-2 text-indigo-500 rounded-lg mx-3 active:text-indigo-300"
+                  >
+                    Tablets
                   </Link>
                 </SwiperSlide>
-                <SwiperSlide className="">
-                  <Link to="/homepage/brake-discs">
-                    <Button className="bg-slate-200 p-2 h-6 hover:text-white text-indigo-600">
-                      Brake Discs
-                    </Button>
+                <SwiperSlide className="w-[120px] bg-[#EFF2F4]">
+                  <Link
+                    to="#"
+                    className=" px-3 w-[120px] py-2 text-indigo-500 rounded-lg mx-3 active:text-indigo-300"
+                  >
+                    Acustics
                   </Link>
                 </SwiperSlide>
-                <SwiperSlide className="">
-                  <Link>
-                    <Button className="bg-slate-200 p-2 h-6 hover:text-white text-indigo-600">
-                      Oil Filters
-                    </Button>
+                <SwiperSlide className="w-[120px] bg-[#EFF2F4]">
+                  <Link
+                    to="#"
+                    className=" px-3 w-[120px] py-2 text-indigo-500 rounded-lg mx-3 active:text-indigo-300"
+                  >
+                    Absorbes
                   </Link>
                 </SwiperSlide>
-                <SwiperSlide className="">
-                  <Link>
-                    <Button className="bg-slate-200 p-2 h-6 hover:text-white text-indigo-600">
-                      Spark pulgs
-                    </Button>
+                <SwiperSlide className="w-[120px] bg-[#EFF2F4]">
+                  <Link
+                    to="#"
+                    className=" px-3 w-[120px] py-2 text-indigo-500 rounded-lg mx-3 active:text-indigo-300"
+                  >
+                    Parts
                   </Link>
                 </SwiperSlide>
               </Swiper>
             </div>
           )}
         </div>
-        <div className="h-[70px] w-full"></div>
+        <div className="h-[40px] w-full"></div>
         {!isTrue && <div className=" h-[84px] lg:h-[58px] w-full"></div>}
       </div>
     </>

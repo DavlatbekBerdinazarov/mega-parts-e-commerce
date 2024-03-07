@@ -50,7 +50,7 @@ const filteredData1 = [
 
 export default function FiltersView1() {
   return (
-    <div className="w-full h-full flex flex-col gap-1 pb-8 px-2">
+    <div className="w-full h-full flex flex-col gap-1 pb-8">
       {filteredData1.map((element, index) => {
         return (
           <div key={index} className="w-full h-[114px] md:h-[184px] lg:h-[230px] p-2 md:p-5 bg-white rounded-md border-[1px] border-[#DEE2E7] flex gap-4">
@@ -61,7 +61,7 @@ export default function FiltersView1() {
               <div className="w-full lg:w-3/4">
                 <h3>{element.title}</h3>
                 <div>
-                  <h1 className="text-xl md:text-2xl font-semibold underline">49.99$</h1>
+                  <h1 className="text-xl md:text-2xl font-semibold underline">Show price</h1>
                   <p className="flex gap-3 mb-4">
                     <span className="text-[#8B96A5]">154 orders </span>{" "}
                     <span className="text-[#8B96A5]">•</span>{" "}
