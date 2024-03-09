@@ -226,8 +226,8 @@ export default function Header() {
           {/* Input */}
           {!isTrue && (
             <div className="block lg:hidden md:container lg:px-12 px-[15px]">
-              <form className="flex ">
-                <div className="flex w-full h-full justify-between items-center gap-4 px-2 bg-white border-2 border-slate-400 focus:border-indigo-500 rounded-lg mx-3 active:text-indigo-300">
+              <form className="flex justify-start">
+                <div className="flex w-full h-full sm:justify-between items-center gap-4 px-2 bg-white border-2 border-slate-400 focus:border-indigo-500 rounded-lg active:text-indigo-300">
                   <span className="text-2xl text-slate-400">
                     <IoMdSearch />
                   </span>{" "}
@@ -339,9 +339,7 @@ export default function Header() {
                 slidesPerView={4}
                 spaceBetween={20}
                 freeMode={true}
-                pagination={{
-                  clickable: true,
-                }}
+                pagination={false}
                 modules={[FreeMode, Pagination]}
                 className="mySwiper"
               >

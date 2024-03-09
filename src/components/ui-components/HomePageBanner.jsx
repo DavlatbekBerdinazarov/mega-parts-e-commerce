@@ -1,4 +1,14 @@
-import React from "react";
+import React, { useRef, useState } from "react";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+
+// import required modules
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
+
 import { Button } from "../ui/button";
 import {
   HomepageBanner,
@@ -9,14 +19,15 @@ import {
   HomepageBanner6,
   Avatar,
 } from "../../assets/images/z-index";
-import { Carousel } from "flowbite-react";
+// import { Carousel } from "flowbite-react";
 import { Link } from "react-router-dom";
+
 
 export default function HomePageBanner() {
   return (
-    <div className="bg-white rounded-lg lg:p-3 flex gap-4 w-full h-[250px] md:h-[400px]">
+    <div className="bg-white rounded-lg lg:p-3 grid grid-cols-5 gap-2 w-full h-[250px] md:h-[400px]">
       {/* sidebar */}
-      <div className="hidden lg:block">
+      <div className="hidden lg:block w-[250px]">
         <ul className="w-[250px] flex flex-col gap-1 rounded-lg">
           <li className="w-full active-navbar p-2 rounded-md">Automobiles</li>
           <li className="w-full p-2 rounded-md">Piston</li>
@@ -31,35 +42,70 @@ export default function HomePageBanner() {
       </div>
 
       {/* Image */}
-      <div className="w-full bg-indigo-400 relative rounded-md">
-        <Carousel >
-          <img className="h-full w-full" src={HomepageBanner} alt="fefe" />
-          <img className="h-full w-full" src={HomepageBanner2} alt="fefe" />
-          <img className="h-full w-full" src={HomepageBanner3} alt="fefe" />
-          <img className="h-full w-full" src={HomepageBanner4} alt="fefe" />
-          <img className="h-full w-full" src={HomepageBanner5} alt="fefe" />
-          <img className="h-full w-full" src={HomepageBanner6} alt="fefe" />
-        </Carousel>
-        <div className="h-[20%] w-[60%] md:p-8 p-4 absolute top-0">
+      <div className="xl:col-span-3 lg:col-span-4 col-span-5 relative rounded-md h-[250px] md:h-[380px] bg-blue-600">
+        <Swiper
+          spaceBetween={30}
+          centeredSlides={true}
+          autoplay={{
+            delay: 4500,
+            disableOnInteraction: false,
+          }}
+          pagination={{
+            type: 'progressbar',
+          }}
+          navigation={true}
+          modules={[Autoplay, Pagination, Navigation]}
+          className="mySwiper rounded-md w-full h-full"
+        >
+          <SwiperSlide className="text-center flex justify-center items-center" >
+            <img className="block object-cover w-full h-full" src={HomepageBanner} alt="img1" />
+          </SwiperSlide>
+          <SwiperSlide className="text-center flex justify-center items-center">
+            <img className="block object-cover w-full h-full " src={HomepageBanner5} alt="img1" />
+          </SwiperSlide>
+          <SwiperSlide className="text-center flex justify-center items-center">
+            <img className="block object-cover w-full h-full " src={HomepageBanner2} alt="img1" />
+          </SwiperSlide>
+          <SwiperSlide className="text-center flex justify-center items-center">
+            <img className="block object-cover w-full h-full " src={HomepageBanner4} alt="img1" />
+          </SwiperSlide>
+          <SwiperSlide className="text-center flex justify-center items-center">
+            <img className="block object-cover w-full h-full " src={HomepageBanner3} alt="img1" />
+          </SwiperSlide>
+          <SwiperSlide className="text-center flex justify-center items-center">
+            <img className="block object-cover w-full h-full " src={HomepageBanner6} alt="img1" />
+          </SwiperSlide>
+          
+        </Swiper>
+        <div className="h-[20%] w-[60%] md:p-8 p-4 absolute top-0 z-10">
           <div>
-            <h3 className="md:text-2xl text-lg text-white font-thin">Latest trending</h3>
-            <h2 className="md:text-3xl text-xl text-white font-bold">Electronic items</h2>
+            <h3 className="md:text-2xl text-lg text-white font-thin">
+              Latest trending
+            </h3>
+            <h2 className="md:text-3xl text-xl text-white font-bold">
+              Electronic items
+            </h2>
             <Link to="#">
-              <Button className="bg-white hidden md:block hover:text-white text-black md:my-6 mt-3">
+              <Button className="bg-white hidden md:block hover:text-white text-black md:my-4 mt-3">
                 Learn More
               </Button>
             </Link>
-            <Link to="/homepage/blogs" className="text-indigo-500 text-lg hover:text-indigo-900 block md:hidden">Learn More</Link>
+            <Link
+              to="/homepage/blogs"
+              className="text-indigo-500 text-lg hover:text-indigo-900 block md:hidden"
+            >
+              Learn More
+            </Link>
           </div>
         </div>
       </div>
 
-      <div className="hidden xl:block">
+      <div className="hidden xl:block col-span-1 ml-4">
         <div className="w-[230px] flex flex-col gap-1 rounded-lg ">
           <div className="w-full p-1 bg-[#E3F0FF] flex flex-col gap-1 rounded-md">
             <div className="flex gap-3 items-center">
               <div>
-                <img className="w-12" src={Avatar} alt="avatar" />
+                <img className="w-12" src={Avatar} alt="avatar"/>
               </div>
               <div>
                 <h2 className="text-2xl">Hi, user</h2>
@@ -67,9 +113,14 @@ export default function HomePageBanner() {
               </div>
             </div>
             <Button className="text-lg">Join now</Button>
-            <Button variant="outline" className="text-lg text-indigo-500">
-              Login
-            </Button>
+            <Link to="/">
+              <Button
+                variant="outline"
+                className="text-lg w-full text-indigo-500"
+              >
+                Login
+              </Button>
+            </Link>
           </div>
 
           {/* Discount */}

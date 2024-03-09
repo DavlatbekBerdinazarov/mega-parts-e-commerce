@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { part1, rpart1, rpart2, rpart3, rpart4 } from "@/assets/images/z-index";
 import { FaEye } from "react-icons/fa";
 import { FaBasketShopping, FaCheck, FaE } from "react-icons/fa6";
 import { TbBasketPlus } from "react-icons/tb";
@@ -11,6 +10,16 @@ import { CiHeart } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
+
+import { rpart1, rpart2, rpart3, rpart4 } from "@/assets/images/z-index";
+const productImages = [
+  rpart1, 
+  rpart2, 
+  rpart3, 
+  rpart4
+]
+import ProductImageSlides from "./ProductImageSlides";
 
 export default function ProductDetail() {
   const [quantity, setQuantity] = useState(1);
@@ -32,32 +41,9 @@ export default function ProductDetail() {
   return (
     <section className=" md:bg-white md:p-5 py-2 w-full h-full rounded-lg border-[1px] border-[#DEE2E7] flex flex-col xl:flex-row gap-5 ">
       {/* poduct details */}
-      <figure className="mx-auto">
-        <div className="w-[380px] h-[380px] rounded-lg border-[1px] border-[#DEE2E7] p-2">
-          <img className="w-full h-full" src={rpart1} alt="parts" />
-        </div>
-        {/* image pagination */}
-        <div className="my-3 flex gap-2">
-          <div className="h-[56px] w-[56px] rounded-lg p-2 border-[1px] border-[#DEE2E7] flex items-center justify-center">
-            <img className="h-fit w-fit" src={rpart1} alt="" />
-          </div>
-          <div className="h-[56px] w-[56px] rounded-lg p-2 border-[1px] border-[#DEE2E7] flex items-center justify-center">
-            <img className="h-fit w-fit" src={rpart2} alt="" />
-          </div>
-          <div className="h-[56px] w-[56px] rounded-lg p-2 border-[1px] border-[#DEE2E7] flex items-center justify-center">
-            <img className="h-fit w-fit" src={rpart3} alt="" />
-          </div>
-          <div className="h-[56px] w-[56px] rounded-lg p-2 border-[1px] border-[#DEE2E7] flex items-center justify-center">
-            <img className="h-fit w-fit" src={rpart4} alt="" />
-          </div>
-          <div className="h-[56px] w-[56px] rounded-lg p-2 border-[1px] border-[#DEE2E7] flex items-center justify-center">
-            <img className="h-fit w-fit" src={rpart1} alt="" />
-          </div>
-          <div className="h-[56px] w-[56px] rounded-lg p-2 border-[1px] border-[#DEE2E7] flex items-center justify-center">
-            <img className="h-fit w-fit" src={rpart2} alt="" />
-          </div>
-        </div>
-      </figure>
+      <div className="mx-auto">
+        <ProductImageSlides images={productImages}/>
+      </div>
       {/* product information */}
       <figure className="flex flex-col lg:flex-row gap-5">
         {/* product content */}

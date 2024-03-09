@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react'
+
 import { part1, part2, part3, part4, part5, part6 } from '@/assets/images/z-index'
 import { useRef, useState } from 'react';
 // Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/free-mode';
 
 
-// import required modules
-import { FreeMode, Pagination } from 'swiper/modules';
+// import required modulesfv
+import { FreeMode} from 'swiper/modules';
 
 function calculateColumnCount(screenWidth) {
     let columnCount;
@@ -25,7 +25,6 @@ function calculateColumnCount(screenWidth) {
     }
     return columnCount;
 }
-
 export default function RecommendedAlso() {
     const [screenWidth, setScreenWidth] = useState(window.innerWidth)
 

@@ -176,20 +176,18 @@ export default function DealsOffers() {
         className="mySwiper w-full h-[235px]  border-y-[1px] border-l-[1px] border-[#DEE2E7] flex"
         slidesPerView={columnCount}
         freeMode={true}
-        pagination={{
-          clickable: true,
-        }}
+        pagination={false}
         modules={[FreeMode, Pagination]}
       >
         {offersData.map((items) => {
           return (
-            <SwiperSlide  key={items.id} className="max-w-[179px] h-full border-r-[1px] border-[#DEE2E7] p-2 flex flex-col items-center justify-around">
-              <Link to={`product/${items.id}`}>
-                <div className="w-32 h-32 p-2">
-                  <img className=" w-full h-full" src={items.img} alt="part1" />
+            <SwiperSlide key={items.id} className="max-w-[179px] h-full border-r-[1px] border-[#DEE2E7] flex flex-col items-center justify-around">
+              <Link className="max-w-[179px] h-full pt-2 flex flex-col items-center justify-between" to={`product/${items.id}`}>
+                <div className="w-[126px] h-28 relative flex items-center justify-center">
+                  <img className="w-[90%] h-[90%]" src={items.img} alt="part1" />
                 </div>
-                <div className=" flex flex-col items-center gap-2 min-h-16 w-full text-center">
-                  <p>{items.desc}</p>
+                <div className="flex items-center flex-col gap-2 h-20 w-[170px]">
+                  <p className="text-left text-[16px] h-10">{items.desc}</p>
                   <span className="max-w-12 bg-[#FFE3E3] px-3 rounded-full text-[#EB001B]">
                     -{items.discount}%
                   </span>

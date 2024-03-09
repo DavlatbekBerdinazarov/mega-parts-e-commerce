@@ -71,31 +71,31 @@ export default function Footer() {
                 <div className="flex gap-2">
                   <a
                     href="#"
-                    className="h-8 w-8 hover: bg-[#BDC4CD] rounded-full flex items-center justify-center"
+                    className="h-8 w-8 hover:bg-indigo-500 bg-[#BDC4CD] rounded-full flex items-center justify-center"
                   >
                     <FaFacebook className="text-white text-xl" />
                   </a>
                   <a
                     href="#"
-                    className="h-8 w-8 hover: bg-[#BDC4CD] rounded-full flex items-center justify-center"
+                    className="h-8 w-8 hover:bg-indigo-500 bg-[#BDC4CD] rounded-full flex items-center justify-center"
                   >
                     <FaTwitter className="text-white text-xl" />
                   </a>
                   <a
                     href="#"
-                    className="h-8 w-8 hover: bg-[#BDC4CD] rounded-full flex items-center justify-center"
+                    className="h-8 w-8 hover:bg-indigo-500 bg-[#BDC4CD] rounded-full flex items-center justify-center"
                   >
                     <FaLinkedin className="text-white text-xl" />
                   </a>
                   <a
                     href="#"
-                    className="h-8 w-8 hover: bg-[#BDC4CD] rounded-full flex items-center justify-center"
+                    className="h-8 w-8 hover:bg-indigo-500 bg-[#BDC4CD] rounded-full flex items-center justify-center"
                   >
                     <LuInstagram className="text-white text-xl" />
                   </a>
                   <a
                     href="#"
-                    className="h-8 w-8 hover: bg-[#BDC4CD] rounded-full flex items-center justify-center"
+                    className="h-8 w-8 hover:bg-indigo-500 bg-[#BDC4CD] rounded-full flex items-center justify-center"
                   >
                     <FaYoutube className="text-white text-xl" />
                   </a>
@@ -174,8 +174,8 @@ export default function Footer() {
             {/* Second footer */}
             <div className="md:container lg:px-12 px-[15px] h-full flex items-center justify-between">
               <p>© IT LIVE 2024 All rights reserved. </p>
-              <select class="w-18 py-2 px-1 block border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
-                <option selected>
+              <select className="hidden lg:block w-18 py-2 px-1 outline-none select-none rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
+                <option defaultChecked>
                   USD
                 </option>
                 <option>UZS</option>

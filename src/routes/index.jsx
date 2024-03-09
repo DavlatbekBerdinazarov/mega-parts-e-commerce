@@ -13,6 +13,7 @@ import ShockAbsorbesPage from "@/pages/ShockAbsorbesPage";
 import ProductDetailsPage from "@/pages/ProductDetailsPage";
 import BlogPage from "@/pages/BlogPage";
 
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -61,7 +62,8 @@ export const router = createBrowserRouter([
           {
             path: "product/:name",
             element: <ProductDetailsPage/>,
-          }
+          },
+          
         ]
       },
       {

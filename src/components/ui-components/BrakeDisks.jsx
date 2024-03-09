@@ -128,15 +128,13 @@ export default function BrakeDisks() {
           className="mySwiper w-full h-[118px]  border-t-[1px] border-l-[1px] border-[#E0E0E0] flex"
           slidesPerView={columnCount}
           freeMode={true}
-          pagination={{
-            clickable: true,
-          }}
+          pagination={false}
           modules={[FreeMode, Pagination]}
         >
           {brakeDiscData.map((items) => {
             return (
-              <SwiperSlide className="max-w-[223px] h-full border-r-[1px] border-[#E0E0E0] p-2 ">
-                <Link className="flex justify-around" key={items.id} to={`product/${items.id}`}>
+              <SwiperSlide key={items.id} className="max-w-[223px] h-full border-r-[1px] border-[#E0E0E0] p-2 ">
+                <Link className="flex justify-around" to={`product/${items.id}`}>
                   <div>
                     <p>{items.title}</p>
                     <div className=" text-slate-400">{items.desc}</div>
@@ -161,15 +159,13 @@ export default function BrakeDisks() {
           className="mySwiper w-full h-[118px]  border-y-[1px] border-l-[1px] border-[#E0E0E0] flex"
           slidesPerView={columnCount}
           freeMode={true}
-          pagination={{
-            clickable: true,
-          }}
+          pagination={false}
           modules={[FreeMode, Pagination]}
         >
           {brakeDiscData.map((items) => {
             return (
-              <SwiperSlide className="max-w-[223px] h-full border-r-[1px] border-[#E0E0E0] p-2 ">
-                <Link className="flex justify-around" key={items.id} to={`product/${items.id}`}>
+              <SwiperSlide key={items.id} className="max-w-[223px] h-full border-r-[1px] border-[#E0E0E0] p-2 ">
+                <Link className="flex justify-around" to={`product/${items.id}`}>
                   <div>
                     <p>{items.title}</p>
                     <div className=" text-slate-400">{items.desc}</div>
