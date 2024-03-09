@@ -64,28 +64,6 @@ export default function ProductImageSlides() {
           ))}
         </div>
       </div>
-
-      {/* image pagination */}
-      {/* <div className="my-3 flex gap-2">
-        <div className="h-[56px] w-[56px] rounded-lg p-2 border-[1px] border-[#DEE2E7] flex items-center justify-center">
-          <img className="h-fit w-fit" src={rpart1} alt="" />
-        </div>
-        <div className="h-[56px] w-[56px] rounded-lg p-2 border-[1px] border-[#DEE2E7] flex items-center justify-center">
-          <img className="h-fit w-fit" src={rpart2} alt="" />
-        </div>
-        <div className="h-[56px] w-[56px] rounded-lg p-2 border-[1px] border-[#DEE2E7] flex items-center justify-center">
-          <img className="h-fit w-fit" src={rpart3} alt="" />
-        </div>
-        <div className="h-[56px] w-[56px] rounded-lg p-2 border-[1px] border-[#DEE2E7] flex items-center justify-center">
-          <img className="h-fit w-fit" src={rpart4} alt="" />
-        </div>
-        <div className="h-[56px] w-[56px] rounded-lg p-2 border-[1px] border-[#DEE2E7] flex items-center justify-center">
-          <img className="h-fit w-fit" src={rpart1} alt="" />
-        </div>
-        <div className="h-[56px] w-[56px] rounded-lg p-2 border-[1px] border-[#DEE2E7] flex items-center justify-center">
-          <img className="h-fit w-fit" src={rpart2} alt="" />
-        </div>
-      </div> */}
     </figure>
   );
 }

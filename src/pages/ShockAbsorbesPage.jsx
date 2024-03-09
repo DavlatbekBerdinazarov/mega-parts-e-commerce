@@ -24,6 +24,49 @@ import RecommendedAlso from "@/components/ShockAbsorbesComponents/RecommendedAls
 
 import { Listbox } from "@headlessui/react";
 
+const data = [
+  {
+    id: "1",
+    name: {
+      category: "Brakes",
+      cars: "Chevrolet Tico",
+      otherProducts: "Metallic",
+    },
+  },
+  {
+    id: "2",
+    name: {
+      category: "Muffler",
+      cars: "Chevrolet Matiz",
+      otherProducts: "Plastic cover",
+    },
+  },
+  {
+    id: "3",
+    name: {
+      category: "Stearing Gear",
+      cars: "Chevrolet Cobalt",
+      otherProducts: "Automatic",
+    },
+  },
+  {
+    id: "4",
+    name: {
+      category: "Transmission",
+      cars: "Chevrolet Damas",
+      otherProducts: "Mexanic",
+    },
+  },
+  {
+    id: "5",
+    name: {
+      category: "Gears",
+      cars: "Chevrolet Gentra",
+      otherProducts: "Plastic",
+    },
+  },
+];
+
 const people = [
   { id: 1, name: "Newest", unavailable: false },
   { id: 2, name: "Datetime", unavailable: false },
@@ -38,12 +81,23 @@ const featured = [
 export default function ShockAbsorbesPage() {
   // active class
   const [activeFilterBtn, setActiveFilterBtn] = useState(false);
-  // dropdown menu
-  const [showStatusBar, setShowStatusBar] = React.useState(true);
-  const [showActivityBar, setShowActivityBar] = React.useState(false);
-  const [showPanel, setShowPanel] = React.useState(false);
   const [selectedPerson, setSelectedPerson] = useState(people[0]);
   const [selectedFeatured, setSelectedFeatured] = useState(featured[0]);
+  const [filteredData, setFilteredData] = useState([]);
+
+  // function for add filter data
+  const addFilterData = (data) => {
+    if (!filteredData.includes(data)) {
+      setFilteredData([...filteredData, data]);
+    }
+  };
+
+  // remove filter data
+  const removeFilterData = (data) => {
+    if (filteredData.includes(data)) {
+      setFilteredData(filteredData.filter((item) => item !== data));
+    }
+  };
 
   // dropdown menu
   return (
@@ -75,18 +129,14 @@ export default function ShockAbsorbesPage() {
                     Category
                   </AccordionTrigger>
                   <AccordionContent className="flex flex-col text-base gap-4">
-                    <Link to="#" className="">
-                      Brakes
-                    </Link>
-                    <Link to="#" className="">
-                      Muffler
-                    </Link>
-                    <Link to="#" className="">
-                      Stearing gear
-                    </Link>
-                    <Link to="#" className="">
-                      Transmission
-                    </Link>
+                    {data.map((category, index) => {
+                      const isSelected = filteredData.includes(category.name.category);
+                      return (
+                        <div className={ isSelected ? `bg-indigo-50 rounded-md` : null} key={index} onClick={() => addFilterData(category.name.category)}>
+                          {category.name.category}
+                        </div>
+                      );
+                    })}
                     <Link to="#" className=" text-indigo-500">
                       Sea all
                     </Link>
@@ -101,56 +151,37 @@ export default function ShockAbsorbesPage() {
                   <AccordionTrigger className=" hover:text-decoration-none">
                     Cars
                   </AccordionTrigger>
-                  <AccordionContent className="flex flex-col text-base gap-4">
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="tico" />
-                      <label
-                        htmlFor="tico"
-                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                      >
-                        Chevrolet Tico
-                      </label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="matiz" />
-                      <label
-                        htmlFor="matiz"
-                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                      >
-                        Chevrolet Matiz
-                      </label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="damas" />
-                      <label
-                        htmlFor="damas"
-                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                      >
-                        Chevrolet Damas
-                      </label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="gentra" />
-                      <label
-                        htmlFor="gentra"
-                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                      >
-                        Chevrolet Gentra
-                      </label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="cobalt" />
-                      <label
-                        htmlFor="cobalt"
-                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                      >
-                        Chevrolet Cobalt
-                      </label>
-                    </div>
-                    <Link to="#" className=" text-indigo-500">
-                      Sea all
-                    </Link>
-                  </AccordionContent>
+                    <AccordionContent className="flex flex-col text-base gap-4">
+                      {data.map((cars, index) => {
+                        const isChecked = filteredData.includes(cars.name.cars);
+                        return (
+                          <div
+                            key={index}
+                            className="flex items-center space-x-2 select-none"
+                            onClick={(event) => {
+                              event.stopPropagation(); // Prevent event from bubbling up
+                              if (isChecked) {
+                                removeFilterData(cars.name.cars);
+                              } else {
+                                addFilterData(cars.name.cars);
+                              }
+                            }}
+                          >
+                            <Checkbox id={cars.name.cars} checked={isChecked}/>
+                            <label
+                              htmlFor={cars.name.cars}
+                              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                            >
+                              {cars.name.cars}
+                            </label>
+                          </div>
+                        );
+                      })}
+
+                      <Link to="#" className=" text-indigo-500">
+                        Sea all
+                      </Link>
+                    </AccordionContent>
                 </AccordionItem>
               </Accordion>
             </div>
@@ -162,51 +193,32 @@ export default function ShockAbsorbesPage() {
                     Other Products
                   </AccordionTrigger>
                   <AccordionContent className="flex flex-col text-base gap-4">
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="metallic" />
-                      <label
-                        htmlFor="metallic"
-                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                      >
-                        Metallic
-                      </label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="cover" />
-                      <label
-                        htmlFor="cover"
-                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                      >
-                        Plastic cover
-                      </label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="ram" />
-                      <label
-                        htmlFor="ram"
-                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                      >
-                        8GB RAM
-                      </label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="power" />
-                      <label
-                        htmlFor="power"
-                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                      >
-                        Super Power
-                      </label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="memory" />
-                      <label
-                        htmlFor="memory"
-                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                      >
-                        Large Memory
-                      </label>
-                    </div>
+                    {data.map((otherProducts, index) => {
+                      const isChecked = filteredData.includes(otherProducts.name.otherProducts);
+
+                      return (
+                        <div
+                          key={index}
+                          className="flex items-center space-x-2 select-none"
+                          onClick={(event) => {
+                            event.stopPropagation(); // Prevent event from bubbling up
+                            if (isChecked) {
+                              removeFilterData(otherProducts.name.otherProducts);
+                            } else {
+                              addFilterData(otherProducts.name.otherProducts);
+                            }
+                          }}
+                        >
+                          <Checkbox id={otherProducts.name.otherProducts} checked={isChecked} />
+                          <label
+                            htmlFor={otherProducts.name.otherProducts}
+                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                          >
+                            {otherProducts.name.otherProducts}
+                          </label>
+                        </div>
+                      );
+                    })}
                     <Link to="#" className=" text-indigo-500">
                       Sea all
                     </Link>
@@ -286,7 +298,7 @@ export default function ShockAbsorbesPage() {
 
                 <div className=" rounded-md flex gap-2 border-[1px] border-slate-200">
                   <div
-                    onClick={() => setActiveFilterBtn((prev) => !prev)}
+                    onClick={() => {setActiveFilterBtn((prev) => !prev)}}
                     className={`py-2 pl-2 pr-1 ${
                       activeFilterBtn ? `bg-[#EFF2F4]` : ``
                     } `}
@@ -307,21 +319,18 @@ export default function ShockAbsorbesPage() {
 
             {/* Filtered buttons */}
             <div className=" flex gap-2 flex-wrap my-4">
-              <button className="flex gap-1 p-1 h-[25px] text-sm items-center border-[2px] border-indigo-400 rounded-md max-w-[200px]">
-                <span>Brake Discs</span>
-                <IoMdClose className="relative text-lg top-[1px] z-10" />
-              </button>
-              <button className="flex gap-1 p-1 h-[25px] text-sm items-center border-[2px] border-indigo-400 rounded-md max-w-[200px]">
-                <span>Absorbes</span>
-                <IoMdClose className="relative text-lg top-[1px] z-10" />
-              </button>
-              <button className="flex gap-1 p-1 h-[25px] text-sm items-center border-[2px] border-indigo-400 rounded-md max-w-[200px]">
-                <span>Chevrolet Matiz</span>
-                <IoMdClose className="relative text-lg top-[1px] z-10" />
-              </button>
-              <button className="text-indigo-400 bg-none ">
+              {filteredData.map((items, index) => {
+                return (
+                  <button key={index} className="flex gap-1 p-1 h-[25px] text-sm items-center border-[2px] border-indigo-400 rounded-md max-w-[200px]">
+                    <span>{items}</span>
+                    <IoMdClose onClick={() => removeFilterData(items)} className="relative text-lg top-[1px] z-10" />
+                  </button>
+                );
+              })}
+              {filteredData.length > 0 && <button onClick={() => setFilteredData([])} className="text-indigo-400 bg-none ">
                 Clear all filter
-              </button>
+              </button>}
+
             </div>
             {/* /Filtered buttons */}
 
@@ -329,9 +338,6 @@ export default function ShockAbsorbesPage() {
             <div>
               {!activeFilterBtn && <FiltersView1 />}
               {activeFilterBtn && <FiltersView2 />}
-            </div>
-            <div className="flex justify-end px-2">
-              <PaginationDemo />
             </div>
 
             {/* You may also like */}

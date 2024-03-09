@@ -5,9 +5,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
+import 'swiper/css/effect-fade';
 
 // import required modules
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { EffectFade, Autoplay, Pagination, Navigation } from "swiper/modules";
 
 import { Button } from "../ui/button";
 import {
@@ -46,6 +47,7 @@ export default function HomePageBanner() {
         <Swiper
           spaceBetween={30}
           centeredSlides={true}
+          effect={'fade'}
           autoplay={{
             delay: 4500,
             disableOnInteraction: false,
@@ -54,7 +56,7 @@ export default function HomePageBanner() {
             type: 'progressbar',
           }}
           navigation={true}
-          modules={[Autoplay, Pagination, Navigation]}
+          modules={[EffectFade, Autoplay, Pagination, Navigation]}
           className="mySwiper rounded-md w-full h-full"
         >
           <SwiperSlide className="text-center flex justify-center items-center" >

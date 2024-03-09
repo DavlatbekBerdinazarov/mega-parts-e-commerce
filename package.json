@@ -31,6 +31,7 @@
     "react-toastify": "^10.0.4",
     "sass": "^1.71.1",
     "swiper": "^11.0.7",
+    "swiper-react": "^1.0.0",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
     "use-react-countries": "^2.0.0"

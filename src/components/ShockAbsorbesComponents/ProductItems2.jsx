@@ -9,7 +9,7 @@ export default function ProductItems2({ element, index }) {
   return (
     <div
     key={index}
-    className=" p-5 flex flex-col justify-center items-center bg-white rounded-md border-[1px] border-[#DEE2E7]"
+    className=" select-none p-5 flex flex-col justify-center items-center bg-white rounded-md border-[1px] border-[#DEE2E7]"
   >
     <div className="h-[184px] w-[184px] mb-4 flex justify-center items-center ">
       <img src={element.img} alt="" />

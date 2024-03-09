@@ -8,7 +8,7 @@ export default function ProductItems1({ element, index }) {
   return (
     <div
       key={index}
-      className="w-full h-[114px] md:h-[184px] lg:h-[230px] p-2 md:p-5 bg-white rounded-md border-[1px] border-[#DEE2E7] flex gap-4"
+      className=" select-none w-full h-[114px] md:h-[184px] lg:h-[200px] px-2 md:p-5 bg-white rounded-md border-[1px] border-[#DEE2E7] flex gap-6"
     >
       <div className="w-[84px] lg:w-[184px]">
         <img src={element.img} alt="" />
@@ -20,12 +20,12 @@ export default function ProductItems1({ element, index }) {
             <h1 className="text-xl md:text-2xl font-semibold underline">
               Show price
             </h1>
-            <p className="flex gap-3 mb-4">
+            <p className="flex gap-3 mb-1">
               <span className="text-[#8B96A5]">154 orders </span>{" "}
               <span className="text-[#8B96A5]">•</span>{" "}
               <span className="text-[#00B517]">Free shipping</span>
             </p>
-            <p className="text-[#505050] mb-4 hidden lg:block">
+            <p className="text-[#505050] mb-2 hidden lg:block">
               {element.desc}
             </p>
 

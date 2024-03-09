@@ -12,6 +12,8 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "./ui/button";
 // Import Swiper styles
 import "swiper/css";
+import "swiper/css/pagination";
+
 
 // import required modules
 import { Swiper, SwiperSlide } from "swiper/react";

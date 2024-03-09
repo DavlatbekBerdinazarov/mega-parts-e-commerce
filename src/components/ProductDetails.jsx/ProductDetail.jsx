@@ -110,6 +110,7 @@ export default function ProductDetail() {
                 Shop now
               </Button>
               <button
+                type="button"
                 onClick={notify}
                 className=" active:scale-[1.02] bg-indigo-100 rounded-full min-h-6 min-w-6 p-1 flex items-center justify-center text-3xl text-indigo-500 border-[2px] border-indigo-500"
               >

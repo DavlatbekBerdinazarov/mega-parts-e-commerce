@@ -7,10 +7,13 @@ import { useRef, useState } from 'react';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/free-mode';
+import { Swiper, SwiperSlide} from 'swiper/react';
+
+
 
 
 // import required modulesfv
-import { FreeMode} from 'swiper/modules';
+import { FreeMode, Pagination} from 'swiper/modules';
 
 function calculateColumnCount(screenWidth) {
     let columnCount;
@@ -52,9 +55,7 @@ export default function RecommendedAlso() {
             className='mySwiper w-full h-[235px]  border-y-[1px] border-l-[1px] border-slate-400 flex'
             slidesPerView={ columnCount }
             freeMode={true}
-            pagination={{
-            clickable: true,
-            }}
+            pagination={false}
             modules={[FreeMode, Pagination]}
         >
             <SwiperSlide className='max-w-[179px] h-full border-r-[1px] border-slate-400 p-2 flex flex-col items-center justify-around'>

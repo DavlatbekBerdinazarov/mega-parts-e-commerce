@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { part1, part2, part3, part4, part5, part6, absorbes } from '@/assets/images/z-index'
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 

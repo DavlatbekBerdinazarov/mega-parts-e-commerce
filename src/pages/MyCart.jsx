@@ -78,7 +78,7 @@ export default function MyCart() {
           : ""
       }`}
     >
-      <div className="w-full h-1 "></div>
+      <div className="w-full h-1"></div>
       {screenColWidth && (
         <header className="flex px-3 text-xl justify-between items-center pt-8 fixed top-0 w-full bg-gray-100 pb-2">
           <Link to="/homepage">
@@ -104,8 +104,8 @@ export default function MyCart() {
                 >
                   <path
                     opacity="0.1"
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                     d="M87.7643 175.529C144.811 157.244 103.854 136.235 103.854 87.7643C103.854 39.2934 136.235 0 87.7643 0C39.2934 0 0 39.2934 0 87.7643C0 136.235 30.7175 193.813 87.7643 175.529Z"
                     fill="#F8B64C"
                   />
