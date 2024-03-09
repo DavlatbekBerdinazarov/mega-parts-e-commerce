@@ -1,6 +1,5 @@
 
 import { FaHeart, FaRegHeart } from "react-icons/fa";
-import { Button } from "../ui/button";
 import { useState } from "react";
 
 export default function ProductItems1({ element, index }) {
@@ -8,9 +7,9 @@ export default function ProductItems1({ element, index }) {
   return (
     <div
       key={index}
-      className=" select-none w-full h-[114px] md:h-[184px] lg:h-[200px] px-2 md:p-5 bg-white rounded-md border-[1px] border-[#DEE2E7] flex gap-6"
+      className=" select-none w-full h-full p-2 sm:p-4 bg-white rounded-md border-[1px] border-[#DEE2E7] flex gap-6"
     >
-      <div className="w-[84px] lg:w-[184px]">
+      <div className="w-[84px] lg:w-[184px] flex items-center justify-center pl-1">
         <img src={element.img} alt="" />
       </div>
       <div className="flex justify-between w-full">
@@ -36,7 +35,7 @@ export default function ProductItems1({ element, index }) {
         </div>
         <div
           onClick={() => setLike((prev) => !prev)}
-          className="hidden w-10 h-10 lg:flex items-center justify-center border-2 rounded-lg"
+          className="hidden w-10 h-10 sm:flex items-center justify-center border-2 rounded-lg"
         >
           {like ? (
             <FaHeart className="text-2xl text-red-600" />

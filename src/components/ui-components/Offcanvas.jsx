@@ -37,7 +37,7 @@ export function DrawerOffcanvas() {
       <Drawer
         open={open}
         onClose={closeDrawer}
-        className=" fixed left-0 top-0 h-screen z-50 bg-[#f7fafc]"
+        className=" fixed left-0 top-0 h-screen z-50 bg-[#f7fafc] shadow-2xl select-none"
       >
         <div className="mb-6 flex justify-between bg-[#EFF2F4] p-4">
           <Typography variant="h5" className="">

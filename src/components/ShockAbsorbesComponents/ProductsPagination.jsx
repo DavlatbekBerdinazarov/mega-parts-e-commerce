@@ -36,8 +36,8 @@ export function PaginationDemo({
   
 
   return (
-    <div className="flex items-center justify-center gap-4 h-[40px]">
-      <div className="h-full flex items-center justify-between bg-white p-2 border-2 rounded-md">
+    <div className="flex flex-wrap items-center sm:justify-center gap-4 h-full">
+      <div className="hidden sm:flex h-full items-center justify-between bg-white p-2 border-2 rounded-md">
         <h1>Show</h1>
         <div className="z-30 select-none">
           <Listbox value={selectedFeatured} onChange={setSelectedFeatured}>
@@ -61,12 +61,11 @@ export function PaginationDemo({
           </Listbox>
         </div>
       </div>
-      <Pagination className=" bg-white h-[40px] p-2 border-2 rounded-md select-none">
+      <Pagination className=" sm:w-auto bg-white h-[40px] p-2 border-2 rounded-md select-none">
         <PaginationContent>
           <PaginationItem className="border-r-2 rounded-md">
             <PaginationPrevious
-              disabled={currentPage === 1}
-              onClick={() => onPageChange(currentPage - 1)}
+              onClick={() => { currentPage > 1 ? onPageChange(currentPage - 1) : onPageChange(1)}}
             />
           </PaginationItem>
 

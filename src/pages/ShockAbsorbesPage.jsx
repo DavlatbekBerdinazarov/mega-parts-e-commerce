@@ -17,9 +17,7 @@ import { MdWindow } from "react-icons/md";
 import { FaBars } from "react-icons/fa6";
 import { IoMdClose } from "react-icons/io";
 
-import { PaginationDemo } from "@/components/ShockAbsorbesComponents/ProductsPagination";
 import FiltersView1 from "@/components/ShockAbsorbesComponents/FiltersView1";
-import FiltersView2 from "@/components/ShockAbsorbesComponents/FiltersView2";
 import RecommendedAlso from "@/components/ShockAbsorbesComponents/RecommendedAlso";
 
 import { Listbox } from "@headlessui/react";
@@ -336,8 +334,7 @@ export default function ShockAbsorbesPage() {
 
             {/* Gears */}
             <div>
-              {!activeFilterBtn && <FiltersView1 />}
-              {activeFilterBtn && <FiltersView2 />}
+               <FiltersView1 activeFilterBtn={activeFilterBtn}/>
             </div>
 
             {/* You may also like */}
