@@ -14,7 +14,6 @@ export { default as brakediscs } from './brakediscs.png';
 export { default as bannerRequest } from './banner-request.jpg';
 export { default as oval } from './oval.svg';
 
-
 // parts
 export { default as part1 } from './parts/part-1.png';
 export { default as part2 } from './parts/part2.png';

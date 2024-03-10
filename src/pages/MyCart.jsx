@@ -15,7 +15,6 @@ import {
   part5,
   part6,
 } from "@/assets/images/z-index";
-import { IoMdArrowDropdown } from "react-icons/io";
 import { BsFillCartFill } from "react-icons/bs";
 import RelatedProducts from "@/components/ProductDetails.jsx/RelatedProducts";
 import CartItems from "@/components/MyCart.jsx/CartItems";
