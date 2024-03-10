@@ -53,67 +53,67 @@ export function DrawerOffcanvas() {
         </div>
         <List className="border-b-[1px] border-[#DEE2E7]">
           <ListItem>
-            <Link className="flex gap-1" to="#">
+            <Link className="flex gap-1 items-center" to="/homepage">
               <ListItemPrefix>
-                <IoHomeOutline className="text-lg relative -top-[2px]" />
+                <IoHomeOutline className="text-lg relative " />
               </ListItemPrefix>
               Dashboard
             </Link>
           </ListItem>
           <ListItem>
-            <Link className="flex gap-1" to="#">
+            <Link className="flex gap-1 items-center" to="#">
               <ListItemPrefix>
-                <MdFormatListBulleted className="text-lg relative -top-[1px]" />
+                <MdFormatListBulleted className="text-lg relative " />
               </ListItemPrefix>
               Categories
             </Link>
           </ListItem>
           <ListItem>
-            <Link className="flex gap-1" to="">
+            <Link className="flex gap-1 items-center" to="/homepage/orders">
               <ListItemPrefix>
-                <CiHeart className="text-lg relative -top-[0px]" />
+                <CiHeart className="text-lg relative " />
               </ListItemPrefix>
               Favorites
             </Link>
+          </ListItem>
+          <ListItem>
+            <Link className="flex gap-1 items-center" to="/homepage/mycart">
+              <ListItemPrefix>
+                <TfiBag className="text-lg relative " />
+              </ListItemPrefix>
+              My cart
+            </Link>
             <ListItemSuffix>
               <Chip
-                value="5"
+                value="3"
                 size="sm"
                 color="green"
                 className="rounded-full"
               />
             </ListItemSuffix>
           </ListItem>
-          <ListItem>
-            <Link className="flex gap-1" to="/homepage/orders">
-              <ListItemPrefix>
-                <TfiBag className="text-lg relative -top-[2px]" />
-              </ListItemPrefix>
-              My orders
-            </Link>
-          </ListItem>
         </List>
         <List className="border-b-[1px] border-[#DEE2E7]">
           <ListItem>
-            <Link className="flex gap-1" to="#">
+            <Link className="flex gap-1 items-center" to="#">
               <ListItemPrefix>
-                <TbWorld className="text-lg relative -top-[1px]" />
+                <TbWorld className="text-lg relative " />
               </ListItemPrefix>
               English
             </Link>
           </ListItem>
           <ListItem>
-            <Link className="flex gap-1" to="#">
+            <Link className="flex gap-1 items-center" to="#">
               <ListItemPrefix>
-                <TfiHeadphoneAlt className="text-lg relative -top-[1px]" />
+                <TfiHeadphoneAlt className="text-lg relative " />
               </ListItemPrefix>
               Contact us
             </Link>
           </ListItem>
           <ListItem>
-            <Link className="flex gap-1" to="#">
+            <Link className="flex gap-1 items-center" to="#">
               <ListItemPrefix>
-                <HiOutlineBuildingOffice2 className="text-lg relative -top-[2px]" />
+                <HiOutlineBuildingOffice2 className="text-lg relative " />
               </ListItemPrefix>
               About
             </Link>

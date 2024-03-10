@@ -240,15 +240,16 @@ export default function ShockAbsorbesPage() {
                       value={selectedPerson}
                       onChange={setSelectedPerson}
                     >
-                      <Listbox.Button className="p-1 flex justify-around items-center gap-1">
+                      <Listbox.Button className="p-1 select-none flex justify-around items-center gap-1">
                         {selectedPerson.name} <AiOutlineBars />
                       </Listbox.Button>
-                      <Listbox.Options className="absolute W-32 mt-2 text-[16px] rounded-md px-3 bg-white py-2 shadow-lg p-2">
+                      <Listbox.Options className="absolute mt-2 select-none text-[16px] rounded-md px-3 bg-white py-2 shadow-lg p-2">
                         {people.map((person) => (
                           <Listbox.Option
                             key={person.id}
                             value={person}
                             disabled={person.unavailable}
+                            className="active:bg-slate-100 my-1"
                           >
                             {person.name}
                           </Listbox.Option>
@@ -270,7 +271,7 @@ export default function ShockAbsorbesPage() {
                 {/* Dropdown */}
                 <div className="flex items-center border-2 px-2 rounded">
                   <h2 className="hidden md:block">Sort by:</h2>
-                  <div className=" bg-white z-30">
+                  <div className=" bg-white z-30 select-none">
                     <Listbox
                       value={selectedFeatured}
                       onChange={setSelectedFeatured}
@@ -284,6 +285,7 @@ export default function ShockAbsorbesPage() {
                             key={featured.id}
                             value={featured}
                             disabled={featured.unavailable}
+                            className="active:bg-slate-100 my-1"
                           >
                             {featured.name}
                           </Listbox.Option>

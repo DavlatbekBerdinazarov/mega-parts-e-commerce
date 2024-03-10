@@ -24,7 +24,7 @@ export default function ProductItems2({ element, index }) {
         </div>
         <div
           onClick={() => setLike((prev) => !prev)}
-          className="hidden w-16 h-10 sm:flex items-center justify-center border-2 rounded-lg"
+          className="hidden px-2 w-16 h-10 sm:flex items-center justify-center border-2 rounded-lg"
         >
           {like ? (
             <FaHeart className="text-2xl text-red-600" />

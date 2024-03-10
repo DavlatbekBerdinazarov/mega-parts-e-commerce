@@ -105,9 +105,7 @@ export default function RelatedProducts() {
           className="mySwiper w-full flex"
           slidesPerView={columnCount}
           freeMode={true}
-          pagination={{
-            clickable: true,
-          }}
+          pagination={false}
           modules={[FreeMode, Pagination]}
         >
           {reletedProducts.map((items) => {

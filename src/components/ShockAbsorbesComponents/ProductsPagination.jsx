@@ -36,7 +36,7 @@ export function PaginationDemo({
   
 
   return (
-    <div className="flex flex-wrap items-center sm:justify-center gap-4 h-full">
+    <div className="flex flex-wrap items-center sm:justify-center gap-4 h-full select-none">
       <div className="hidden sm:flex h-full items-center justify-between bg-white p-2 border-2 rounded-md">
         <h1>Show</h1>
         <div className="z-30 select-none">
@@ -81,16 +81,12 @@ export function PaginationDemo({
               </PaginationLink>
             </PaginationItem>
           ))}
-          <PaginationItem>
-            <PaginationEllipsis />
-          </PaginationItem>
 
           <PaginationItem>
             <PaginationNext
-              disabled={currentPage === totalPages}
-              onClick={() => onPageChange(currentPage + 1)}
+              onClick={() => { currentPage == totalPages ? onPageChange(currentPage) : onPageChange(currentPage + 1)}}
             />
-          </PaginationItem>
+          </PaginationItem> 
         </PaginationContent>
       </Pagination>
     </div>

@@ -73,7 +73,7 @@ export default function Login() {
               />
             </label>
             <div className="flex justify-between items-center space-x-2">
-              <div className=" space-x-2">
+              <div className=" space-x-2 flex items-center">
                 <Checkbox id="terms" />
                 <label
                   htmlFor="terms"

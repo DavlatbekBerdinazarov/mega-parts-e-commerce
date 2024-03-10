@@ -250,7 +250,7 @@ export default function Header() {
             <div className="hidden sm:block border-y-[1px]">
               <div className="md:container lg:px-12 px-[15px] w-full py-2 flex items-center justify-between flex-wrap gap-x-3 ">
                 <div className="flex items-center gap-x-3">
-                  <Link className="p-2 hidden lg:block">
+                  <Link className=" hidden lg:block">
                     <FaBars className="text-xl text-black" />
                   </Link>
                   <Link className="p-2 lg:hidden border-[1px] border-[#DEE2E7] h-8 flex items-center  ">

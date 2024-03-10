@@ -23,22 +23,32 @@ import {
 // import { Carousel } from "flowbite-react";
 import { Link } from "react-router-dom";
 
+const navs = [
+  { id: 1, name: "Automobile"},
+  { id: 2, name: "Piston"},
+  { id: 3, name: "Bus"},
+  { id: 4, name: "Car"},
+  { id: 5, name: "Air Filter"},
+  { id: 6, name: "Scooter"},
+  { id: 7, name: "Telephone"},
+  { id: 8, name: "Tablets"},
+]
+
 
 export default function HomePageBanner() {
+  const [activeNav, setActiveNav ] = useState("Automobile") 
   return (
     <div className="bg-white rounded-lg lg:p-3 grid grid-cols-5 gap-2 w-full h-[250px] md:h-[400px]">
       {/* sidebar */}
-      <div className="hidden lg:block w-[250px]">
-        <ul className="w-[250px] flex flex-col gap-1 rounded-lg">
-          <li className="w-full active-navbar p-2 rounded-md">Automobiles</li>
-          <li className="w-full p-2 rounded-md">Piston</li>
-          <li className="w-full p-2 rounded-md">Air Filters</li>
-          <li className="w-full p-2 rounded-md">Radiator</li>
-          <li className="w-full p-2 rounded-md">Engine</li>
-          <li className="w-full p-2 rounded-md">Clutch</li>
-          <li className="w-full p-2 rounded-md">Axle</li>
-          <li className="w-full p-2 rounded-md">Staring Gear</li>
-          <li className="w-full p-2 rounded-md">Brakes</li>
+      <div className="hidden lg:block w-[220px] mr-3">
+        <ul className="w-full flex flex-col gap-1 rounded-lg select-none">
+          {navs.map((navs, index) => {
+            return (
+              <li key={index} onClick={() => setActiveNav(navs.name)} className={`w-full ${ activeNav == navs.name ? `active-navbar` : null} p-2 rounded-md`}>
+                {navs.name}
+              </li>
+            );
+          })}
         </ul>
       </div>
 
@@ -47,7 +57,6 @@ export default function HomePageBanner() {
         <Swiper
           spaceBetween={30}
           centeredSlides={true}
-          effect={'fade'}
           autoplay={{
             delay: 4500,
             disableOnInteraction: false,

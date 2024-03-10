@@ -72,7 +72,7 @@ export default function BlogPage() {
           All posts
         </h1>
 
-        <div className="my-6 w-full sm:w-[90%]">
+        <div className="my-6 w-full lg:w-[90%]">
           <div className="flex flex-col md:flex-row gap-8 items-center my-12">
             <div className="mx-auto">
               <img className="min-w-[400px]" src={blog2} alt="blog2" />
