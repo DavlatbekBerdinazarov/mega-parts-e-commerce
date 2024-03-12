@@ -8,7 +8,6 @@ import NotFound from "@/components/NotFound";
 import Profile from "@/pages/Profile";
 import Orders from "@/pages/Orders";
 import MyCart from "@/pages/MyCart";
-import BrakeDiscsPage from "@/pages/BrakeDiscsPage";
 import ShockAbsorbesPage from "@/pages/ShockAbsorbesPage";
 import ProductDetailsPage from "@/pages/ProductDetailsPage";
 import BlogPage from "@/pages/BlogPage";
@@ -50,10 +49,6 @@ export const router = createBrowserRouter([
           {
             path: "shock-absorbes",
             element: <ShockAbsorbesPage/>,
-          },
-          {
-            path:"brake-discs",
-            element: <BrakeDiscsPage/>,
           },
           {
             path:"blogs",

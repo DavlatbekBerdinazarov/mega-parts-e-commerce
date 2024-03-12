@@ -6,7 +6,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
+} from "../components/ui/accordion";
 
 import { AiOutlineBars } from "react-icons/ai";
 import { FaFilter } from "react-icons/fa";

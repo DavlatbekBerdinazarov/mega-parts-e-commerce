@@ -199,29 +199,29 @@ export default function Header() {
             {/* profile and other pages */}
 
             <div className="flex items-center justify-around gap-3 md:gap-4 text-[#8B96A5]">
-              <a
-                href="/homepage/profile"
+              <Link
+                to="/homepage/profile"
                 className="flex flex-col justify-center items-center gap-1 hover:text-indigo-500"
               >
                 <FaUser />
                 <p className="hidden lg:block text-[12px]">Profile</p>
-              </a>
+              </Link>
               <div className="hidden lg:block ">
-                <a
-                  href="/homepage/orders"
+                <Link
+                  to="/homepage/orders"
                   className="flex flex-col justify-center items-center gap-1 hover:text-indigo-500"
                 >
                   <FaHeart />
                   <p className=" text-[12px]">My orders</p>
-                </a>
+                </Link>
               </div>
-              <a
-                href="/homepage/mycart"
+              <Link
+                to="/homepage/mycart"
                 className="flex flex-col justify-center items-center gap-1 hover:text-indigo-500"
               >
                 <FaShoppingCart />
                 <p className="hidden lg:block text-[12px]">My cart</p>
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -258,7 +258,7 @@ export default function Header() {
                   </Link>
                   <Link to="">All Category</Link>
                   <Link to="shock-absorbes">Absorbes</Link>
-                  <Link to="brake-discs">Discs</Link>
+                  <Link to="#">Discs</Link>
                   <Link to="blogs">Blogs</Link>
                   <div
                     className=" transition-all relative px-2 flex items-center justify-center border-indigo-500 select-none cursor-pointer"
@@ -279,7 +279,7 @@ export default function Header() {
                             <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600"></span>
                           </Link>
                           <Link
-                            to="blogs"
+                            to="#"
                             className="group hover:text-sky-600 transition duration-300"
                           >
                             Blogs
