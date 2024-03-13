@@ -25,7 +25,7 @@ import { Link } from "react-router-dom";
 import { OffcanvasContext } from "@/layout/AppLayaut";
 
 export function DrawerOffcanvas() {
-  const { open, closeDrawer } = useContext(OffcanvasContext)
+  const { open, closeDrawer } = useContext(OffcanvasContext);
 
   return (
     <React.Fragment>
@@ -47,46 +47,46 @@ export function DrawerOffcanvas() {
           </div>
         </div>
         <List className="border-b-[1px] border-[#DEE2E7]">
-          <ListItem>
-            <Link className="flex gap-1 items-center" to="/homepage">
+          <Link className="flex gap-1 items-center" to="/homepage">
+            <ListItem>
               <ListItemPrefix>
                 <IoHomeOutline className="text-lg relative " />
               </ListItemPrefix>
               Dashboard
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Link className="flex gap-1 items-center" to="#">
+            </ListItem>
+          </Link>
+          <Link className="flex gap-1 items-center" to="#">
+            <ListItem>
               <ListItemPrefix>
                 <MdFormatListBulleted className="text-lg relative " />
               </ListItemPrefix>
               Categories
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Link className="flex gap-1 items-center" to="/homepage/orders">
+            </ListItem>
+          </Link>
+          <Link className="flex gap-1 items-center" to="homepage/orders">
+            <ListItem>
               <ListItemPrefix>
                 <CiHeart className="text-lg relative " />
               </ListItemPrefix>
               Favorites
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Link className="flex gap-1 items-center" to="/homepage/mycart">
+            </ListItem>
+          </Link>
+          <Link className="flex gap-1 items-center" to="homepage/mycart">
+            <ListItem>
               <ListItemPrefix>
                 <TfiBag className="text-lg relative " />
               </ListItemPrefix>
               My cart
-            </Link>
-            <ListItemSuffix>
-              <Chip
-                value="3"
-                size="sm"
-                color="green"
-                className="rounded-full"
-              />
-            </ListItemSuffix>
-          </ListItem>
+              <ListItemSuffix>
+                <Chip
+                  value="3"
+                  size="sm"
+                  color="green"
+                  className="rounded-full"
+                />
+              </ListItemSuffix>
+            </ListItem>
+          </Link>
         </List>
         <List className="border-b-[1px] border-[#DEE2E7]">
           <ListItem>

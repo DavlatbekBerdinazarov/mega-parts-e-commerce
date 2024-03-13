@@ -114,7 +114,7 @@ export default function RelatedProducts() {
                 key={items.id}
                 className="max-w-[172px] mr-5  h-full flex flex-col gap-4 items-center"
               >
-                <Link to={`product/${items.id}`}>
+                <Link to={`/homepage/product/${items.id}`}>
                   <div className="w-[172px] h-[172px] p-6 bg-[#eee] rounded-lg">
                     <img
                       className=" w-full h-full"

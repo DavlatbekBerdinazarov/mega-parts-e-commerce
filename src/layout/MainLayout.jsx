@@ -36,7 +36,7 @@ const MainLayout = () => {
   };
 
   return (
-    <div>
+    <div className="bg-[rgb(248,249,250)]">
       <ShoppingCartContext.Provider
         value={{ cartData, setCartData, handleAddToCart, handleRemoveFromCart, removeAllItems }}
       >

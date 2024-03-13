@@ -9,6 +9,14 @@ import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
+import {
+  Menu,
+  MenuHandler,
+  MenuList,
+  MenuItem,
+  Button,
+} from "@material-tailwind/react";
+
 function calculatescreenColWidth(screenWidth) {
   let screenColWidth;
   if (screenWidth >= 768) {
@@ -173,13 +181,16 @@ export default function Footer() {
             {/* Second footer */}
             <div className="md:container lg:px-12 px-[15px] h-full flex items-center justify-between">
               <p>© IT LIVE 2024 All rights reserved. </p>
-              <select className="hidden lg:block w-18 py-2 px-1 outline-none select-none rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
-                <option defaultChecked>
-                  USD
-                </option>
-                <option>UZS</option>
-                <option>EURO</option>
-              </select>
+              <Menu>
+                <MenuHandler>
+                  <Button color="white" className="p-2 bg-none">Languages</Button>
+                </MenuHandler>
+                <MenuList className="w-4">
+                  <MenuItem>Uzbek</MenuItem>
+                  <MenuItem>Russian</MenuItem>
+                  <MenuItem>English</MenuItem>
+                </MenuList>
+              </Menu>
             </div>
           </div>
         </div>

@@ -6,7 +6,6 @@ import { FaHeart } from "react-icons/fa";
 import { IoMdArrowDropdown } from "react-icons/io";
 // import { button } from "./ui/button";
 import { IoMdSearch } from "react-icons/io";
-import { DrawerOffcanvas } from "./ui-components/Offcanvas";
 import { Link, useLocation } from "react-router-dom";
 
 import { Button } from "./ui/button";
@@ -22,6 +21,8 @@ import { useContext, useEffect, useState } from "react";
 import { Listbox } from "@headlessui/react";
 import { ShoppingCartContext } from "@/layout/MainLayout";
 import { OffcanvasContext } from "@/layout/AppLayaut";
+import { AllCategoryDropdown } from "./ui-components/AllCategroyDropdown";
+import { HelpDropdown } from "./ui-components/HelpDropdown";
 const featured = [
   { id: 1, name: "usd", unavailable: false },
   { id: 2, name: "uzs", unavailable: false },
@@ -38,48 +39,13 @@ function calculatescreenColWidth(screenWidth) {
   return screenColWidth;
 }
 
-function calculateColumnCount(screenWidth) {
-  let columnCount;
-  if (screenWidth > 640) {
-    columnCount = 3;
-  } else {
-    columnCount = 2.8;
-  }
-  return columnCount;
-}
-
 export default function Header() {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const location = useLocation();
-  const [inputDropdown, setinputDropdown] = useState(false);
-  const [secondaryDropdown, setsecondaryDropdown] = useState(false);
   const [selectedFeatured, setSelectedFeatured] = useState(featured[0]);
 
   const { cartData} = useContext(ShoppingCartContext);
   const { setOpen } = useContext(OffcanvasContext)
-
-  // Mouse hoverda dropdownni ko'rsatish
-  const handleInputMouseEnter = () => {
-    setinputDropdown(true);
-  };
-  const handleInputMouseLeave = () => {
-    setinputDropdown(false);
-  };
-  const handleInputClick = () => {
-    setinputDropdown(!inputDropdown);
-  };
-  //  / Mouse hoverda
-  // help hoverdown
-  const handlesecondaryMouseEnter = () => {
-    setsecondaryDropdown(true);
-  };
-  const handlesecondaryMouseLeave = () => {
-    setsecondaryDropdown(false);
-  };
-  const handlesecondaryClick = () => {
-    setinputDropdown(!secondaryDropdown);
-  };
-  // / help hoverdown
 
   // screen width for swipper
   useEffect(() => {
@@ -93,9 +59,6 @@ export default function Header() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-
-  // for swipper
-  const columnCount = calculateColumnCount(screenWidth);
 
   const screenColWidth = calculatescreenColWidth(screenWidth);
 
@@ -147,49 +110,8 @@ export default function Header() {
                     type="text"
                     placeholder="Search"
                   />
-                  <div
-                    className=" transition-all relative px-2 border-l-[2px] h-[37px] flex items-center justify-center border-indigo-500 select-none cursor-pointer"
-                    onClick={handleInputClick}
-                    onMouseEnter={handleInputMouseEnter}
-                    onMouseLeave={handleInputMouseLeave}
-                  >
-                    All Category <IoMdArrowDropdown />
-                    {/* Dropdown content */}
-                    {inputDropdown && (
-                      <div className=" border-t-[2px] border-indigo-500 absolute bg-white top-full shadow-md rounded w-full transition-all">
-                        <div className="flex flex-col gap-2 p-3">
-                          <Link
-                            to="shock-absorbes"
-                            className="group hover:text-sky-600 transition duration-300"
-                          >
-                            Absorbes
-                            <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600"></span>
-                          </Link>
-                          <Link
-                            to="blogs"
-                            className="group hover:text-sky-600 transition duration-300"
-                          >
-                            Blogs
-                            <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600"></span>
-                          </Link>
-                          <Link
-                            to="#"
-                            className="group hover:text-sky-600 transition duration-300"
-                          >
-                            Link 1
-                            <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600"></span>
-                          </Link>
-                          <Link
-                            to="#"
-                            className="group hover:text-sky-600 transition duration-300"
-                          >
-                            Link 1
-                            <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600"></span>
-                          </Link>
-                        </div>
-                      </div>
-                    )}
-                  </div>
+                  {/* All category dropdown */}
+                  <AllCategoryDropdown/>
 
                   <Button
                     type="submit"
@@ -271,48 +193,8 @@ export default function Header() {
                   <Link to="shock-absorbes">Absorbes</Link>
                   <Link to="#">Discs</Link>
                   <Link to="blogs">Blogs</Link>
-                  <div
-                    className=" transition-all relative px-2 flex items-center justify-center border-indigo-500 select-none cursor-pointer"
-                    onClick={handlesecondaryClick}
-                    onMouseEnter={handlesecondaryMouseEnter}
-                    onMouseLeave={handlesecondaryMouseLeave}
-                  >
-                    Help <IoMdArrowDropdown />
-                    {/* Dropdown content */}
-                    {secondaryDropdown && (
-                      <div className=" border-t-[2px] absolute bg-white top-full shadow-md rounded w-28 transition-all">
-                        <div className="flex flex-col gap-2 p-3">
-                          <Link
-                            to="shock-absorbes"
-                            className="group hover:text-sky-600 transition duration-300"
-                          >
-                            Absorbes
-                            <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600"></span>
-                          </Link>
-                          <Link
-                            to="#"
-                            className="group hover:text-sky-600 transition duration-300"
-                          >
-                            Blogs
-                            <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600"></span>
-                          </Link>
-                          <Link
-                            to="#"
-                            className="group hover:text-sky-600 transition duration-300"
-                          >
-                            Link 1
-                            <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600"></span>
-                          </Link>
-                          <Link
-                            to="#"
-                            className="group hover:text-sky-600 transition duration-300"
-                          >
-                            Link 1
-                            <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600"></span>
-                          </Link>
-                        </div>
-                      </div>
-                    )}
+                  <div> 
+                    <HelpDropdown/>
                   </div>
                 </div>
                 <div>
