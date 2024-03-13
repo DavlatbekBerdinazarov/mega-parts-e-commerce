@@ -23,7 +23,7 @@ function calculatescreenColWidth(screenWidth) {
 
 
 export default function MyCart() {
-  const { cartData, handleRemoveFromCart, setCartData } = useContext(ShoppingCartContext)
+  const { cartData, handleRemoveFromCart, setCartData, removeAllItems } = useContext(ShoppingCartContext)
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const selectedProducts = cartData;
   // console.log("my-cart",selectedProducts);
@@ -108,7 +108,7 @@ export default function MyCart() {
           <div className="pt-[52px]"></div>
 
           <h1 className="my-2 text-xl md:text-2xl font-semibold">
-            My cart (3)
+            My cart ({selectedProducts.length})
           </h1>
           <div className=" w-full grid lg:grid-cols-5 gap-5 mb-6">
             {/* 1. */}
@@ -149,7 +149,7 @@ export default function MyCart() {
                     <FaArrowLeftLong /> Back to shop
                   </Button>
                 </Link>
-                <Button onClick={() => setSelectedProducts([])} variant="outline" className="text-indigo-500">
+                <Button onClick={removeAllItems} variant="outline" className="text-indigo-500">
                   Remove all
                 </Button>
               </div>

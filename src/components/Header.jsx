@@ -18,9 +18,10 @@ import "swiper/css/pagination";
 // import required modules
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Pagination } from "swiper/modules";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { Listbox } from "@headlessui/react";
+import { ShoppingCartContext } from "@/layout/MainLayout";
 const featured = [
   { id: 1, name: "usd", unavailable: false },
   { id: 2, name: "uzs", unavailable: false },
@@ -54,6 +55,8 @@ export default function Header() {
   const [inputDropdown, setinputDropdown] = useState(false);
   const [secondaryDropdown, setsecondaryDropdown] = useState(false);
   const [selectedFeatured, setSelectedFeatured] = useState(featured[0]);
+
+  const { cartData } = useContext(ShoppingCartContext)
 
   // Mouse hoverda dropdownni ko'rsatish
   const handleInputMouseEnter = () => {
@@ -128,7 +131,7 @@ export default function Header() {
               <Link to="/homepage">
                 <img
                   src={megapartsLogo}
-                  className="mr-3 w-[200px] "
+                  className="mr-3 w-[230px] "
                   alt="Flowbite React Logo"
                 />
               </Link>{" "}
@@ -197,29 +200,32 @@ export default function Header() {
             )}
             {/* profile and other pages */}
 
-            <div className="flex items-center justify-around gap-3 md:gap-4 text-[#8B96A5]">
+            <div className="flex relative top-2 items-center justify-around gap-3 md:gap-4 text-[#8B96A5]">
               <Link
                 to="/homepage/profile"
-                className="flex flex-col justify-center items-center gap-1 hover:text-indigo-500"
+                className="flex flex-col justify-center text-xl items-center hover:text-indigo-500"
               >
                 <FaUser />
-                <p className="hidden lg:block text-[12px]">Profile</p>
+                <p className="hidden lg:block text-[10px]">Profile</p>
               </Link>
               <div className="hidden lg:block ">
                 <Link
                   to="/homepage/orders"
-                  className="flex flex-col justify-center items-center gap-1 hover:text-indigo-500"
+                  className="flex flex-col justify-center text-xl items-center hover:text-indigo-500"
                 >
                   <FaHeart />
-                  <p className=" text-[12px]">My orders</p>
+                  <p className=" text-[10px]">My orders</p>
                 </Link>
               </div>
               <Link
                 to="/homepage/mycart"
-                className="flex flex-col justify-center items-center gap-1 hover:text-indigo-500"
+                className="flex flex-col justify-center text-xl items-center hover:text-indigo-500"
               >
-                <FaShoppingCart />
-                <p className="hidden lg:block text-[12px]">My cart</p>
+                <div className="relative">
+                  <FaShoppingCart />
+                  { cartData.length > 0 && (<div className=" font-sen h-4 w-4 absolute -top-[1px] left-[15px] rounded-full bg-red-500 text-white text-[11px] flex items-center justify-center mt-[2px] font-semibold text-xl">{cartData.length}</div>)}
+                </div>
+                <p className="hidden lg:block text-[10px]">My cart</p>
               </Link>
             </div>
           </div>

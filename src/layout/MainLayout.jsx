@@ -31,11 +31,15 @@ const MainLayout = () => {
     setCartData(newCartData);
   };
 
+  const removeAllItems = () => {
+    setCartData([]);
+  };
+
 
   return (
     <div>
       <ShoppingCartContext.Provider
-        value={{ cartData, setCartData, handleAddToCart, handleRemoveFromCart }}
+        value={{ cartData, setCartData, handleAddToCart, handleRemoveFromCart, removeAllItems }}
       >
         <Header />
           <Outlet />
