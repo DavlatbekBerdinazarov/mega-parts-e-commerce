@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
+import { Checkbox } from "@material-tailwind/react";
 import {
   detailsLoginRegister,
   megapartsLogo,
@@ -28,7 +28,7 @@ export default function Login() {
           className="w-full md:w-3/4 h-full xl:px-12 flex sm:justify-around lg:justify-center flex-col sm:gap-3 "
         >
           {/* Mobile logo */}
-          <div className="bg-indigo-500 relative rounded h-[250px] sm:h-[330px] w-full mb-2 block lg:hidden">
+          <div className="bg-[#0A74FF] relative rounded h-[250px] sm:h-[330px] w-full mb-2 block lg:hidden">
             <img
               className="w-[210px] p-2 block lg:hidden"
               src={megapartsLogo}
@@ -74,7 +74,7 @@ export default function Login() {
             </label>
             <div className="flex justify-between items-center space-x-2">
               <div className=" space-x-2 flex items-center">
-                <Checkbox id="terms" />
+                <Checkbox color="blue" id="terms" />
                 <label
                   htmlFor="terms"
                   className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -91,7 +91,7 @@ export default function Login() {
             </Button>
             <p>
               <span>Already have an account? </span>
-              <Link className="text-indigo-500" to="/register">
+              <Link className="text-[#0A74FF]" to="/register">
                 Register
               </Link>
             </p>
@@ -105,7 +105,7 @@ export default function Login() {
             src={detailsLoginRegister}
             alt=""
           />
-          <div className="h-full bg-indigo-500 w-2/3"></div>
+          <div className="h-full bg-[#0A74FF] w-2/3"></div>
         </div>
       </div>
     </section>

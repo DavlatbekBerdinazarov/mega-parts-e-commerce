@@ -1,17 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { FaAngleRight } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "../components/ui/accordion";
 
 import { AiOutlineBars } from "react-icons/ai";
 import { FaFilter } from "react-icons/fa";
 
-import { Checkbox } from "@/components/ui/checkbox";
+import { Checkbox } from "@material-tailwind/react";
 
 import { MdWindow } from "react-icons/md";
 import { FaBars } from "react-icons/fa6";
@@ -21,6 +15,9 @@ import FiltersView1 from "@/components/ShockAbsorbesComponents/FiltersView1";
 import RecommendedAlso from "@/components/ShockAbsorbesComponents/RecommendedAlso";
 
 import { Listbox } from "@headlessui/react";
+import AccardionFilter1 from "@/components/ShockAbsorbesComponents/AccardionFilter1";
+import AccardionFilter2 from "@/components/ShockAbsorbesComponents/AccardionFilter2";
+import AccardionFilter3 from "@/components/ShockAbsorbesComponents/AccardionFilter3";
 
 const data = [
   {
@@ -121,108 +118,15 @@ export default function ShockAbsorbesPage() {
         <div className="grid grid-cols-4 grid-rows-1 gap-6">
           <figure className="hidden lg:block">
             <div className=" border-t-[1px] border-[#DEE2E7]">
-              <Accordion collapsible className="w-full">
-                <AccordionItem value="item-1">
-                  <AccordionTrigger className=" hover:text-decoration-none">
-                    Category
-                  </AccordionTrigger>
-                  <AccordionContent className="flex flex-col text-base gap-4">
-                    {data.map((category, index) => {
-                      const isSelected = filteredData.includes(category.name.category);
-                      return (
-                        <div className={ isSelected ? `bg-indigo-50 rounded-md` : null} key={index} onClick={() => addFilterData(category.name.category)}>
-                          {category.name.category}
-                        </div>
-                      );
-                    })}
-                    <Link to="#" className=" text-indigo-500">
-                      Sea all
-                    </Link>
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
+              <AccardionFilter1 data={data} filteredData={filteredData} addFilterData={addFilterData} removeFilterData={removeFilterData}/>
             </div>
             {/* Cars */}
             <div className=" border-t-[1px] border-[#DEE2E7]">
-              <Accordion type="single" collapsible className="w-full">
-                <AccordionItem value="item-2">
-                  <AccordionTrigger className=" hover:text-decoration-none">
-                    Cars
-                  </AccordionTrigger>
-                    <AccordionContent className="flex flex-col text-base gap-4">
-                      {data.map((cars, index) => {
-                        const isChecked = filteredData.includes(cars.name.cars);
-                        return (
-                          <div
-                            key={index}
-                            className="flex items-center space-x-2 select-none"
-                            onClick={(event) => {
-                              event.stopPropagation(); // Prevent event from bubbling up
-                              if (isChecked) {
-                                removeFilterData(cars.name.cars);
-                              } else {
-                                addFilterData(cars.name.cars);
-                              }
-                            }}
-                          >
-                            <Checkbox id={cars.name.cars} checked={isChecked}/>
-                            <label
-                              htmlFor={cars.name.cars}
-                              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                            >
-                              {cars.name.cars}
-                            </label>
-                          </div>
-                        );
-                      })}
-
-                      <Link to="#" className=" text-indigo-500">
-                        Sea all
-                      </Link>
-                    </AccordionContent>
-                </AccordionItem>
-              </Accordion>
+              <AccardionFilter2 data={data} filteredData={filteredData} addFilterData={addFilterData} removeFilterData={removeFilterData}/>
             </div>
             {/* Other Products */}
             <div className=" border-t-[1px] border-[#DEE2E7]">
-              <Accordion type="single" collapsible className="w-full">
-                <AccordionItem value="item-3">
-                  <AccordionTrigger className=" hover:text-decoration-none">
-                    Other Products
-                  </AccordionTrigger>
-                  <AccordionContent className="flex flex-col text-base gap-4">
-                    {data.map((otherProducts, index) => {
-                      const isChecked = filteredData.includes(otherProducts.name.otherProducts);
-
-                      return (
-                        <div
-                          key={index}
-                          className="flex items-center space-x-2 select-none"
-                          onClick={(event) => {
-                            event.stopPropagation(); // Prevent event from bubbling up
-                            if (isChecked) {
-                              removeFilterData(otherProducts.name.otherProducts);
-                            } else {
-                              addFilterData(otherProducts.name.otherProducts);
-                            }
-                          }}
-                        >
-                          <Checkbox id={otherProducts.name.otherProducts} checked={isChecked} />
-                          <label
-                            htmlFor={otherProducts.name.otherProducts}
-                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                          >
-                            {otherProducts.name.otherProducts}
-                          </label>
-                        </div>
-                      );
-                    })}
-                    <Link to="#" className=" text-indigo-500">
-                      Sea all
-                    </Link>
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
+              <AccardionFilter3 data={data} filteredData={filteredData} addFilterData={addFilterData} removeFilterData={removeFilterData}/>
             </div>
           </figure>
           <figure className="col-span-4 lg:col-span-3 mb-3">
@@ -261,7 +165,8 @@ export default function ShockAbsorbesPage() {
               </div>
               {/* /Responsive filters after lg */}
               <div className="flex justify-between items-center space-x-2">
-                <Checkbox className="hidden lg:block" id="verified" />
+                <Checkbox
+                  color="blue" className="hidden lg:block" id="verified" />
                 <label
                   htmlFor="verified"
                   className="hidden lg:block text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -298,7 +203,9 @@ export default function ShockAbsorbesPage() {
 
                 <div className=" rounded-md flex gap-2 border-[1px] border-slate-200">
                   <div
-                    onClick={() => {setActiveFilterBtn((prev) => !prev)}}
+                    onClick={() => {
+                      setActiveFilterBtn((prev) => !prev);
+                    }}
                     className={`py-2 pl-2 pr-1 ${
                       activeFilterBtn ? `bg-[#EFF2F4]` : ``
                     } `}
@@ -321,22 +228,32 @@ export default function ShockAbsorbesPage() {
             <div className=" flex gap-2 flex-wrap my-4">
               {filteredData.map((items, index) => {
                 return (
-                  <button key={index} className="flex gap-1 p-1 h-[25px] text-sm items-center border-[2px] border-indigo-400 rounded-md max-w-[200px]">
+                  <button
+                    key={index}
+                    className="flex gap-1 p-1 h-[25px] text-sm items-center border-[2px] border-indigo-400 rounded-md max-w-[200px]"
+                  >
                     <span>{items}</span>
-                    <IoMdClose onClick={() => removeFilterData(items)} className="relative text-lg top-[1px] z-10" />
+                    <IoMdClose
+                      onClick={() => removeFilterData(items)}
+                      className="relative text-lg top-[1px] z-10"
+                    />
                   </button>
                 );
               })}
-              {filteredData.length > 0 && <button onClick={() => setFilteredData([])} className="text-indigo-400 bg-none ">
-                Clear all filter
-              </button>}
-
+              {filteredData.length > 0 && (
+                <button
+                  onClick={() => setFilteredData([])}
+                  className="text-indigo-400 bg-none "
+                >
+                  Clear all filter
+                </button>
+              )}
             </div>
             {/* /Filtered buttons */}
 
             {/* Gears */}
             <div>
-               <FiltersView1 activeFilterBtn={activeFilterBtn}/>
+              <FiltersView1 activeFilterBtn={activeFilterBtn} />
             </div>
 
             {/* You may also like */}

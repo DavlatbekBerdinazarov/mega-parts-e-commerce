@@ -73,7 +73,7 @@ export function PaginationDemo({
             <PaginationItem key={index}>
               <PaginationLink
                 className={`${
-                  currentPage === page ? " bg-indigo-500 text-white" : ""
+                  currentPage === page ? " bg-[#0A74FF] text-white" : ""
                 } border-r-2 rounded-md`}
                 onClick={() => onPageChange(page)}
               >
