@@ -50,7 +50,6 @@ export default function Footer() {
     location.pathname == "/homepage/mycart";
 
   let isTrue = profilePath || ordersPath || mycartPath;
-  console.log("IStrue:", !isTrue);
 
   return (
     <>

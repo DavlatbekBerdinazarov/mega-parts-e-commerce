@@ -19,45 +19,6 @@ import "swiper/css/free-mode";
 import { FreeMode, Pagination } from "swiper/modules";
 import { Link } from "react-router-dom";
 
-const offersData = [
-  {
-    id: 1,
-    img: part1,
-    desc: "Brake Disc ",
-    discount: 5,
-  },
-  {
-    id: 2,
-    img: part2,
-    desc: "for Damas",
-    discount: 7,
-  },
-  {
-    id: 3,
-    img: part3,
-    desc: "Brake Disc for Damas",
-    discount: 11,
-  },
-  {
-    id: 4,
-    img: part4,
-    desc: "Brake Disc for Damas",
-    discount: 9,
-  },
-  {
-    id: 5,
-    img: part5,
-    desc: "Brake Disc for Damas",
-    discount: 6,
-  },
-  {
-    id: 6,
-    img: part6,
-    desc: "Brake Disc for Damas",
-    discount: 8,
-  },
-];
-
 function calculateColumnCount(screenWidth) {
   let columnCount;
   if (screenWidth > 768) {
@@ -72,7 +33,7 @@ function calculateColumnCount(screenWidth) {
   return columnCount;
 }
 
-export default function DealsOffers() {
+export default function DealsOffers({ offers }) {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const [kunlar, setKunlar] = useState("");
   const [soatlar, setSoatlar] = useState("");
@@ -179,15 +140,15 @@ export default function DealsOffers() {
         pagination={false}
         modules={[FreeMode, Pagination]}
       >
-        {offersData.map((items) => {
+        {offers.map((items) => {
           return (
             <SwiperSlide key={items.id} className="max-w-[179px] h-full border-r-[1px] border-[#DEE2E7] flex flex-col items-center justify-around">
               <Link className="max-w-[179px] h-full pt-2 flex flex-col items-center justify-between" to={`product/${items.id}`}>
                 <div className="w-[126px] h-28 relative flex items-center justify-center">
-                  <img className="w-[90%] h-[90%]" src={items.img} alt="part1" />
+                  <img className="w-[90%] h-[100%]" src={items.img} alt="part1" />
                 </div>
                 <div className="flex items-center flex-col gap-2 h-20 w-[170px]">
-                  <p className="text-left text-[16px] h-10">{items.desc}</p>
+                  <p className="text-left text-[16px] h-10">{items.title}</p>
                   <span className="max-w-12 bg-[#FFE3E3] px-3 rounded-full text-[#EB001B]">
                     -{items.discount}%
                   </span>

@@ -2,21 +2,19 @@ import React, { useState } from "react";
 
 import Cart from "./Cart";
 
-export default function CartItems({ setSelectedProducts, selectedProducts }) {
+export default function CartItems({ selectedProducts, handleRemoveFromCart }) {
 
 
   const handleRemoveProducts = (id) => {
-    const newSelectedProducts = selectedProducts.filter(
-      (product) => product.id !== id
-    );
-    setSelectedProducts(newSelectedProducts);
+    handleRemoveFromCart(id);
   };
 
   return (
     <section>
-      {selectedProducts.map((element) => {
+      {selectedProducts.map((element, index) => {
         return (
           <Cart
+            key={index}
             element={element}
             handleRemoveProducts={handleRemoveProducts}
           />

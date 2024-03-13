@@ -5,9 +5,12 @@ import HomePageBanner from '@/components/ui-components/HomePageBanner'
 import RecomendedItems from '@/components/ui-components/RecomendedItems'
 import RequestSendingBanner from '@/components/ui-components/RequestSendingBanner'
 import Subscribe from '@/components/ui-components/Subscribe'
-import React from 'react'
+import React, { createContext, useEffect, useState } from 'react'
+import offersItems from '../data/offers.json'
+
 
 export default function HomePage() {
+  const [offers, setOffers] = useState(offersItems);
   return (
     <>
       <div className=" md:container lg:px-12 px-[15px]">
@@ -18,13 +21,13 @@ export default function HomePage() {
             <HomePageBanner/>
           </div>
           <div className='my-4'>
-            <DealsOffers/>
+            <DealsOffers offers={offers}/>
           </div>
           <div className='my-4'>
-            <AbsorbesItems/>
+            <AbsorbesItems absorbes={offers}/>
           </div>
           <div className='my-4'>
-            <BrakeDisks/>
+            <BrakeDisks brakediscs={offers}/>
           </div>
           <div className='my-8'>
             <RequestSendingBanner/>

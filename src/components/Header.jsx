@@ -113,7 +113,6 @@ export default function Header() {
     location.pathname == "/homepage/blogs";
 
   let isTrue = profilePath || ordersPath || mycartPath || blogsPath;
-  console.log("IStrue:", !isTrue);
 
   return (
     <>

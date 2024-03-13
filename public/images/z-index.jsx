@@ -9,8 +9,8 @@ export { default as HomepageBanner6 } from  './homepage-6.avif';
 
 export { default as mobileDetails } from './MobileloginBg.png';
 export { default as Avatar } from './Avatar.png';
-export { default as absorbesImg } from './yellow-parts.jpg';
-export { default as brakediscsImg } from './brakediscs.png';
+export { default as absorbes } from './yellow-parts.jpg';
+export { default as brakediscs } from './brakediscs.png';
 export { default as bannerRequest } from './banner-request.jpg';
 export { default as oval } from './oval.svg';
 

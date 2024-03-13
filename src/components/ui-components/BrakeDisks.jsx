@@ -6,7 +6,7 @@ import {
   part4,
   part5,
   part6,
-  brakediscs,
+  brakediscsImg,
 } from "@/assets/images/z-index";
 import { useRef, useState } from "react";
 import { FaArrowRight } from "react-icons/fa6";
@@ -77,7 +77,7 @@ function calculateColumnCount(screenWidth) {
 }
 // const columnCount = calculateColumnCount(screenWidth);
 
-export default function BrakeDisks() {
+export default function BrakeDisks({ brakediscs }) {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -110,7 +110,7 @@ export default function BrakeDisks() {
           Customer electronics
         </div>
         <div className=" w-[260px] h-[235px] hidden lg:block relative">
-          <img className="w-full h-full" src={brakediscs} alt="absorbes" />
+          <img className="w-full h-full" src={brakediscsImg} alt="absorbes" />
           <div className="h-full w-full  absolute top-0 p-6">
             <h2 className="text-xl font-semibold mb-2">Brake Discs</h2>
             <a href="#">
@@ -131,13 +131,13 @@ export default function BrakeDisks() {
           pagination={false}
           modules={[FreeMode, Pagination]}
         >
-          {brakeDiscData.map((items) => {
+          {brakediscs.map((items) => {
             return (
               <SwiperSlide key={items.id} className="max-w-[223px] h-full border-r-[1px] border-[#E0E0E0] p-2 ">
                 <Link className="flex justify-around" to={`product/${items.id}`}>
                   <div>
                     <p>{items.title}</p>
-                    <div className=" text-slate-400">{items.desc}</div>
+                    <div className=" text-slate-400">{items.subtitle}</div>
                   </div>
                   <div className="relative top-6 flex flex-col h-full justify-between max-w-[80px] max-h-[80px] p-1">
                     <div className="w-full h-12">{" "}</div>
@@ -162,13 +162,13 @@ export default function BrakeDisks() {
           pagination={false}
           modules={[FreeMode, Pagination]}
         >
-          {brakeDiscData.map((items) => {
+          {brakediscs.map((items) => {
             return (
               <SwiperSlide key={items.id} className="max-w-[223px] h-full border-r-[1px] border-[#E0E0E0] p-2 ">
                 <Link className="flex justify-around" to={`product/${items.id}`}>
                   <div>
                     <p>{items.title}</p>
-                    <div className=" text-slate-400">{items.desc}</div>
+                    <div className=" text-slate-400">{items.subtitle}</div>
                   </div>
                   <div className="relative top-6 flex flex-col h-full justify-between max-w-[80px] max-h-[80px] p-1">
                     <div className="w-full h-12">{" "}</div>

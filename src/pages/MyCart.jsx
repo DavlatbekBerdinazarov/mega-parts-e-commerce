@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { FaAngleLeft } from "react-icons/fa6";
 import { Link } from "react-router-dom";
@@ -6,18 +6,10 @@ import { Link } from "react-router-dom";
 import { FaArrowLeftLong } from "react-icons/fa6";
 
 import { oval } from "@/assets/images/z-index";
-
-import {
-  part1,
-  part2,
-  part3,
-  part4,
-  part5,
-  part6,
-} from "@/assets/images/z-index";
 import { BsFillCartFill } from "react-icons/bs";
 import RelatedProducts from "@/components/ProductDetails.jsx/RelatedProducts";
 import CartItems from "@/components/MyCart.jsx/CartItems";
+import { ShoppingCartContext } from "@/layout/MainLayout";
 
 function calculatescreenColWidth(screenWidth) {
   let screenColWidth;
@@ -29,32 +21,27 @@ function calculatescreenColWidth(screenWidth) {
   return screenColWidth;
 }
 
-const selectedProductsData = [
-  {
-    id: 1,
-    img: part1,
-    title: "T-shirts with multiple colors, for men and lady ",
-    desc: "Size: medium, Color: blue, Material: Plastic Seller: Artel Market",
-  },
-  {
-    id: 2,
-    img: part2,
-    title: "Xiaomi Redmi 8 Original ",
-    desc: "Size: medium, Color: blue, Material: Plastic Seller: Artel Market",
-  },
-  {
-    id: 3,
-    img: part3,
-    title: "T-shirts with multiple colors, for men and lady",
-    desc: "Size: medium, Color: blue, Material: Plastic Seller: Artel Market",
-  },
-];
 
 export default function MyCart() {
+  const { cartData, handleRemoveFromCart, setCartData } = useContext(ShoppingCartContext)
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-  const [selectedProducts, setSelectedProducts] =
-    useState(selectedProductsData);
-  console.log(selectedProducts);
+  const selectedProducts = cartData;
+  // console.log("my-cart",selectedProducts);
+
+  
+  useEffect(() => {
+    // Load cart data from local storage on component mount
+    const savedCartData = localStorage.getItem("cartData");
+    if (savedCartData) {
+      setCartData(JSON.parse(savedCartData));
+    }
+  }, []);
+
+  useEffect(() => {
+    // Save cart data to local storage whenever it changes
+    localStorage.setItem("cartData", JSON.stringify(cartData));
+  }, [cartData]);
+
   useEffect(() => {
     const handleResize = () => {
       setScreenWidth(window.innerWidth);
@@ -128,8 +115,8 @@ export default function MyCart() {
             <div className=" col-span-4 p-3 bg-white rounded-md border-[1px] border-[#DEE2E7]">
               <div>
                 <CartItems
+                  handleRemoveFromCart={handleRemoveFromCart}
                   selectedProducts={selectedProducts}
-                  setSelectedProducts={setSelectedProducts}
                 />
               </div>
               <div className="w-full flex flex-col gap-2 pb-3 border-b-[1px] border-[#DEE2E7]">
