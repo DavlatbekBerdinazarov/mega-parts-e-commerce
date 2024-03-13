@@ -22,7 +22,7 @@ const MainLayout = () => {
     }
   };
   
-  const totalPrice = 
+  // const totalPrice = 
 
   console.log("cartdata",cartData);
 
@@ -34,7 +34,6 @@ const MainLayout = () => {
   const removeAllItems = () => {
     setCartData([]);
   };
-
 
   return (
     <div>

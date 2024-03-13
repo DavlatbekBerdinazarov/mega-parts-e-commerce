@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Drawer,
   Button,
@@ -22,22 +22,17 @@ import { HiOutlineBuildingOffice2 } from "react-icons/hi2";
 
 import { Avatar } from "@/assets/images/z-index";
 import { Link } from "react-router-dom";
+import { OffcanvasContext } from "@/layout/AppLayaut";
 
 export function DrawerOffcanvas() {
-  const [open, setOpen] = React.useState(false);
-
-  const openDrawer = () => setOpen(true);
-  const closeDrawer = () => setOpen(false);
+  const { open, closeDrawer } = useContext(OffcanvasContext)
 
   return (
     <React.Fragment>
-      <div onClick={openDrawer}>
-        <FaBars className="text-xl" />
-      </div>
       <Drawer
         open={open}
         onClose={closeDrawer}
-        className=" fixed left-0 top-0 h-screen z-50 bg-[#f7fafc] shadow-2xl select-none"
+        className=" fixed left-0 top-0 h-screen bg-[#f7fafc] shadow-2xl select-none"
       >
         <div className="mb-6 flex justify-between bg-[#EFF2F4] p-4">
           <Typography variant="h5" className="">

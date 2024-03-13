@@ -14,7 +14,6 @@ import { Button } from "./ui/button";
 import "swiper/css";
 import "swiper/css/pagination";
 
-
 // import required modules
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Pagination } from "swiper/modules";
@@ -22,12 +21,12 @@ import { useContext, useEffect, useState } from "react";
 
 import { Listbox } from "@headlessui/react";
 import { ShoppingCartContext } from "@/layout/MainLayout";
+import { OffcanvasContext } from "@/layout/AppLayaut";
 const featured = [
   { id: 1, name: "usd", unavailable: false },
   { id: 2, name: "uzs", unavailable: false },
   { id: 3, name: "euro", unavailable: false },
 ];
-
 
 function calculatescreenColWidth(screenWidth) {
   let screenColWidth;
@@ -56,7 +55,8 @@ export default function Header() {
   const [secondaryDropdown, setsecondaryDropdown] = useState(false);
   const [selectedFeatured, setSelectedFeatured] = useState(featured[0]);
 
-  const { cartData } = useContext(ShoppingCartContext)
+  const { cartData} = useContext(ShoppingCartContext);
+  const { setOpen } = useContext(OffcanvasContext)
 
   // Mouse hoverda dropdownni ko'rsatish
   const handleInputMouseEnter = () => {
@@ -126,7 +126,9 @@ export default function Header() {
           <div className="md:container lg:px-12 px-[15px] flex justify-between items-center py-3">
             <div className="flex items-center md:gap-6 gap-2">
               <div className="block lg:hidden">
-                <DrawerOffcanvas />
+                <div onClick={() => setOpen(true)}>
+                  <FaBars className="text-xl" />
+                </div>
               </div>
               <Link to="/homepage">
                 <img
@@ -200,7 +202,7 @@ export default function Header() {
             )}
             {/* profile and other pages */}
 
-            <div className="flex relative top-2 items-center justify-around gap-3 md:gap-4 text-[#8B96A5]">
+            <div className="flex relative lg:top-2 items-center justify-around gap-3 md:gap-4 text-[#8B96A5]">
               <Link
                 to="/homepage/profile"
                 className="flex flex-col justify-center text-xl items-center hover:text-indigo-500"
@@ -223,7 +225,11 @@ export default function Header() {
               >
                 <div className="relative">
                   <FaShoppingCart />
-                  { cartData.length > 0 && (<div className=" font-sen h-4 w-4 absolute -top-[1px] left-[15px] rounded-full bg-red-500 text-white text-[11px] flex items-center justify-center mt-[2px] font-semibold text-xl">{cartData.length}</div>)}
+                  {cartData.length > 0 && (
+                    <div className=" h-4 w-4 absolute -top-[1px] left-[15px] rounded-full bg-red-500 text-white text-[13px] flex items-center justify-center mt-[2px] font-semibold">
+                      {cartData.length}
+                    </div>
+                  )}
                 </div>
                 <p className="hidden lg:block text-[10px]">My cart</p>
               </Link>
@@ -398,8 +404,7 @@ export default function Header() {
                     Absorbes
                   </Link>
                 </SwiperSlide>
-                <SwiperSlide className="w-[700px] bg-[#EFF2F4] flex items-center justify-center rounded-sm">
-                </SwiperSlide>
+                <SwiperSlide className="w-[700px] bg-[#EFF2F4] flex items-center justify-center rounded-sm"></SwiperSlide>
               </Swiper>
             </div>
           )}

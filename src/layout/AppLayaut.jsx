@@ -1,9 +1,17 @@
-import React from 'react';
+import { DrawerOffcanvas } from '@/components/ui-components/Offcanvas';
+import React, { createContext } from 'react';
 import { Outlet } from 'react-router-dom';
 
+export const OffcanvasContext = createContext();
 const AppLayout = () => {
+  const [open, setOpen] = React.useState(false);
+
+  const closeDrawer = () => setOpen(false);
   return (
-    <Outlet />
+    <OffcanvasContext.Provider value={{ open, setOpen, closeDrawer }}>
+      <DrawerOffcanvas/>
+      <Outlet />
+    </OffcanvasContext.Provider>
   );
 };
 
