@@ -30,38 +30,46 @@ export default function ProductDetail() {
     setSelectedProduct(selectedItem);
   }, [id]);
 
-  console.log("selectedProducts", selectedProduct)
+  console.log("selectedProducts", selectedProduct);
 
   const addCart = (item) => {
     handleAddToCart(item);
     notify();
-    console.log("addCart console",item);
+    console.log("addCart console", item);
   };
 
   return (
-    <section className=" md:bg-white md:p-5 py-2 w-full h-full rounded-lg border-[1px] border-[#DEE2E7] flex flex-col xl:flex-row gap-5 ">
+    <section className=" md:bg-white md:p-5 py-2 w-full h-full rounded-lg border-[1px] border-[#DEE2E7] grid grid-cols-12 gap-5 ">
       {/* poduct details */}
-      <div className="mx-auto">
+      <div className="col-span-12 lg:col-span-5 xl:col-span-4">
         {selectedProduct &&
           selectedProduct.map((element) => {
-            return <ProductImageSlides key={element.id} imgs={element.productImages} />;
+            return (
+              <ProductImageSlides
+                key={element.id}
+                imgs={element.productImages}
+              />
+            );
           })}
       </div>
       {/* product information */}
-      <figure className="flex flex-col lg:flex-row gap-5">
+      <figure className="col-span-12 lg:col-span-7 xl:col-span-5 flex flex-col lg:flex-row gap-5 ">
         {/* product content */}
-
 
         {selectedProduct &&
           selectedProduct.map((item, index) => {
             return (
-              <div key={index}>
+              <div className="w-full" key={index}>
                 <article>
                   <span className="hidden md:flex items-center gap-2 text-[#00B517]">
                     <FaCheck /> In stock
                   </span>
                   <h2 className="text-xl md:text-2xl font-semibold">
                     {item.title}
+                  </h2>
+                  <h2 className="text-xl md:text-2xl font-semibold">
+                    Cost:{" "}
+                    <span className=" text-red-900">{item.cost}$</span>
                   </h2>
                 </article>
 
@@ -103,15 +111,14 @@ export default function ProductDetail() {
 
                 {/* Movile view shopping section */}
                 <div className="block md:hidden">
-                  <div className="flex justify-between items-center gap-3 mb-3">
-                    
+                  <div className="flex sm:justify-between items-center gap-3 mb-3">
                     <Button className="active:scale-[1.02] w-48 py-3 text-xl">
                       Shop now
                     </Button>
                     <button
                       type="button"
                       onClick={() => addCart(item)}
-                      className=" active:scale-[1.02] bg-indigo-100 rounded-full min-h-6 min-w-6 p-1 flex items-center justify-center text-3xl text-indigo-500 border-[2px] border-indigo-500"
+                      className=" active:scale-[1.02] bg-indigo-100 rounded-full min-h-6 min-w-6 p-1 flex items-center justify-center text-3xl text-blue-700 border-[2px] border-indigo-500"
                     >
                       <TbBasketPlus />
                     </button>
@@ -207,7 +214,6 @@ export default function ProductDetail() {
                 {/* Shopping section */}
                 <div className="hidden md:block">
                   <div className="flex items-center gap-3 mb-3">
-
                     <Button className="active:scale-[1.02] w-2/3 py-6 text-xl">
                       Shop now
                     </Button>
@@ -237,53 +243,53 @@ export default function ProductDetail() {
               </div>
             );
           })}
-        {/* proudct information  */}
-        <div>
-          <div className="lg:w-[280px] h-full md:h-[325px] p-4 bg-white border-[1px] border-[#DEE2E7] rounded-lg">
-            <header className="flex gap-4 pb-6  border-b-[1px] border-[#DEE2E7]">
-              <div className="w-12 h-12 flex items-center justify-center rounded-md bg-[#C6F3F1] text-[rgba(76, 167, 167, 0.60)] text-2xl font-semibold">
-                R
-              </div>
-              <div>
-                <h2>Supplier</h2>
-                <h2>Guanjoi Trading LLC</h2>
-              </div>
-            </header>
-
-            <div className="md:border-b-[1px] border-[#BDC1C8] pb-4 md:block flex gap-3">
-              <div className="flex gap-2 py-2 items-center">
-                <div className=" text-[#8B96A5]">
-                  <MdOutlineVerifiedUser className="text-xl" />
-                </div>
-                <div className=" text-[#505050]">Verified</div>
-              </div>
-              <div className="flex gap-2 py-2 items-center">
-                <div className=" text-[#8B96A5]">
-                  <TbWorld className="text-xl" />
-                </div>
-                <div className=" text-[#505050]">shipping</div>
-              </div>
-            </div>
-
-            <div className="my-3 hidden md:block">
-              <Button className="bg-[#127FFF] text-lg font-semibold w-full">
-                Send inquiry
-              </Button>
-              <Button
-                variant="outline"
-                className="text-[#127FFF] text-lg font-semibold my-3 w-full"
-              >
-                Seller’s profile
-              </Button>
-            </div>
-          </div>
-
-          <div className="hidden text-[#127FFF] text-lg font-semibold md:flex gap-3 items-center justify-center my-3">
-            <CiHeart className="text-2xl" /> <span>Save for later</span>
-          </div>
-        </div>
         {/* /proudct information  */}
       </figure>
+      {/* proudct information  */}
+      <div className=" col-span-12 xl:col-span-3">
+        <div className="w-full h-full md:h-[325px] p-4 bg-white border-[1px] border-[#DEE2E7] rounded-lg">
+          <header className="flex gap-4 pb-6  border-b-[1px] border-[#DEE2E7]">
+            <div className="w-12 h-12 flex items-center justify-center rounded-md bg-[#C6F3F1] text-[rgba(76, 167, 167, 0.60)] text-2xl font-semibold">
+              R
+            </div>
+            <div>
+              <h2>Supplier</h2>
+              <h2>Guanjoi Trading LLC</h2>
+            </div>
+          </header>
+
+          <div className="md:border-b-[1px] border-[#BDC1C8] pb-4 md:block flex gap-3">
+            <div className="flex gap-2 py-2 items-center">
+              <div className=" text-[#8B96A5]">
+                <MdOutlineVerifiedUser className="text-xl" />
+              </div>
+              <div className=" text-[#505050]">Verified</div>
+            </div>
+            <div className="flex gap-2 py-2 items-center">
+              <div className=" text-[#8B96A5]">
+                <TbWorld className="text-xl" />
+              </div>
+              <div className=" text-[#505050]">shipping</div>
+            </div>
+          </div>
+
+          <div className="my-3 hidden md:block">
+            <Button className="bg-[#127FFF] text-lg font-semibold w-full">
+              Send inquiry
+            </Button>
+            <Button
+              variant="outline"
+              className="text-[#127FFF] text-lg font-semibold my-3 w-full"
+            >
+              Seller’s profile
+            </Button>
+          </div>
+        </div>
+
+        <div className="hidden text-[#127FFF] text-lg font-semibold md:flex gap-3 items-center justify-center my-3">
+          <CiHeart className="text-2xl" /> <span>Save for later</span>
+        </div>
+      </div>
     </section>
   );
 }

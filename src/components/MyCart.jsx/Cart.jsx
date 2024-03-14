@@ -3,7 +3,7 @@ import { Button } from "../ui/button";
 import { ShoppingCartContext } from "@/layout/MainLayout";
 
 export default function Cart({ element, handleRemoveProducts }) {
-  const { handleAddToCart, handleRemoveQuantityFromCart } = useContext(ShoppingCartContext);
+  const { handleAddToCart, handleRemoveQuantityFromCart, totalPrice } = useContext(ShoppingCartContext);
   const totalCostProduct = element.cost * element.quantity
 
   const handleDecrement = (id) => {

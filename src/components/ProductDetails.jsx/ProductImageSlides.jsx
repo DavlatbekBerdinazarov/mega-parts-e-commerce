@@ -27,7 +27,7 @@ export default function ProductImageSlides({ imgs }) {
 
 
   return (
-    <figure className="mx-auto">
+    <figure className="w-full flex items-center justify-center">
       <div className="">
         <div className="flex relative">
           <button className="absolute top-[45%] opacity-50 md:hidden" onClick={handlePrevious}>
@@ -52,8 +52,6 @@ export default function ProductImageSlides({ imgs }) {
                 className={`h-fit w-fit`}
                 src={data.img}
                 onClick={() => handleClick(i)}
-                height="70"
-                width="100"
               />
             </div>
           ))}

@@ -148,10 +148,12 @@ export default function DealsOffers({ offers }) {
                   <img className="w-[90%] h-[100%]" src={items.img} alt="part1" />
                 </div>
                 <div className="flex items-center flex-col gap-2 h-20 w-[170px]">
+               
                   <p className="text-left text-[16px] h-10">{items.title}</p>
                   <span className="max-w-12 bg-[#FFE3E3] px-3 rounded-full text-[#EB001B]">
                     -{items.discount}%
                   </span>
+
                 </div>
               </Link>
             </SwiperSlide>
