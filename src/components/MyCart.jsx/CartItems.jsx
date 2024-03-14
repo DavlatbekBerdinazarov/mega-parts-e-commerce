@@ -4,7 +4,6 @@ import Cart from "./Cart";
 
 export default function CartItems({ selectedProducts, handleRemoveFromCart }) {
 
-
   const handleRemoveProducts = (id) => {
     handleRemoveFromCart(id);
   };

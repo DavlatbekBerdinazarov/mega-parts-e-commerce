@@ -1,21 +1,17 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Button } from "../ui/button";
+import { ShoppingCartContext } from "@/layout/MainLayout";
 
 export default function Cart({ element, handleRemoveProducts }) {
-  const [price, setPrice] = useState(12);
-  const [quantity, setQuantity] = useState(1);
-  const itemTotalCost = price * quantity;
+  const { handleAddToCart, handleRemoveQuantityFromCart } = useContext(ShoppingCartContext);
+  const totalCostProduct = element.cost * element.quantity
 
-  const handleDecrement = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    } else {
-      setQuantity(1);
-    }
+  const handleDecrement = (id) => {
+    handleRemoveQuantityFromCart(id)
   };
 
-  const handleIncrement = () => {
-    setQuantity(quantity + 1);
+  const handleIncrement = (item) => {
+    handleAddToCart(item);
   };
 
   return (
@@ -51,19 +47,17 @@ export default function Cart({ element, handleRemoveProducts }) {
 
       {/* 3 */}
       <div className="flex flex-row-reverse md:block items-center justify-between">
-        <h2 className="font-semibold">{itemTotalCost}$</h2>
+        <h2 className="font-semibold">{totalCostProduct}$</h2>
         <div className=" my-4">
           <div className="flex justify-around text-lg gap-2 w-24 border-[1px] border-[#BDC1C8] px-3 py-2 rounded-md">
             <button
-              className={` ${
-                quantity == 1 ? ` hover:cursor-no-drop` : ``
-              } h-4 w-4`}
-              onClick={handleDecrement}
+              className={` h-4 w-4`}
+              onClick={() => handleDecrement(element.id)}
             >
               -
             </button>
-            <p>{quantity}</p>
-            <button onClick={handleIncrement}>+</button>
+            <p>{element.quantity}</p>
+            <button onClick={() => handleIncrement(element)}>+</button>
           </div>
         </div>
       </div>

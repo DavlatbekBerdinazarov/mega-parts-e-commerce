@@ -17,7 +17,6 @@ import { ShoppingCartContext } from "@/layout/MainLayout";
 
 export default function ProductDetail() {
   const [selectedProduct, setSelectedProduct] = useState([]);
-  const [quantity, setQuantity] = useState(1);
   const notify = () => toast("Added your cart");
 
   const { handleAddToCart } = useContext(ShoppingCartContext);
@@ -32,18 +31,6 @@ export default function ProductDetail() {
   }, [id]);
 
   console.log("selectedProducts", selectedProduct)
-
-  const handleDecrement = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    } else {
-      setQuantity(1);
-    }
-  };
-
-  const handleIncrement = () => {
-    setQuantity(quantity + 1);
-  };
 
   const addCart = (item) => {
     handleAddToCart(item);
@@ -117,20 +104,7 @@ export default function ProductDetail() {
                 {/* Movile view shopping section */}
                 <div className="block md:hidden">
                   <div className="flex justify-between items-center gap-3 mb-3">
-                    <div className=" my-4">
-                      <div className="flex justify-around text-lg gap-2 w-24 border-[1px] border-[#BDC1C8] px-3 py-2 rounded-md">
-                        <button
-                          className={` ${
-                            quantity == 1 ? ` hover:cursor-no-drop` : ``
-                          } h-4 w-4`}
-                          onClick={handleDecrement}
-                        >
-                          -
-                        </button>
-                        <p>{quantity}</p>
-                        <button onClick={handleIncrement}>+</button>
-                      </div>
-                    </div>
+                    
                     <Button className="active:scale-[1.02] w-48 py-3 text-xl">
                       Shop now
                     </Button>
@@ -233,20 +207,6 @@ export default function ProductDetail() {
                 {/* Shopping section */}
                 <div className="hidden md:block">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="my-4">
-                      <div className="flex justify-around text-lg gap-4 w-36 border-[1px] border-[#BDC1C8] px-3 py-2 rounded-md">
-                        <button
-                          className={` ${
-                            quantity == 1 ? ` hover:cursor-no-drop` : ``
-                          } h-4 w-4`}
-                          onClick={handleDecrement}
-                        >
-                          -
-                        </button>
-                        <p>{quantity}</p>
-                        <button onClick={handleIncrement}>+</button>
-                      </div>
-                    </div>
 
                     <Button className="active:scale-[1.02] w-2/3 py-6 text-xl">
                       Shop now

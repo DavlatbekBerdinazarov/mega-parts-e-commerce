@@ -23,7 +23,8 @@ function calculatescreenColWidth(screenWidth) {
 
 
 export default function MyCart() {
-  const { cartData, handleRemoveFromCart, setCartData, removeAllItems } = useContext(ShoppingCartContext)
+
+  const { cartData, handleRemoveFromCart, setCartData, removeAllItems, totalPrice } = useContext(ShoppingCartContext)
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const selectedProducts = cartData;
   // console.log("my-cart",selectedProducts);
@@ -55,6 +56,11 @@ export default function MyCart() {
   }, []);
 
   const screenColWidth = calculatescreenColWidth(screenWidth);
+
+  // costs
+  const shippingCost = 12;
+  const taxCost = 10;
+  let total = shippingCost + taxCost + totalPrice
 
   return (
     <div
@@ -124,19 +130,19 @@ export default function MyCart() {
                   <span className="text-[#8B96A5]">
                     Items ({selectedProducts.length}):
                   </span>
-                  <span>{3 * 12}$</span>
+                  <span>{totalPrice}$</span>
                 </div>
                 <div className="flex text-xl justify-between">
                   <span className="text-[#8B96A5]">Shipping:</span>
-                  <span>32 $</span>
+                  <span>{shippingCost}$</span>
                 </div>
                 <div className="flex text-xl justify-between">
                   <span className="text-[#8B96A5]">Tax:</span>
-                  <span>32 $</span>
+                  <span>{taxCost}$</span>
                 </div>
                 <div className="flex text-xl justify-between font-semibold">
                   <span className="text-xl">Total:</span>
-                  <span>123$</span>
+                  <span>{total}$</span>
                 </div>
                 <button className="w-full p-2 rounded text-white bg-green-500">
                   Checkout ({selectedProducts.length}) items

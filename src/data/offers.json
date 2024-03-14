@@ -6,7 +6,7 @@
           "discount": 5,
           "title":"shock absorbes 1",
           "subtitle":"Brake Disc",
-          "cost":"98$",
+          "cost":11,
           "productImages":[
             {"img": "/images/parts/part1.png","id":1},
             {"img": "/images/parts/part1.png","id":2},
@@ -24,7 +24,7 @@
           "discount": 7,
           "title":"shock absorbes 2",
           "subtitle":"Brake Disc",
-          "cost":"98$",
+          "cost":12,
           "productImages":[
             {"img": "/images/parts/part2.png","id":1},
             {"img": "/images/parts/part2.png","id":2},
@@ -42,7 +42,7 @@
           "discount": 1,
           "title":"shock absorbes 3",
           "subtitle":"Brake Disc",
-          "cost":"98$",
+          "cost":13,
           "productImages":[
             {"img": "/images/parts/part3.png","id":1},
             {"img": "/images/parts/part3.png","id":2},
@@ -60,7 +60,7 @@
           "discount": 9,
           "title":"shock absorbes 4",
           "subtitle":"Brake Disc",
-          "cost":"98$",
+          "cost":14,
           "productImages":[
             {"img": "/images/parts/part4.png","id":1},
             {"img": "/images/parts/part4.png","id":2},
@@ -78,7 +78,7 @@
           "discount": 6,
           "title":"shock absorbes 5",
           "subtitle":"Brake Disc",
-          "cost":"98$",
+          "cost":15,
           "productImages":[
             {"img": "/images/parts/part5.png","id":1},
             {"img": "/images/parts/part5.png","id":2},
@@ -96,7 +96,7 @@
           "discount": 8,
           "title":"shock absorbes 6",
           "subtitle":"Brake Disc",
-          "cost":"98$",
+          "cost":16,
           "productImages":[
             {"img": "/images/parts/part6.png","id":1},
             {"img": "/images/parts/part6.png","id":2},
